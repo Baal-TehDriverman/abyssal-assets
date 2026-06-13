@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abyssal Assets — The Loch Exchange. A cryptid hat trading simulator where RuneScape's Grand Exchange meets full alchemical transmutation. Playtest signups open.">
+  <meta name="theme-color" content="#1a1a2e">
+  <meta property="og:title" content="Abyssal Assets — The Loch Exchange">
+  <meta property="og:description" content="Dredge the Loch. Hunt the beasts. Craft the hats. Trade on a real CLOB. Ascend the Sephirotic Tree.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Abyssal Assets — The Loch Exchange</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --abyss: #0a0a14;
+      --abyss-light: #121228;
+      --loch: #0d2d3d;
+      --loch-deep: #061620;
+      --gold: #d4a843;
+      --gold-dim: #8b7030;
+      --emerald: #10b981;
+      --crimson: #dc2626;
+      --violet: #8b5cf6;
+      --text: #e8e8f0;
+      --text-dim: #8892a6;
+      --border: #2a2a4a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'IBM Plex Mono', monospace;
+      background: var(--abyss);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4 { font-family: 'Cinzel', serif; font-weight: 700; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #fff; }
+    .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem; }
+    
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 50% at 50% 20%, rgba(13, 45, 61, 0.4) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 50% 80%, rgba(212, 168, 67, 0.08) 0%, transparent 60%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)" opacity="0.03"/></svg>');
+      pointer-events: none;
+    }
+    .hero h1 {
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--text) 0%, var(--gold) 50%, var(--emerald) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.02em;
+    }
+    .hero .subtitle {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .hero .tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: var(--text-dim);
+      max-width: 600px;
+      margin: 0 auto 2.5rem;
+      font-style: italic;
+    }
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 2rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 2px solid;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, #b8902e 100%);
+      border-color: var(--gold);
+      color: var(--abyss);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #fff 0%, var(--gold) 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(212, 168, 67, 0.3);
+    }
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(212, 168, 67, 0.1);
+    }
+    .stats-bar {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-value {
+      font-family: 'Cinzel', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    /* Sections */
+    section { padding: 4rem 0; }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+    .section-header .divider {
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 1rem auto;
+    }
+    .section-header p { color: var(--text-dim); max-width: 600px; margin: 0 auto; }
+    
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .feature-card {
+      background: var(--abyss-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--emerald));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .feature-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+    }
+    .feature-card:hover::before { opacity: 1; }
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .feature-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+    .feature-card p { color: var(--text-dim); font-size: 0.95rem; }
+    
+    /* Bestiary Preview */
+    .bestiary-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .tier-card {
+      background: var(--abyss-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .tier-card:hover { border-color: var(--gold); }
+    .tier-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border-radius: 999px;
+      margin-bottom: 0.5rem;
+    }
+    .tier-0 { background: #333; color: #888; }
+    .tier-1 { background: #444; color: #fff; }
+    .tier-2 { background: rgba(16, 185, 129, 0.2); color: var(--emerald); border: 1px solid var(--emerald); }
+    .tier-3 { background: rgba(59, 130, 246, 0.2); color: #3b82f6; border: 1px solid #3b82f6; }
+    .tier-4 { background: rgba(168, 85, 247, 0.2); color: var(--violet); border: 1px solid var(--violet); }
+    .tier-5 { background: rgba(212, 168, 67, 0.2); color: var(--gold); border: 1px solid var(--gold); }
+    .tier-6 { background: linear-gradient(135deg, var(--violet), var(--crimson), var(--gold)); color: var(--abyss); }
+    .tier-card h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+    .tier-card p { font-size: 0.8rem; color: var(--text-dim); }
+    
+    /* Meme Items */
+    .meme-showcase {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .meme-card {
+      background: var(--abyss-light);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      max-width: 280px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .meme-card:hover { border-color: var(--crimson); }
+    .meme-price {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .meme-name { font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .meme-stats { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.75rem; }
+    .meme-flavor { font-size: 0.8rem; font-style: italic; color: var(--text-dim); }
+    
+    /* Footer CTA */
+    .footer-cta {
+      text-align: center;
+      padding: 3rem 0;
+      background: linear-gradient(180deg, transparent, var(--abyss-light));
+      border-top: 1px solid var(--border);
+      margin-top: 2rem;
+    }
+    .footer-cta h2 { margin-bottom: 0.5rem; }
+    .footer-cta p { color: var(--text-dim); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .social-links { display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .social-link:hover { border-color: var(--gold); color: var(--gold); }
+    
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="particles"></div>
+  
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <p class="subtitle">Playtest Signups Open</p>
+      <h1>Abyssal Assets<br><span style="display:block;font-size:0.7em;font-weight:400;color:var(--gold);margin-top:0.5rem;">The Loch Exchange</span></h1>
+      <p class="tagline">"RuneScape's Grand Exchange × Full Alchemical Transmutation"</p>
+      <div class="cta-group">
+        <a href="#signup" class="btn btn-primary">Join the Playtest</a>
+        <a href="https://discord.gg/abyssal-assets" target="_blank" rel="noopener" class="btn btn-secondary">Join Discord</a>
+        <a href="https://github.com/Baal-TehDriverman/abyssal-assets" target="_blank" rel="noopener" class="btn btn-secondary">View Source</a>
+      </div>
+      <div class="stats-bar">
+        <div class="stat"><div class="stat-value">25</div><div class="stat-label">Skills</div></div>
+        <div class="stat"><div class="stat-value">30+</div><div class="stat-label">Cryptids</div></div>
+        <div class="stat"><div class="stat-value">12</div><div class="stat-label">Acts</div></div>
+        <div class="stat"><div class="stat-value">4</div><div class="stat-label">Alchemical Phases</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Core Pillars -->
+  <section id="pillars">
+    <div class="container">
+      <div class="section-header">
+        <h2>Three Pillars</h2>
+        <div class="divider"></div>
+        <p>What makes Abyssal Assets different from every other MMO economy</p>
+      </div>
+      <div class="features-grid">
+        <article class="feature-card">
+          <span class="feature-icon">🏦</span>
+          <h3>Real CLOB Economy</h3>
+          <p>Central Limit Order Book per item with live WebSocket feeds, market maker bots, 3% fees (1% burned), discontinued vault items, and anti-manipulation circuit breakers. First browser MMO with a genuine CLOB — not a fake auction house.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon">⚗️</span>
+          <h3>Alchemical Progression</h3>
+          <p>Four phases (Nigredo→Albedo→Citrinitas→Rubedo) mapping to seven Sephirotic zones. 25 skills with synergy web — Dredging reveals monsters, Hunting tracks them, Lore reveals drops, Bone Carving uses their bones. Everything connects.</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-icon">🔮</span>
+          <h3>Progenitor Tags</h3>
+          <p>Every hat records its complete history: the specific monster, the critical hit, the party members, your skill levels at creation. World-first kills earn eternal unique auras. Provenance without blockchain. Satire with teeth.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bestiary Preview -->
+  <section id="bestiary">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Bestiary</h2>
+        <div class="divider"></div>
+        <p>30+ unique cryptids across 6 tiers — each with weighted drop tables and progenitor tracking</p>
+      </div>
+      <div class="bestiary-preview">
+        <article class="tier-card">
+          <span class="tier-badge tier-0">Tier 0: Ambient</span>
+          <h4>Trash & Minnows</h4>
+          <p>0.1% drop • Noob/Common</p>
+        </article>
+        <article class="tier-card">
+          <span class="tier-badge tier-1">Tier 1: Common</span>
+          <h4>Trout, Pike, Lampreys</h4>
+          <p>5% drop • Common/Uncommon</p>
+        </article>
+        <article class="tier-card">
+          <span class="tier-badge tier-2">Tier 2: Uncommon</span>
+          <h4>Crayfish, Eels</h4>
+          <p>15% drop • Uncommon/Rare</p>
+        </article>
+        <article class="tier-card">
+          <span class="tier-badge tier-3">Tier 3: Rare</span>
+          <h4>Anglerfish, Kraken Tentacles</h4>
+          <p>30% drop • Rare/Epic</p>
+        </article>
+        <article class="tier-card">
+          <span class="tier-badge tier-4">Tier 4: Epic</span>
+          <h4>Adolescent Nessie, Leviathan</h4>
+          <p>50% drop • Epic/Legendary</p>
+        </article>
+        <article class="tier-card">
+          <span class="tier-badge tier-5">Tier 5: Legendary</span>
+          <h4>Adult NESSIE, Lilith Avatar</h4>
+          <p>75% drop • Legendary/Mythic</p>
+        </article>
+        <article class="tier-card">
+          <span class="tier-badge tier-6">Tier 6: Mythic</span>
+          <h4>LILITH TRUE FORM</h4>
+          <p>100% Lilith's Crown (1/1)</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Meme Economy -->
+  <section id="memes">
+    <div class="container">
+      <div class="section-header">
+        <h2>The Meme Economy</h2>
+        <div class="divider"></div>
+        <p>Satire with teeth — the joke IS the economy</p>
+      </div>
+      <div class="meme-showcase">
+        <article class="meme-card">
+          <div class="meme-price">$3.50</div>
+          <h4 class="meme-name">Tree Fiddy</h4>
+          <p class="meme-stats">+0.35 dredge luck • -3.50 sanity</p>
+          <p class="meme-flavor">"I need about tree fiddy. The Monster collects his due. 3.50% Monster Tax on every transaction."</p>
+        </article>
+        <article class="meme-card">
+          <div class="meme-price">0 SC</div>
+          <h4 class="meme-name">BEZOS BRAND™<br>SINGLE-PLY REGRET</h4>
+          <p class="meme-stats">-50 clout • -100 sanity • +500 butthurt</p>
+          <p class="meme-flavor">"Single-ply sandpaper. The Dragon of Seattle wipes his assets with your dignity."</p>
+        </article>
+        <article class="meme-card">
+          <div class="meme-price">3.50 SC</div>
+          <h4 class="meme-name">Nessie's Toll</h4>
+          <p class="meme-stats">3.50% Monster Tax on all trades</p>
+          <p class="meme-flavor">"The Loch collects his due."</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Signup Form -->
+  <section id="signup">
+    <div class="container">
+      <div class="section-header">
+        <h2>Join the Playtest</h2>
+        <div class="divider"></div>
+        <p>Phase 2/6 — Core Loop Playable. Browser-based. No install required.</p>
+      </div>
+      <form id="signup-form" style="max-width: 500px; margin: 0 auto; background: var(--abyss-light); border: 1px solid var(--border); border-radius: 8px; padding: 2rem;">
+        <div style="margin-bottom: 1.5rem;">
+          <label for="email" style="display:block; margin-bottom:0.5rem; font-size:0.9rem;">Email Address</label>
+          <input type="email" id="email" name="email" required placeholder="you@domain.com" style="width:100%; padding:0.875rem; background:var(--abyss); border:1px solid var(--border); border-radius:4px; color:var(--text); font-family:inherit; font-size:1rem;" />
+        </div>
+        <div style="margin-bottom:1.5rem; display:grid; gap:1rem; grid-template-columns:1fr 1fr;">
+          <div>
+            <label for="discord" style="display:block; margin-bottom:0.5rem; font-size:0.9rem;">Discord Username</label>
+            <input type="text" id="discord" name="discord" placeholder="user#1234" style="width:100%; padding:0.875rem; background:var(--abyss); border:1px solid var(--border); border-radius:4px; color:var(--text); font-family:inherit; font-size:1rem;" />
+          </div>
+          <div>
+            <label for="experience" style="display:block; margin-bottom:0.5rem; font-size:0.9rem;">MMO Experience</label>
+            <select id="experience" name="experience" style="width:100%; padding:0.875rem; background:var(--abyss); border:1px solid var(--border); border-radius:4px; color:var(--text); font-family:inherit; font-size:1rem;">
+              <option value="">Select...</option>
+              <option value="rs">RuneScape/OSRS veteran</option>
+              <option value="eve">EVE Online pilot</option>
+              <option value="wow">WoW/FFXIV raider</option>
+              <option value="trading">Trading sim enthusiast</option>
+              <option value="indie">Indie/experimental games</option>
+              <option value="new">New to the genre</option>
+            </select>
+          </div>
+        </div>
+        <div style="margin-bottom:1.5rem;">
+          <label for="why" style="display:block; margin-bottom:0.5rem; font-size:0.9rem;">Why Abyssal Assets?</label>
+          <textarea id="why" name="why" rows="3" placeholder="The CLOB? The alchemy? The cryptids? The memes?" style="width:100%; padding:0.875rem; background:var(--abyss); border:1px solid var(--border); border-radius:4px; color:var(--text); font-family:inherit; font-size:0.95rem; resize:vertical;"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Request Playtest Access</button>
+        <p style="margin-top:1rem; font-size:0.8rem; color:var(--text-dim); text-align:center;">No spam. Discord invite sent on approval. We respect your inbox.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <footer class="footer-cta">
+    <div class="container">
+      <h2>The Monster Waits. The Exchange Opens Soon.</h2>
+      <p>Δ∞ − 11 = 0 🎩🦕🌊</p>
+      <div class="social-links">
+        <a href="https://discord.gg/abyssal-assets" target="_blank" rel="noopener" class="social-link">Discord</a>
+        <a href="https://github.com/Baal-TehDriverman/abyssal-assets" target="_blank" rel="noopener" class="social-link">GitHub</a>
+        <a href="https://twitter.com/AbyssalAssets" target="_blank" rel="noopener" class="social-link">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple particle background
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let animationId;
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    function createParticles() {
+      particles = [];
+      const count = Math.min(80, Math.floor(window.innerWidth * window.innerHeight / 15000));
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          size: Math.random() * 1.5 + 0.5,
+          opacity: Math.random() * 0.3 + 0.1,
+          hue: Math.random() > 0.7 ? 45 : (Math.random() > 0.5 ? 160 : 270)
+        });
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+        if (p.y < 0) p.y = canvas.height;
+        if (p.y > canvas.height) p.y = 0;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${p.hue}, 70%, 60%, ${p.opacity})`;
+        ctx.fill();
+      });
+      animationId = requestAnimationFrame(animate);
+    }
+
+    function init() {
+      resize();
+      createParticles();
+      animate();
+    }
+
+    window.addEventListener('resize', () => {
+      resize();
+      createParticles();
+    });
+
+    // Form handler
+    document.getElementById('signup-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = 'Submitting...';
+      btn.disabled = true;
+
+      // Simulate submission (replace with actual endpoint)
+      await new Promise(r => setTimeout(r, 1000));
+      
+      btn.textContent = '✓ Submitted! Check Discord.';
+      btn.style.background = 'linear-gradient(135deg, #10b981 0%, #059669 100%)';
+      btn.style.borderColor = '#10b981';
+      
+      setTimeout(() => {
+        btn.textContent = original;
+        btn.disabled = false;
+        btn.style.background = '';
+        btn.style.borderColor = '';
+        e.target.reset();
+      }, 3000);
+    });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Check for reduced motion preference
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.getElementById('particles').style.display = 'none';
+    } else {
+      init();
+    }
+  </script>
+</body>
+</html>
