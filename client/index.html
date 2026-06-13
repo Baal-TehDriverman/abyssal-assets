@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Abyssal Assets - Cryptid Hat Trading Simulator" />
+    <meta name="theme-color" content="#1a1a2e" />
+    <title>Abyssal Assets | The Loch Exchange</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { background: #0a0a12; overflow: hidden; }
+      #game-container { width: 100vw; height: 100vh; display: block; }
+      canvas { display: block; }
+      #loading {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(180deg, #0a0a12 0%, #1a1a2e 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        font-family: 'Press Start 2P', monospace;
+        color: #e8d5c4;
+      }
+      #loading.hidden { display: none; }
+      .lake-title { font-size: 2rem; letter-spacing: 0.1em; margin-bottom: 2rem; text-shadow: 0 0 20px #ffd700; }
+      .lake-subtitle { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; opacity: 0.6; }
+      .progress-bar { width: 300px; height: 4px; background: #1a1a2e; border: 2px solid #333; margin-top: 2rem; overflow: hidden; }
+      .progress-fill { height: 100%; background: linear-gradient(90deg, #ffd700, #ff8c00); width: 0%; transition: width 0.3s ease; }
+    </style>
+  </head>
+  <body>
+    <div id="loading" role="status" aria-live="polite">
+      <div class="lake-title">ABYSSAL ASSETS</div>
+      <div class="lake-subtitle">The Loch Exchange — Initializing Depths...</div>
+      <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="lake-subtitle" id="loading-status">Connecting to the Loch...</div>
+    </div>
+    <div id="game-container"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
