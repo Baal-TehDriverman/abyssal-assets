@@ -13,10 +13,13 @@ from typing import Optional, Dict, List, Any, Tuple
 from dataclasses import dataclass, field, asdict
 
 # ── Paths ──
-GM_STATE_DIR = Path(os.getenv("GM_STATE_DIR", "runtime/gm"))
+# Resolve relative to this file's directory so both :8000 and :8007 share state
+_GM_DIR = Path(__file__).parent
+GM_STATE_DIR = Path(os.getenv("GM_STATE_DIR", str(_GM_DIR / "runtime" / "gm")))
 GM_STATE_DIR.mkdir(parents=True, exist_ok=True)
 ENROLLED_FILE = GM_STATE_DIR / "biometric_enrolled.json"
 BOSS_STATE_FILE = GM_STATE_DIR / "boss_state.json"
+LIVING_SIN_STATE_FILE = GM_STATE_DIR / "living_sin_state.json"
 
 # ── Constants ──
 BIOMETRIC_PASSPHRASE = os.getenv("GM_BIOMETRIC_PASSPHRASE", "I am the Living Sin")
@@ -436,6 +439,22 @@ class GMAction:
             self.timestamp = time.time()
 
 
+LIVING_SIN_STATE_FILE = Path(os.getenv("LIVING_SIN_STATE_FILE", str(_GM_DIR / "runtime" / "gm" / "living_sin_state.json")))
+
+
+def _atomic_write(path: Path, data: dict):
+    import tempfile
+    tmp = path.with_suffix(".tmp")
+    tmp.write_text(json.dumps(data, indent=2))
+    tmp.replace(path)
+
+
+def _atomic_read(path: Path) -> Optional[dict]:
+    if path.exists():
+        return json.loads(path.read_text())
+    return None
+
+
 class LivingSin:
     def __init__(self):
         self.active = False
@@ -448,15 +467,53 @@ class LivingSin:
         self.gm_user_id: Optional[int] = None
         self.visual_state = "idle"
         self.combat = BossCombat()
+        self._load_state()
+
+    def _save_state(self):
+        _atomic_write(LIVING_SIN_STATE_FILE, {
+            "active": self.active,
+            "current_zone": self.current_zone,
+            "position": self.position,
+            "appearance": self.appearance,
+            "visual_state": self.visual_state,
+            "gm_user_id": self.gm_user_id,
+            "summoned_entities": {
+                eid: e.to_dict() for eid, e in self.summoned_entities.items()
+            },
+            "action_log": [
+                {"type": a.action_type, "target": a.target, "entity_id": a.entity_id,
+                 "payload": a.payload, "timestamp": a.timestamp}
+                for a in self.action_log[-50:]
+            ],
+        })
+
+    def _load_state(self):
+        data = _atomic_read(LIVING_SIN_STATE_FILE)
+        if not data:
+            return
+        self.active = data.get("active", False)
+        self.current_zone = data.get("current_zone", "shallows")
+        self.position = data.get("position", {"x": 0, "y": 0})
+        self.appearance = data.get("appearance", "shimmering_humanoid")
+        self.visual_state = data.get("visual_state", "idle")
+        self.gm_user_id = data.get("gm_user_id")
+        now = time.time()
+        for eid, edata in data.get("summoned_entities", {}).items():
+            if edata.get("is_active", False) and edata.get("expires_at", 0) > now:
+                self.summoned_entities[eid] = SummonedEntity(**edata)
+        for alog in data.get("action_log", []):
+            self.action_log.append(GMAction(**alog))
 
     def activate(self, gm_user_id: int):
         self.active = True
         self.gm_user_id = gm_user_id
+        self._save_state()
 
     def deactivate(self):
         self.active = False
         self.gm_user_id = None
         self.summoned_entities.clear()
+        self._save_state()
 
     def attack_player(self, target_user_id: int, damage: int = None) -> Dict:
         if not self.active:
@@ -469,6 +526,7 @@ class LivingSin:
             entity_id=None,
             payload={"damage": damage, "type": "gm_judgment"},
         ))
+        self._save_state()
         return {
             "success": True,
             "target": target_user_id,
@@ -499,6 +557,7 @@ class LivingSin:
             action_type="summon", target=None, entity_id=entity_id,
             payload={"plane": plane, "entity_type": entity_type, "power_level": plane_data["danger"]},
         ))
+        self._save_state()
         return {
             "success": True,
             "entity": entity.to_dict(),
@@ -515,6 +574,7 @@ class LivingSin:
             action_type="banish", target=None, entity_id=entity_id,
             payload={"plane": entity.plane, "entity_type": entity.entity_type},
         ))
+        self._save_state()
         return {
             "success": True,
             "entity": entity.name,

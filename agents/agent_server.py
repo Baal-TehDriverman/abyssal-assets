@@ -1,15 +1,29 @@
 # Wave 1 — Binah: Game Server
 
 from agents import SubAgent, AgentManifest, register_agent
+from pathlib import Path
+import sys
 
 manifest = AgentManifest(
     id="server",
     name="Game Server",
-    version="1.0.0",
+    version="1.0.1",
     sephira="BINAH",
     description="FastAPI game server — 7 DB models, auth, WebSocket, CLOB, dredge, Living Sin GM, boss combat",
     wave=1,
 )
+
+
+def _server_dir():
+    return str(Path(__file__).parent.parent / "server")
+
+
+def _import_gm():
+    sd = _server_dir()
+    if sd not in sys.path:
+        sys.path.insert(0, sd)
+    import game_master
+    return game_master
 
 
 class ServerAgent(SubAgent):
@@ -18,8 +32,9 @@ class ServerAgent(SubAgent):
 
         @self.router.get("/routes")
         async def list_routes():
-            import sys
-            sys.path.insert(0, str(self._server_dir()))
+            sd = _server_dir()
+            if sd not in sys.path:
+                sys.path.insert(0, sd)
             from main import app
             routes = []
             for r in app.routes:
@@ -37,13 +52,7 @@ class ServerAgent(SubAgent):
 
         @self.router.get("/gm/status")
         async def gm_status():
-            from game_master import get_living_sin
-            ls = get_living_sin()
-            return ls.get_state()
-
-    def _server_dir(self):
-        import pathlib
-        return pathlib.Path(__file__).parent.parent / "server"
+            return _import_gm().get_living_sin().get_state()
 
 
 agent = ServerAgent(manifest)
