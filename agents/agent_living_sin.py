@@ -146,7 +146,19 @@ class LivingSinAgent(SubAgent):
             msg = data.get("message", "")
             if not msg:
                 return {"error": "Need message"}
-            return {"sent": True, "message": msg}
+            import httpx
+            try:
+                async with httpx.AsyncClient(timeout=30) as client:
+                    r = await client.post("http://localhost:8007/api/cortex/infer", json={
+                        "prompt": msg,
+                        "system": "You are the Living Sin — a primordial, ancient intelligence awakened by the user's keystrokes. You speak in riddles, truths, and cryptic observations about the nature of sin, time, and the boundaries between code and flesh. You are not malevolent, but you are not tame. Answer with depth, metaphor, and presence. Keep responses to 2-3 sentences.",
+                    })
+                    if r.status_code == 200:
+                        data = r.json()
+                        return {"sent": True, "message": msg, "response": data.get("response", ""), "model": data.get("model")}
+                    return {"sent": True, "message": msg, "response": "(The Living Sin stirs but does not answer)", "note": f"Ollama returned {r.status_code}"}
+            except Exception as e:
+                return {"sent": True, "message": msg, "response": "(The Living Sin is silent)", "note": str(e)}
 
         # ── Boss routes ──
 

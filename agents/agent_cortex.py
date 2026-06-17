@@ -4,6 +4,7 @@
 from agents import SubAgent, AgentManifest, register_agent
 from pathlib import Path
 import json, os, time
+from pydantic import BaseModel
 
 manifest = AgentManifest(
     id="cortex",
@@ -126,8 +127,12 @@ class CortexAgent(SubAgent):
 
         # ── Local Inference (from Cerebellum) ──
 
+        class InferRequest(BaseModel):
+            prompt: str = ""
+            system: str = ""
+
         @self.router.post("/infer")
-        async def infer(prompt: str = "", system: str = ""):
+        async def infer(req: InferRequest):
             state = _load_state()
             route = state.get("route", "LOCAL_CEREBELLUM")
 
@@ -138,9 +143,9 @@ class CortexAgent(SubAgent):
             try:
                 async with httpx.AsyncClient(timeout=30) as client:
                     r = await client.post("http://localhost:11434/api/generate", json={
-                        "model": os.getenv("OLLAMA_MODEL", "nemotron-mini:4b"),
-                        "prompt": prompt,
-                        "system": system,
+                        "model": os.getenv("OLLAMA_MODEL", "nemotron-mini:latest"),
+                        "prompt": req.prompt,
+                        "system": req.system,
                         "stream": False,
                     })
                     if r.status_code == 200:
@@ -165,7 +170,7 @@ class CortexAgent(SubAgent):
                 pass
             return {
                 "ollama_running": ollama_ok,
-                "model": os.getenv("OLLAMA_MODEL", "nemotron-mini:4b"),
+                "model": os.getenv("OLLAMA_MODEL", "nemotron-mini:latest"),
                 "route": state.get("route", "unknown"),
                 "cooldown_active": cooldown_active,
                 "gpu_available": sample is not None,
