@@ -42,7 +42,7 @@ WAVES = {
             "msn", "ngd", "cerebellum", "ouroboros",
             "hermes-mcp", "kairos", "swarm", "court",
             "himalaya", "antigravity", "yeshua", "scribe",
-            "analytics", "worker", "cortex",
+            "analytics", "worker", "cortex", "cyberpunk",
         ],
     },
 }

@@ -48,6 +48,7 @@ import agents.agent_scribe  # noqa: F401, E402
 import agents.agent_analytics  # noqa: F401, E402
 import agents.agent_worker  # noqa: F401, E402
 import agents.agent_cortex  # noqa: F401, E402
+import agents.agent_cyberpunk  # noqa: F401, E402
 
 from agents import list_agents, get_registry_summary
 
