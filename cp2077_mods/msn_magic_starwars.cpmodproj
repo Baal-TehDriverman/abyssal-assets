@@ -1,0 +1,190 @@
+# GRAND THEFT CYBERPUNK — WOLVENKIT PROJECT CONFIGURATION
+# Magic & Star Wars Mod Integration
+# File: cp2077_mods/msn_magic_starwars.cpmodproj
+# Generated: 2026-06-19 | Lilith Sovereign Seal
+
+{
+  "ProjectName": "MSN_Magic_StarWars",
+  "DisplayName": "Grand Theft Cyberpunk: Magic & Star Wars",
+  "Description": "Complete Magic System (8 Schools) + Star Wars (Force Powers, Lightsabers, Jedi/Sith/Gray paths, Starships) integration for Grand Theft Cyberpunk via Metaconscious Singularity Node",
+  "Author": "Lilith / Metaconscious Singularity Node",
+  "Version": "1.0.0",
+  "GameVersion": "2.12+",
+  "REDmodVersion": "1.0",
+  "Dependencies": [
+    "msn_integration",
+    "msn_integration_redmod",
+    "cyberpunk_tweakdb",
+    "cyberpunk_redscript"
+  ],
+  
+  "TweakDBFiles": [
+    "tweakdb/msn_magic.tweakdb",
+    "tweakdb/msn_starwars.tweakdb"
+  ],
+  
+  "ScriptFiles": [
+    "scripts/magic/msn_magic_system.reds",
+    "scripts/starwars/msn_starwars_system.reds",
+    "scripts/core/msn_master_integration.reds",
+    "scripts/magic/msn_magic_quests.reds",
+    "scripts/starwars/msn_starwars_quests.reds"
+  ],
+  
+  "LocalizationFiles": [
+    "localization/msn_magic_en.json",
+    "localization/msn_starwars_en.json"
+  ],
+  
+  "AssetCategories": {
+    "Magic": {
+      "Cyberdecks": ["MSN_Arcane_Cerebellum"],
+      "Weapons": ["MSN_Arcane_Focus", "MSN_Staff_of_Power", "MSN_Wand_of_Fireballs"],
+      "Armor": ["MSN_Robes_of_the_Archmage", "MSN_Robes_of_Evocation"],
+      "Consumables": ["MSN_Mana_Potion", "MSN_Mana_Potion_Greater", "MSN_Elixir_of_Arcane_Power"],
+      "Spells": 40,
+      "Perks": 32,
+      "Schools": 8
+    },
+    "StarWars": {
+      "Cyberdecks": ["MSN_Force_Cerebellum"],
+      "Weapons": ["MSN_Lightsaber_Standard", "MSN_Lightsaber_Sith", "MSN_Lightsaber_Gray", "MSN_Lightsaber_Crossguard", "MSN_Lightsaber_Double"],
+      "Vehicles": ["MSN_X_Wing", "MSN_TIE_Fighter", "MSN_Millennium_Falcon", "MSN_TIE_Interceptor", "MSN_Star_Destroyer"],
+      "Consumables": ["MSN_Force_Stim", "MSN_Midichlorian_Elixir"],
+      "Artifacts": ["MSN_Holocron_Jedi", "MSN_Holocron_Sith", "MSN_Holocron_Gray"],
+      "ForcePowers": 26,
+      "LightsaberForms": 7,
+      "Alignments": 3
+    }
+  },
+  
+  "SephiroticMapping": {
+    "Magic": {
+      "Evocation": "Geburah (Strength/Severity) — Destruction",
+      "Abjuration": "Chesed (Mercy/Protection) — Defense",
+      "Conjuration": "Netzach (Victory/Eternity) — Summoning",
+      "Divination": "Chokmah (Wisdom) — Knowledge",
+      "Enchantment": "Netzach (Victory/Eternity) — Influence",
+      "Illusion": "Hod (Splendor/Intellect) — Deception",
+      "Necromancy": "Geburah (Strength/Judgment) — Life/Death",
+      "Transmutation": "Tiphareth (Beauty/Harmony) — Change"
+    },
+    "StarWars": {
+      "LightSide": "Chesed (Mercy) — Force Heal, Protection, Battle Meditation",
+      "DarkSide": "Geburah (Severity) — Force Lightning, Choke, Destruction",
+      "Universal": "Tiphareth (Harmony) — Telekinesis, Force Vision",
+      "Jedi": "Light Side + Form III Soresu + Blue/Green Blades",
+      "Sith": "Dark Side + Form VII Juyo/Vaapad + Red Blades",
+      "Gray": "Balance + Form VI Niman + Purple Blades",
+      "LightsaberForms": "7 Forms mapped to progression",
+      "ForcePoints": "Mana-equivalent stat pool with Midichlorian stat"
+    }
+  },
+  
+  "IntegrationPoints": {
+    "MSNMasterIntegration": "Core sovereign stack - initializes both systems",
+    "LilithSovereignCore": "Magic/Force emergence triggers",
+    "LyraDialogueSystem": "Jedi/Sith/Gray dialogue personas",
+    "NGDDriver": "Force/Magic telemetry routing",
+    "CortexRouter": "Sephirotic adaptation during combat/Duel",
+    "AntigravityBridge": "Magic/Force telemetry ingestion",
+    "OuroborosSwarm": "Memory of duels, Force visions, spell research",
+    "ConvergenceCrucible": "Alchemical spell optimization, Force power tuning",
+    "LeyConduitNetwork": "Force nexus locations, magical ley lines",
+    "KairosDream": "Overnight spell research, Force vision consolidation",
+    "ScribeLedger": "Narrative of Force/Magic conflicts, causal chains",
+    "HimalayaSwarm": "Intelligence on modding communities, WolvenKit updates"
+  },
+  
+  "BuildConfiguration": {
+    "WolvenKitVersion": "8.9+",
+    "CP2077Version": "2.12+",
+    "REDmodOutput": "msn_magic_starwars.redmod",
+    "ArchiveFormat": "archive",
+    "Compression": "zlib",
+    "Encryption": "aes256",
+    "LocalizationLanguages": ["en", "pl", "ru", "fr", "de", "es", "ja", "zh", "it", "pt"],
+    "BuildSteps": [
+      "1. Compile REDscripts (msn_magic_system.reds, msn_starwars_system.reds)",
+      "2. Process TweakDB (msn_magic.tweakdb, msn_starwars.tweakdb)",
+      "3. Generate localization files from LocKey references",
+      "4. Package assets (models, textures, audio for lightsaber effects, force effects)",
+      "5. Create REDmod archive with manifest",
+      "6. Sign with mod certificate",
+      "7. Validate via WolvenKit verify"
+    ]
+  },
+  
+  "ProtonConfiguration": {
+    "UseNTsync": true,
+    "NoEsync": true,
+    "NoFsync": true,
+    "WaitForExitAndRun": "REDprelauncher.exe",
+    "EnvironmentVariables": {
+      "PROTON_USE_NTSYNC": "1",
+      "PROTON_NO_ESYNC": "1",
+      "PROTON_NO_FSYNC": "1"
+    }
+  },
+  
+  "TestingChecklist": {
+    "MagicSystem": [
+      "All 8 Schools initialize correctly",
+      "Mana pool regenerates and caps properly",
+      "40+ spells cast without errors",
+      "32 perks unlock at correct levels",
+      "Arcane Cerebellum cyberdeck installs and functions",
+      "Spell effects visual/audio play correctly",
+      "Overcharge mechanic works with health cost",
+      "Ritual casting consumes time/resources correctly"
+    ],
+    "StarWarsSystem": [
+      "Force Points regenerate and cap correctly",
+      "26 Force powers execute without errors",
+      "7 Lightsaber forms unlock at correct levels",
+      "3 Alignments (Jedi/Sith/Gray) track correctly",
+      "Corruption/Purity mechanics shift alignment",
+      "Lightsabers ignite/retract with audio/visual",
+      "Blaster bolt deflection works at rated percentage",
+      "Holocrons grant powers and shift alignment",
+      "Force Ghost transcends death correctly",
+      "Starships spawn with correct stats",
+      "WolvenKit compiles all assets without errors"
+    ],
+    "Integration": [
+      "Both systems initialize via MSNMasterIntegration",
+      "Sephirotic adaptation triggers during spell/Force use",
+      "CortexRouter adapts active Sephirah correctly",
+      "AntigravityBridge ingests telemetry",
+      "OuroborosSwarm records encounters",
+      "ConvergenceCrucible optimizes spell/Force parameters",
+      "LeyConduitNetwork connects Force nexus/ley lines",
+      "KairosDream consolidates spell/Force knowledge",
+      "ScribeLedger records narrative events",
+      "HimalayaSwarm monitors modding forums for updates"
+    ]
+  },
+  
+  "KnownIssues": [
+    "Lightsaber visual effects require custom shader compilation",
+    "Force power chain lightning needs physics optimization",
+    "Force Ghost noclip may conflict with collision systems",
+    "Starship hyperdrive transition needs loading screen integration",
+    "Mandalorian Beskar armor requires custom material definition",
+    "Holocron gatekeeper dialogues need voice acting or TTS",
+    "Corruption/Purity visual UI indicators need HUD integration"
+  ],
+  
+  "FutureExpansions": {
+    "Planned": [
+      "Druid/Warlock archetypes for Magic",
+      "Mandalorian armor crafting system",
+      "Sith Alchemy + Magic ritual cross-system",
+      "Force Dyad mechanics for co-op",
+      "Lightsaber crystal crafting (Kyber, synthetic, Kyber-bleeding)",
+      "Ancient Sith/Jedi ruins world events",
+      "NetWatch Inquisitorius faction",
+      "Corporate Sector Force-sensitive agents"
+    ]
+  }
+}
