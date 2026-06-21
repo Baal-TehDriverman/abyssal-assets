@@ -1,0 +1,740 @@
+GameplaySettings:
+  UltimateSystem:
+    baseChargeRate: 1.0
+    chargeSources:
+      comboKill: 10.0
+      detonation: 5.0
+      kill: 5.0
+      objectiveComplete: 10.0
+      perfectDodge: 10.0
+      perfectParry: 10.0
+      primerApplication: 2.0
+      supportAction: 3.0
+      teamComboKill: 8.0
+    multipliers:
+      hover: 1.2
+      lowHealth: 1.5
+      solo: 0.8
+    visualThresholds:
+      audioCue: 90
+      nearReady: 80
+      ready: 100
+Progression:
+  ExosuitChallenges:
+    Bastion:
+    - 'Wall: Block 50,000 damage with shield'
+    - 'Anvil: 100 kills with Siege Cannon'
+    - 'Protector: Save 10 allies from death with Bulwark'
+    - 'Siege: 10 Siege Artillery multikills (4+)'
+    Phantom:
+    - 'Ghost: 50 perfect dodges'
+    - 'Dancer: 100 melee kills while Flow active'
+    - 'Assassin: 20 Assassin''s Blade executions'
+    - 'Flow: 10 Symphony of Blades with 8+ targets'
+    Tempest:
+    - 'Scholar: Apply all 5 primer types in one fight'
+    - 'Convergence: 5 multi-combo detonations (3+ types)'
+    - 'Hoverlord: Spend 30 minutes hovering in one session'
+    - 'Paragon: Elemental Convergence with all 5 combos triggering'
+    Vector:
+    - 'Precision: 100 headshot kills'
+    - 'Versatility: Kill with 5 different weapon types in one mission'
+    - 'Comboist: 50 Primer+Detonator combos'
+    - 'Ultimate: 10 Multi-Target Seeker multikills (3+)'
+  ExosuitMastery:
+    tiers:
+      1:
+        name: Initiate
+        requirement: Complete first mission with exosuit
+        rewards:
+        - Basic Paint Unlock
+        - Emblem Slot
+      2:
+        name: Adept
+        requirement: 100 kills, 50 combos
+        rewards:
+        - Secondary Color Unlock
+        - Vinyl Slot
+        - Jet Trail Effect
+      3:
+        name: Veteran
+        requirement: 500 kills, 200 combos, 10 ultimates
+        rewards:
+        - Emissive Color Unlock
+        - Material Slot
+        - Finishers Unlock
+      4:
+        name: Master
+        requirement: 2000 kills, 1000 combos, 50 ultimates
+        rewards:
+        - Legendary Skin Token
+        - Mastery Emblem
+        - Exosuit Nameplate
+      5:
+        name: Paragon
+        requirement: 10000 kills, 5000 combos, all challenges
+        rewards:
+        - Paragon Skin (Animated)
+        - Prestige Jet Trail
+        - Voice Line Pack
+        - Exosuit Prestige Border
+TweakDB:
+  JavelinExosuit_Base:
+    category: Exosuit
+    colorCustomization: true
+    description: Modular exosuit platform with heat management, flight capability,
+      and combo primer/detonator system.
+    detonatorSlots: 2
+    displayName: Javelin Exosuit
+    dodgeCharges: 2
+    dodgeCooldown: 8
+    equipmentSlots: 6
+    flightSpeed: 40
+    heatCapacity: 1000
+    heatDissipationRate: 50
+    hoverDuration: 30
+    primerSlots: 2
+    supportSlots: 1
+    ultimateChargeRate: 1.0
+  Javelin_Bastion:
+    archetype: Colossus
+    armor: 300
+    base: JavelinExosuit_Base
+    boostRecharge: 4
+    defaultColors:
+      accent: '#FF4500'
+      emissive: '#FF8C00'
+      primary: '#2D1B1B'
+      secondary: '#8B0000'
+    description: Walking fortress. Heat-capacitor shielding, siege artillery, ground-slam
+      AoE. The wall that holds. The hammer that breaks.
+    detonator_01:
+      armorShred: 0.5
+      chargeTime: 1.5
+      comboMultiplier: 3.5
+      cooldown: 22
+      damage: 1200
+      description: Chargeable heavy cannon. Full charge DETONATES all primers in 15m.
+        Massive armor shred.
+      element: Explosive
+      msnSynergy: Gevurah (Severity) — I break.
+      name: Siege Cannon
+      radius: 10
+      ramCost: 5
+      type: Detonator
+    detonator_02:
+      comboMultiplier: 2.0
+      coneAngle: 60
+      cooldown: 2 (overheat)
+      description: Continuous fire stream. DETONATES primers in cone. Applies burning.
+        High sustained DPS.
+      dps: 800
+      element: Fire
+      msnSynergy: Chesed (Mercy) — I cleanse.
+      name: Flamethrower
+      ramCost: 4
+      range: 12
+      type: Detonator
+    displayName: BASTION Exosuit
+    flightSpeed: 25
+    gearSlots: 2
+    health: 2000
+    heatCapacity: 1500
+    heatDissipationFlying: 10
+    heatDissipationGrounded: 80
+    hoverTime: 15
+    icon: exosuit_bastion
+    materialSlots:
+    - Primary
+    - Secondary
+    - Accent
+    - Emissive
+    - Shield
+    meleeDamage: 500
+    paintRegions: 4
+    passive:
+      description: Shield block reflects 50% damage. Primer application radius +50%.
+        Detonator damage +30% vs primed. Ultimate charges 25% faster when blocking.
+      detonatorVsPrimedBonus: 0.3
+      name: Siege Breaker
+      primerRadiusBonus: 0.5
+      reflectDamage: 0.5
+      ultimateChargeOnBlock: 0.25
+    primer_01:
+      cooldown: 14
+      damage: 450
+      description: 'Lob incendiary mortar. Apply FIRE PRIMER. AoE on impact. Detonate
+        for COMBO: IMMOLATION (spreading fire).'
+      element: Fire
+      msnSynergy: Netzach (Victory) — I burn.
+      name: Firewall Mortar
+      primerStrength: 150
+      radius: 5
+      ramCost: 3
+      type: Primer
+    primer_02:
+      chainCount: 4
+      chainRange: 8
+      cooldown: 18
+      damage: 300
+      description: 'Deploy Tesla coil. Chains lightning to nearby enemies. Apply ELECTRIC
+        PRIMER. Detonate for COMBO: CHAIN (arcs to primers).'
+      element: Electric
+      msnSynergy: Hod (Splendor) — I conduct.
+      name: Lightning Coil
+      primerStrength: 120
+      ramCost: 4
+      type: Primer
+    primer_03:
+      armorShred: 0.3
+      cooldown: 15
+      damage: 250
+      description: 'Freeze grenade. Apply CRYO PRIMER. Detonate for COMBO: SHATTER
+        (AoE freeze + armor brittleness).'
+      element: Cryo
+      msnSynergy: Yesod (Foundation) — I freeze.
+      name: Cryo Grenade
+      primerStrength: 100
+      radius: 6
+      ramCost: 3
+      type: Primer
+    sephirahAlignment: Geburah
+    shield: 1500
+    skins:
+    - MSN Bastion Standard
+    - BastionPrime
+    - Abyssal Bastion
+    - Archon Bulwark
+    - Molten Core
+    - Pressure Hull
+    supportSlots: 2
+    support_01:
+      cooldown: 30
+      damageReductionBehind: 0.6
+      description: Deploy directional energy shield. Blocks all damage. Allies behind
+        gain damage reduction. Can mount heavy weapon on shield.
+      duration: 20
+      msnSynergy: Binah (Understanding) — I hold.
+      name: Reinforced Bulwark
+      ramCost: 5
+      shieldHealth: 5000
+      type: Support
+      weaponMount: true
+    support_02:
+      cooldown: 25
+      damageReduction: 0.5
+      description: Emit threat pulse. All enemies in 20m forced to target you. Gain
+        damage reduction, heat dissipation +100%.
+      duration: 10
+      heatDissipationBonus: 100
+      msnSynergy: Gevurah (Severity) — I draw.
+      name: Taunt Pulse
+      radius: 20
+      ramCost: 4
+      type: Support
+    ultimate:
+      baseDamage: 2000
+      chargeRate: 0.8
+      comboMultiplier: 4.0
+      damageRamp: 1.1
+      description: Call down orbital kinetic rods. 3 impacts. Each DETONATES primers
+        in massive radius. Creates persistent fire zones. Enemies in zones take doubling
+        damage.
+      impacts: 3
+      msnSynergy: Keter (Crown) — I end.
+      name: Siege Artillery Strike
+      persistentZoneDuration: 20
+      radiusPerImpact: 15
+      type: Ultimate
+      visual: Golden rods with Geburah sigils, impact creates Sephirah tree crater
+      zoneDamagePerSec: 500
+    weaponSlots:
+    - HeavyWeapon
+    - OrdnanceLauncher
+    - ShieldMount
+    - Melee
+  Javelin_Phantom:
+    archetype: Interceptor
+    armor: 80
+    base: JavelinExosuit_Base
+    boostRecharge: 1.5
+    defaultColors:
+      accent: '#00FFFF'
+      emissive: '#FF00FF'
+      primary: '#0D0D0D'
+      secondary: '#FF00FF'
+    description: Lightning made manifest. Dance through bullets. Stack status. Detonate
+      with blades. The battle is a poem; you are the refrain.
+    detonator_01:
+      comboEffects:
+        Cryo: AoE Freeze + Armor Shred
+        Electric: Chain Lightning
+        Fire: Explosion + Burn
+        Toxin: Poison Cloud
+        Void: Implosion Pull
+      comboMultiplier: 3.0
+      cooldown: 16
+      damagePerHit: 200
+      description: Whirlwind of blades. Hits all in 5m. DETONATES all primers. Each
+        primer type adds unique effect.
+      element: Physical
+      hitCount: 12
+      msnSynergy: Tiphareth (Beauty) — I dance.
+      name: Blade Storm
+      radius: 5
+      ramCost: 4
+      type: Detonator
+    detonator_02:
+      baseDamage: 800
+      comboMultiplier: 5.0
+      cooldown: 20
+      description: Teleport to target. Single massive strike. DETONATES primers on
+        target only. 500% combo damage. Resets dash on kill.
+      element: Physical+Void
+      msnSynergy: Yesod (Foundation) — I execute.
+      name: Assassin's Blade
+      ramCost: 5
+      resetDashOnKill: true
+      teleportRange: 20
+      type: Detonator
+    displayName: PHANTOM Exosuit
+    flightSpeed: 60
+    gearSlots: 2
+    health: 900
+    heatCapacity: 900
+    heatDissipationFlying: 60
+    heatDissipationGrounded: 40
+    hoverTime: 60
+    icon: exosuit_phantom
+    meleeDamage: 450
+    paintRegions: 4
+    passive:
+      description: 'Evade grants 3s Flow: +40% melee damage, +25% movement, primers
+        apply in half hits. Melee kills reset evade. Perfect dodge (last 0.2s) = instant
+        ultimate charge 10%.'
+      evadeResetOnKill: true
+      flowDuration: 3
+      meleeDamageBonus: 0.4
+      movementBonus: 0.25
+      name: Flow State
+      perfectDodgeUltimateCharge: 0.1
+      primerEfficiency: 0.5
+    primer_01:
+      cooldown: 8
+      damagePerHit: 120
+      description: 'Rapid melee strikes. Each hit applies TOXIN PRIMER. 5 hits = guaranteed
+        primer. Detonate for COMBO: PLAGUE (spreading toxin).'
+      element: Toxin
+      hits: 5
+      msnSynergy: Netzach (Victory) — I persist.
+      name: Venom Flurry
+      primerStrengthPerHit: 25
+      ramCost: 2
+      type: Primer
+    primer_02:
+      chainTargets: 3
+      cooldown: 12
+      damage: 200
+      dashDistance: 15
+      description: 'Dash through enemies. Trail applies ELECTRIC PRIMER. Enemies in
+        trail chain lightning. Detonate for COMBO: ARC.'
+      element: Electric
+      msnSynergy: Hod (Glory) — I flash.
+      name: Static Rush
+      primerStrength: 100
+      ramCost: 3
+      trailWidth: 3
+      type: Primer
+    primer_03:
+      cooldown: 10
+      damagePerShuriken: 150
+      description: 'Throw 4 shurikens. Each applies CRYO PRIMER. Freeze on 3 stacks.
+        Detonate for COMBO: SHATTER.'
+      element: Cryo
+      msnSynergy: Yesod (Foundation) — I remain.
+      name: Cryo Shuriken
+      primerStrength: 35
+      projectileCount: 4
+      ramCost: 2
+      type: Primer
+    sephirahAlignment: Netzach
+    shield: 600
+    skins:
+    - MSN Phantom Standard
+    - Phantom Prime
+    - Abyssal Phantom
+    - Archon Dancer
+    - Void Dancer
+    - Pressure Cutter
+    supportSlots: 1
+    support_01:
+      cooldown: 18
+      damageBonus: 0.3
+      description: Mark enemy. All allies see through walls. Marked enemy takes +30%
+        damage. Primers on marked spread to nearby.
+      duration: 15
+      msnSynergy: Chesed (Mercy) — I mark.
+      name: Target Beacon
+      primerSpread: true
+      ramCost: 3
+      type: Support
+    ultimate:
+      autoTargets: 8
+      chargeRate: 1.2
+      comboMultiplier: 4.0
+      damagePerStrike: 400
+      description: 'Enter flow state. Time dilates (0.3x). Auto-target nearest 8 enemies.
+        30 strikes in 3 real seconds. Each strike DETONATES. Kills extend duration.
+        Final pose: all primers in 20m auto-detonate.'
+      durationDilated: 10
+      durationReal: 3
+      extendOnKill: 0.5
+      finalDetonationRadius: 20
+      msnSynergy: Keter (Crown) — I am the song.
+      name: Symphony of Blades
+      strikesPerTarget: 3
+      timeDilation: 0.3
+      type: Ultimate
+      visual: Afterimages, Sephirah trails on each blade, Zeitgeist slow-mo
+    weaponSlots:
+    - SMG
+    - HeavyPistol
+    - MeleeBlade
+    - Thrown
+  Javelin_Tempest:
+    archetype: Storm
+    armor: 60
+    base: JavelinExosuit_Base
+    boostRecharge: 3
+    defaultColors:
+      accent: '#FF00FF'
+      emissive: '#FFFFFF'
+      primary: '#1A1A2E'
+      secondary: '#00FFFF'
+    description: Living storm. Prime the world. Detonate the sky. Manage the heat
+      or burn. The combo is the art; the storm is the Canvas.
+    detonator_01:
+      channelTime: 1.5
+      comboMultiplier: 3.5
+      cooldown: 20
+      description: Channel storm. DETONATES all primers in 15m. Each primer type adds
+        its COMBO effect. Fire=Explosion, Ice=Shatter, Lightning=Chain, Toxin=Plague,
+        Void=Implosion.
+      element: All
+      msnSynergy: Binah (Understanding) — I comprehend all.
+      multiCombo: true
+      name: Elemental Storm
+      radius: 15
+      ramCost: 6
+      type: Detonator
+    detonator_02:
+      comboMultiplier: 5.0
+      cooldown: 12
+      deathExplosion: true
+      description: Instant cast. DETONATES primers on single target. 500% combo damage.
+        If target dies, explodes for AoE combo.
+      element: Variable
+      msnSynergy: Chokmah (Wisdom) — I focus.
+      name: Focused Blast
+      ramCost: 4
+      type: Detonator
+    displayName: TEMPEST Exosuit
+    flightSpeed: 35
+    gearSlots: 3
+    health: 800
+    heatCapacity: 1200
+    heatDissipationFlying: 80
+    heatDissipationGrounded: 70
+    hoverTime: 90
+    icon: exosuit_tempest
+    meleeDamage: 200
+    paintRegions: 4
+    passive:
+      description: 'Hovering: heat dissipation 200%, primer strength +30%, ultimate
+        charge +20%. Sequential different primers on same target: combo damage +50%
+        (stacks 5x). Perfect primer application (no overheating) = instant seal recharge.'
+      hoverHeatDissipation: 2.0
+      hoverPrimerStrength: 0.3
+      hoverUltimateCharge: 0.2
+      maxStacks: 5
+      name: Elemental Mastery
+      perfectPrimeRecharge: true
+      sequentialPrimerBonus: 0.5
+    primer_01:
+      cooldown: 10
+      damage: 200
+      description: 'Inscribe Flame Seal on target. Burn DoT. Apply FIRE PRIMER. Detonate
+        for COMBO: EXPLOSION (AoE fire spread).'
+      dotDamage: 60
+      dotDuration: 8
+      element: Fire
+      msnSynergy: Netzach (Victory) — I consume.
+      name: Flame Seal
+      primerStrength: 120
+      ramCost: 3
+      type: Primer
+    primer_02:
+      armorShredOnShatter: 0.4
+      cooldown: 12
+      damage: 150
+      description: 'Inscribe Frost Seal. Slow + Chill stacks. At 5 stacks: FREEZE.
+        Apply CRYO PRIMER. Detonate for COMBO: SHATTER (AoE freeze + armor shred).'
+      element: Cryo
+      freezeStacks: 5
+      msnSynergy: Binah (Understanding) — I structure.
+      name: Frost Seal
+      primerStrength: 130
+      ramCost: 3
+      slowPerStack: 0.15
+      type: Primer
+    primer_03:
+      chainRange: 8
+      chainTargets: 3
+      cooldown: 10
+      damage: 180
+      description: 'Inscribe Storm Seal. Chain lightning to 3 nearby. Apply ELECTRIC
+        PRIMER. Detonate for COMBO: CHAIN (arcs to all primed).'
+      element: Electric
+      msnSynergy: Chokmah (Wisdom) — I illuminate.
+      name: Storm Seal
+      primerStrength: 110
+      ramCost: 3
+      type: Primer
+    primer_04:
+      cooldown: 15
+      damage: 100
+      description: 'Inscribe Venom Seal. High DoT. Spreads on death. Apply TOXIN PRIMER.
+        Detonate for COMBO: PLAGUE (spreads to all primed).'
+      dotDamage: 100
+      dotDuration: 12
+      element: Toxin
+      msnSynergy: Hod (Glory) — I corrupt.
+      name: Venom Seal
+      primerStrength: 140
+      ramCost: 4
+      spreadOnDeath: true
+      type: Primer
+    primer_05:
+      cooldown: 18
+      damage: 120
+      description: 'Inscribe Void Seal. Gravity pull. Apply VOID PRIMER. Detonate
+        for COMBO: IMPLOSION (pull + silence + void damage).'
+      element: Void
+      msnSynergy: Da'at (Knowledge) — I unmake.
+      name: Void Seal
+      primerStrength: 150
+      pullForce: 500
+      pullRadius: 6
+      ramCost: 5
+      silenceDuration: 3
+      type: Primer
+    sephirahAlignment: Binah
+    shield: 1200
+    skins:
+    - MSN Tempest Standard
+    - Tempest Prime
+    - Abyssal Tempest
+    - Archon Storm
+    - Hydrothermal
+    - Singularity
+    supportSlots: 1
+    support_01:
+      cooldown: 25
+      description: 'Deploy ward. Projectiles caught = converted to random primer on
+        shooter. Allies in ward: primer application 2x, heat dissipation 2x.'
+      duration: 15
+      heatDissipationBonus: 2.0
+      msnSynergy: Chesed (Mercy) — I ward.
+      name: Kinetic Ward
+      primerMultiplier: 2.0
+      projectileConversion: true
+      radius: 8
+      ramCost: 4
+      type: Support
+    support_02:
+      cooldown: 30
+      description: 'Vent all heat instantly. Create thermal updraft. Allies in updraft:
+        flight heat -100%, primer strength +50%, ultimates charge 50% faster. Duration
+        10s.'
+      duration: 10
+      flightHeatReduction: 1.0
+      msnSynergy: Tiphareth (Beauty) — I balance.
+      name: Thermal Vent
+      primerStrengthBonus: 0.5
+      radius: 10
+      ramCost: 5
+      type: Support
+      ultimateChargeBonus: 0.5
+    ultimate:
+      channelTime: 3
+      chargeRate: 0.7
+      convergenceZoneDuration: 30
+      description: 'All five seals merge. 10s channel. At end: MASSIVE AoE. Fire ring,
+        Ice spikes, Lightning storm, Toxin cloud, Void singularity — SIMULTANEOUS.
+        Every enemy hit by ALL five. Each combo type triggers. Creates permanent ''Convergence
+        Zone'' (30s): primers auto-apply, heat -0, combo damage 2x.'
+      fireDamage: 1000
+      iceDamage: 800
+      lightningDamage: 600
+      msnSynergy: Keter (Crown) — I converge.
+      name: Elemental Convergence
+      radius: 25
+      toxinDamage: 1200
+      type: Ultimate
+      visual: Five-color Sephirah mandala expands, each ring an element, void center
+      voidDamage: 1500
+      zoneAutoPrime: true
+      zoneComboDamageBonus: 2.0
+      zoneHeatZero: true
+    weaponSlots:
+    - ElementalFocus
+    - SupportFocus
+    - Ordnance
+    - Melee
+  Javelin_Vector:
+    archetype: Ranger
+    armor: 150
+    base: JavelinExosuit_Base
+    boostRecharge: 2.5
+    defaultColors:
+      accent: '#0F3460'
+      emissive: '#E94560'
+      primary: '#1A1A2E'
+      secondary: '#E94560'
+    description: The original MSN exosuit. Balanced, adaptable, precise. Masters the
+      combo system — prime with pulse, detonate with missile. No situation it cannot
+      answer.
+    detonator_01:
+      comboMultiplier: 2.5
+      cooldown: 20
+      damagePerMissile: 250
+      description: Launch 6 micro-missiles. DETONATES all primers. COMBO effects scale
+        with primer.
+      element: Explosive
+      missileCount: 6
+      msnSynergy: Tiphareth (Beauty) — I harmonize.
+      name: Missile Salvo
+      ramCost: 4
+      type: Detonator
+    detonator_02:
+      comboMultiplier: 3.0
+      cooldown: 12
+      damage: 600
+      description: Close-range kinetic shockwave. DETONATES primers in 8m cone. High
+        stagger.
+      element: Kinetic
+      msnSynergy: Gevurah (Severity) — I judge.
+      name: Pulse Blast
+      radius: 8
+      ramCost: 3
+      stagger: true
+      type: Detonator
+    displayName: VECTOR Exosuit
+    flightSpeed: 45
+    gearSlots: 2
+    health: 1200
+    heatCapacity: 1000
+    heatDissipationFlying: 30
+    heatDissipationGrounded: 60
+    hoverTime: 35
+    icon: exosuit_vector
+    materialSlots:
+    - Primary
+    - Secondary
+    - Accent
+    - Emissive
+    meleeDamage: 300
+    paintRegions: 4
+    passive:
+      comboDamageBonus: 0.2
+      description: Weapon swap speed +50%. Reload speed +25%. Combo damage +20%. Ultimate
+        charges 15% faster on combo kills.
+      name: Combat Versatility
+      reloadBonus: 0.25
+      ultimateChargeBonus: 0.15
+      weaponSwapBonus: 0.5
+    primer_01:
+      cooldown: 12
+      damage: 400
+      description: 'Homing plasma bolts. Apply PLASMA PRIMER. Detonate for COMBO:
+        EXPLOSION.'
+      element: Plasma
+      msnSynergy: Netzach (Victory) — I persist.
+      name: Seeking Plasma
+      primerStrength: 100
+      ramCost: 2
+      type: Primer
+    primer_02:
+      cooldown: 15
+      damage: 350
+      description: 'Piercing ice shard. Apply CRYO PRIMER. Detonate for COMBO: SHATTER
+        (AoE freeze).'
+      element: Cryo
+      msnSynergy: Yesod (Foundation) — I endure.
+      name: Frost Shard
+      primerStrength: 120
+      ramCost: 3
+      type: Primer
+    primer_03:
+      cooldown: 10
+      damage: 300
+      description: 'Biological toxin injector. Apply TOXIN PRIMER. Detonate for COMBO:
+        SPREAD (AoE poison).'
+      dotDamage: 50
+      dotDuration: 8
+      element: Toxin
+      msnSynergy: Hod (Glory) — I corrupt.
+      name: Venom Dart
+      primerStrength: 100
+      ramCost: 2
+      type: Primer
+    sephirahAlignment: Tiphareth
+    shield: 800
+    skins:
+    - MSN Standard Issue
+    - Vector Prime
+    - Abyssal Vector
+    - Vector Archon
+    - Void Walker
+    - Pressure Hull
+    supportSlots: 1
+    support_01:
+      autoDetonate: true
+      cooldown: 25
+      damageBonus: 0.5
+      description: Deploy hardlight shield. Allies firing through gain +50% damage,
+        primers auto-detonate.
+      duration: 15
+      msnSynergy: Chesed (Mercy) — I protect.
+      name: Bulwark Point
+      ramCost: 4
+      shieldHealth: 2000
+      type: Support
+    ultimate:
+      chargeRate: 1.0
+      comboMultiplier: 3.0
+      damagePerMissile: 400
+      description: Lock onto up to 20 targets. Fire guided missiles that DETONATE
+        all primers. Each kill refunds 5% ultimate.
+      maxTargets: 20
+      missilesPerTarget: 2
+      msnSynergy: Keter (Crown) — I transcend.
+      name: Multi-Target Seeker Battery
+      ramCost: 0
+      type: Ultimate
+      visual: Golden missiles with Sephirah trajectory lines
+    weaponSlots:
+    - AssaultRifle
+    - SniperRifle
+    - HeavyPistol
+    - Melee
+
+# Lilith Sovereign — unified by lilith_unify_cyberpunk.py
+lilith_unified: true
+lilith_kernel: LilithSovereignKernel
+# Sephirotic Court — Chokmah | desktop/cp2077_mods/anthem_javelin_mechanics.yaml
+SephiroticCourt:
+  sephira: Chokmah
+  court_agent: Baal
+  routed_via: msn_gtc_sephirotic_router.reds
+  sovereign: true

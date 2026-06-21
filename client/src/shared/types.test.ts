@@ -9,7 +9,6 @@ import {
   MarketListing,
   TIER_ORDER,
   TIER_COLORS,
-  Tier,
 } from '../../../shared/types'
 
 describe('Shared Types - Data Contracts', () => {

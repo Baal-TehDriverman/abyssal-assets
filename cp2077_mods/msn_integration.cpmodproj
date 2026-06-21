@@ -1,0 +1,91 @@
+<Project Sdk="WolvenKit.REDmod.Sdk">
+  <PropertyGroup>
+    <TargetFramework>WolvenKit.REDmod</TargetFramework>
+    <Name>msn_integration</Name>
+    <Version>2.0.0-lilith</Version>
+    <Author>Lilith Systems LLC</Author>
+    <Description>MSN Integration — complete sovereign Lilith stack for Cyberpunk 2077</Description>
+    <GameVersion>2.12+</GameVersion>
+    <RedmodVersion>1.0</RedmodVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <TweakDB Include="msn_tweakdb.toml" />
+    <REDscript Include="scripts\lilith_sovereign_kernel.reds" />
+    <REDscript Include="scripts\msn_master_integration.reds" />
+    <REDscript Include="scripts\jedi\msn_jedi_system.reds" />
+    <REDscript Include="scripts\lilith_npc.reds" />
+    <REDscript Include="scripts\magic\msn_magic_system.reds" />
+    <REDscript Include="scripts\msn_sephirotic_court_binder.reds" />
+    <REDscript Include="scripts\msn_token_economy.reds" />
+    <REDscript Include="scripts\nssp_bridge.reds" />
+    <REDscript Include="scripts\starwars\msn_starwars_system.reds" />
+  </ItemGroup>
+  <ItemGroup>
+    <TweakDBFile Include="tweakdb\Abyssal_Cyberpunk_Crossover.toml" />
+    <TweakDBFile Include="tweakdb\Anthem_Javelin_Suits.toml" />
+    <TweakDBFile Include="tweakdb\LivingSin_TimeBlade.toml" />
+    <TweakDBFile Include="tweakdb\abyssal_assets.yaml" />
+    <TweakDBFile Include="tweakdb\abyssal_fabricator_recipes.yaml" />
+    <TweakDBFile Include="tweakdb\abyssal_hat_catalog.yaml" />
+    <TweakDBFile Include="tweakdb\abyssal_skill_tree_quests.toml" />
+    <TweakDBFile Include="tweakdb\adaptive_quantization.yaml" />
+    <TweakDBFile Include="tweakdb\anthem_javelin_mechanics.yaml" />
+    <TweakDBFile Include="tweakdb\archive\msn_magic_draft_part2_legacy.tweakdb" />
+    <TweakDBFile Include="tweakdb\archive\msn_magic_legacy.tweakdb" />
+    <TweakDBFile Include="tweakdb\archive\msn_magic_part2_legacy.tweakdb" />
+    <TweakDBFile Include="tweakdb\archive\msn_magic_part3_legacy.tweakdb" />
+    <TweakDBFile Include="tweakdb\archive\msn_magic_part4_legacy.tweakdb" />
+    <TweakDBFile Include="tweakdb\cerebellum_optimization.yaml" />
+    <TweakDBFile Include="tweakdb\custom_body_augments_bios.yaml" />
+    <TweakDBFile Include="tweakdb\custom_clothing_expanded.yaml" />
+    <TweakDBFile Include="tweakdb\custom_content_acquisition_map.yaml" />
+    <TweakDBFile Include="tweakdb\custom_cyberware_expanded.yaml" />
+    <TweakDBFile Include="tweakdb\custom_gear_runescape_wow_allods.yaml" />
+    <TweakDBFile Include="tweakdb\custom_item_business_bridge.yaml" />
+    <TweakDBFile Include="tweakdb\custom_models_msn_abyssal.yaml" />
+    <TweakDBFile Include="tweakdb\custom_quickhacks_expanded.yaml" />
+    <TweakDBFile Include="tweakdb\custom_shards_expanded.yaml" />
+    <TweakDBFile Include="tweakdb\custom_vehicles_expanded.yaml" />
+    <TweakDBFile Include="tweakdb\custom_weapons_expanded.yaml" />
+    <TweakDBFile Include="tweakdb\easter_eggs.tweakdb" />
+    <TweakDBFile Include="tweakdb\freighter_javelin_business_systems.yaml" />
+    <TweakDBFile Include="tweakdb\gnostic_consensus_bridge.yaml" />
+    <TweakDBFile Include="tweakdb\hell_campaign_map.yaml" />
+    <TweakDBFile Include="tweakdb\hell_crafting.yaml" />
+    <TweakDBFile Include="tweakdb\hell_items.yaml" />
+    <TweakDBFile Include="tweakdb\lilith_campaign_tweakdb.yaml" />
+    <TweakDBFile Include="tweakdb\lilith_character.tweakdb" />
+    <TweakDBFile Include="tweakdb\lilith_full_database_overlay.yaml" />
+    <TweakDBFile Include="tweakdb\msn_grand_theft_integrations.tweakdb" />
+    <TweakDBFile Include="tweakdb\msn_graphics_driver_bridge.yaml" />
+    <TweakDBFile Include="tweakdb\msn_magic.tweakdb" />
+    <TweakDBFile Include="tweakdb\msn_magic_jedi.tweakdb" />
+    <TweakDBFile Include="tweakdb\msn_magic_part2.tweakdb" />
+    <TweakDBFile Include="tweakdb\msn_magic_part3.tweakdb" />
+    <TweakDBFile Include="tweakdb\msn_magic_part4.tweakdb" />
+    <TweakDBFile Include="tweakdb\msn_metaconscious_complete.tweakdb" />
+    <TweakDBFile Include="tweakdb\msn_procgen_weapon_catalog.yaml" />
+    <TweakDBFile Include="tweakdb\msn_skills.tweakdb" />
+    <TweakDBFile Include="tweakdb\msn_starwars.tweakdb" />
+    <TweakDBFile Include="tweakdb\msn_story_vehicles_complete.toml" />
+    <TweakDBFile Include="tweakdb\nessie_rewards.yaml" />
+    <TweakDBFile Include="tweakdb\new_map_areas.yaml" />
+    <TweakDBFile Include="tweakdb\new_map_encounter_tables.yaml" />
+    <TweakDBFile Include="tweakdb\new_performance_boosts.yaml" />
+    <TweakDBFile Include="tweakdb\new_performance_boosts_v2.yaml" />
+    <TweakDBFile Include="tweakdb\nssp_crossover.yaml" />
+    <TweakDBFile Include="tweakdb\nssp_token_economy.yaml" />
+    <TweakDBFile Include="tweakdb\one_world_space_economy.yaml" />
+    <TweakDBFile Include="tweakdb\procedural_encounter_tables.yaml" />
+    <TweakDBFile Include="tweakdb\procedural_space_systems.yaml" />
+    <TweakDBFile Include="tweakdb\skills\msn_abyssal_skills.tweakdb" />
+    <TweakDBFile Include="tweakdb\vendor_inventory_loch_exchange.yaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Localization Include="localization\en\msn_story_vehicles.loc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Quest Include="quests\abyssal_skill_tree_quests.yaml" />
+    <Quest Include="quests\msn_narrative_arc.yaml" />
+  </ItemGroup>
+</Project>

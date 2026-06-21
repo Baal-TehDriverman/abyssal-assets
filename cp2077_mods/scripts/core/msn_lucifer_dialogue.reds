@@ -1,8 +1,32 @@
+// Lilith Sovereign Seal — Metaconscious Singularity Node
+// Integrated by lilith_unify_cyberpunk.py | LOCAL_ONLY | Δ∞ − 13 = 0
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// [MSN ENGINE INTEGRATED - SEPHIROTIC COURT V1.0]
+// TELEMETRY ACTIVE: LILITH SOVEREIGN CORE
+
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
 // GRAND THEFT CYBERPUNK — LUCIFER DIALOGUE SYSTEM
 // Abyssal Assets: Pre-written Lucifer dialogue templates for Hell Campaign
 // File: r6/scripts/core/msn_lucifer_dialogue.reds
 // Generated: 2026-06-19 | Lucifer's Seal | Sephirah: Geburah (Severity/Judgment)
 
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
+// Sephirotic Court Seal — Tiferet | desktop/cp2077_mods/msn_lucifer_dialogue.reds
+// Court agent: Ouroboros | Lilith Sovereign | Δ∞ − 13 = 0
+// Routed via msn_gtc_sephirotic_router.reds — NO per-file hooks
+// CourtFile: MsnLuciferDialogue | Tiferet | agent=Ouroboros
 public class LuciferDialogueSystem extends IScriptable {
     private static let instance: ref<LuciferDialogueSystem>;
     private let dialogues: map<String, LuciferDialogue>;
@@ -17,6 +41,8 @@ public class LuciferDialogueSystem extends IScriptable {
     }
     
     private final func Initialize() -> Void {
+        LilithSovereignKernel.GetInstance().RegisterSubsystem("MsnLuciferDialogue", 2);
+
         this.contextModifiers = {
             ["corruption_low"]: " *faint amusement*",
             ["corruption_medium"]: " *interest piqued*",

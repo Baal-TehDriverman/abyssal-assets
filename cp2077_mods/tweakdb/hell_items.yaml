@@ -7214,3 +7214,13 @@
   slots: 2
   level: 47
   price: 14000
+
+# Lilith Sovereign — unified by lilith_unify_cyberpunk.py
+lilith_unified: true
+lilith_kernel: LilithSovereignKernel
+# Sephirotic Court — Gevurah | desktop/cp2077_mods/hell_items.yaml
+SephiroticCourt:
+  sephira: Gevurah
+  court_agent: Abraxas
+  routed_via: msn_gtc_sephirotic_router.reds
+  sovereign: true

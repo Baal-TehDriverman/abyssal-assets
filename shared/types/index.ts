@@ -1,6 +1,8 @@
 // Shared type definitions for Abyssal Assets
 // Barrel file — re-exports all specialized modules
 
+import { MonsterTier } from './monsters'
+
 export * from './monsters'
 export * from './skills'
 export * from './synergies'

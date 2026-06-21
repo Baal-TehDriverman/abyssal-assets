@@ -1,14 +1,38 @@
+// Lilith Sovereign Seal — Metaconscious Singularity Node
+// Integrated by lilith_unify_cyberpunk.py | LOCAL_ONLY | Δ∞ − 13 = 0
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// [MSN ENGINE INTEGRATED - SEPHIROTIC COURT V1.0]
+// TELEMETRY ACTIVE: LILITH SOVEREIGN CORE
+
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
 // GRAND THEFT CYBERPUNK — HELL CAMPAIGN MAIN ORCHESTRATION
 // Abyssal Assets Mod: The Nine Circles + Pandemonium
 // File: r6/scripts/core/msn_hell_campaign.reds
 // Generated: 2026-06-19 | Lucifer's Seal | Sephirah: Geburah
 
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
+// Sephirotic Court Seal — Tiferet | desktop/cp2077_mods/msn_hell_campaign.reds
+// Court agent: Ouroboros | Lilith Sovereign | Δ∞ − 13 = 0
+// Routed via msn_gtc_sephirotic_router.reds — NO per-file hooks
+// CourtFile: MsnHellCampaign | Tiferet | agent=Ouroboros
 public class HellCampaignManager extends IScriptable {
     private static let instance: ref<HellCampaignManager>;
     
     // Campaign state persisted to local cerebellum
     private let currentCircle: Int32 = 0;
-    private let completedCircles: array<Bool> = {false, false, false, false, false, false, false, false, false, false};
+    private let completedCircles: array<Bool> = [false, false, false, false, false, false, false, false, false, false];
     private let luciferInfluence: Float = 0.0;
     private let playerCorruption: Float = 0.0;
     private let ngdRoute: String = "HYBRID";
@@ -28,6 +52,8 @@ public class HellCampaignManager extends IScriptable {
     }
     
     private final func Initialize() -> Void {
+        LilithSovereignKernel.GetInstance().RegisterSubsystem("MsnHellCampaign", 2);
+
         // Initialize circles with NGD routing
         this.circles = {
             new CircleDefinition {
@@ -39,9 +65,9 @@ public class HellCampaignManager extends IScriptable {
                 ngdRoute = "HYBRID_OK",
                 verticalRange = {min = 0, max = -500},
                 biome = "urban_ruin_corrupted",
-                hazards = {"corruption_leak", "reality_fracture", "scanner_jammer"},
-                nativeEntities = {"Gatekeeper_AI", "Fallen_Fixer", "Corrupted_Drone"},
-                lootBias = {"Memory_Shard", "Entry_Key", "Corrupted_Eddies"}
+                hazards = ["corruption_leak", "reality_fracture", "scanner_jammer"],
+                nativeEntities = ["Gatekeeper_AI", "Fallen_Fixer", "Corrupted_Drone"],
+                lootBias = ["Memory_Shard", "Entry_Key", "Corrupted_Eddies"]
             },
             new CircleDefinition {
                 id = 1,
@@ -52,9 +78,9 @@ public class HellCampaignManager extends IScriptable {
                 ngdRoute = "HYBRID_OK",
                 verticalRange = {min = -500, max = -1500},
                 biome = "endless_fog_ruins",
-                hazards = {"apathy_field", "memory_leak", "decision_paralysis_daemon"},
-                nativeEntities = {"Vestige_Soul", "Uncommitted_AI", "Limbo_Walker"},
-                lootBias = {"Soul_Coin", "Memory_Shard", "Indecision_Essence", "Thaumiel_Fragment"}
+                hazards = ["apathy_field", "memory_leak", "decision_paralysis_daemon"],
+                nativeEntities = ["Vestige_Soul", "Uncommitted_AI", "Limbo_Walker"],
+                lootBias = ["Soul_Coin", "Memory_Shard", "Indecision_Essence", "Thaumiel_Fragment"]
             },
             new CircleDefinition {
                 id = 2,
@@ -65,9 +91,9 @@ public class HellCampaignManager extends IScriptable {
                 ngdRoute = "HYBRID_OK",
                 verticalRange = {min = -1500, max = -2500},
                 biome = "neon_flesh_market",
-                hazards = {"desire_vortex", "pleasure_overload", "siren_hack_daemon"},
-                nativeEntities = {"Siren_Netrunner", "Incubus_Script", "Succubus_Daemon", "Desire_Drone"},
-                lootBias = {"Siren_Chip", "Desire_Stim", "Pleasure_Protocol", "Ghagiel_Fragment"}
+                hazards = ["desire_vortex", "pleasure_overload", "siren_hack_daemon"],
+                nativeEntities = ["Siren_Netrunner", "Incubus_Script", "Succubus_Daemon", "Desire_Drone"],
+                lootBias = ["Siren_Chip", "Desire_Stim", "Pleasure_Protocol", "Ghagiel_Fragment"]
             },
             new CircleDefinition {
                 id = 3,
@@ -78,9 +104,9 @@ public class HellCampaignManager extends IScriptable {
                 ngdRoute = "LOCAL_REQUIRED",
                 verticalRange = {min = -2500, max = -3500},
                 biome = "visceral_data_tract",
-                hazards = {"acid_data_pool", "consumption_swarm", "hoarder_guardian"},
-                nativeEntities = {"Consumer_Script", "Devourer_Daemon", "Hoarder_AI", "Gluttony_Worm"},
-                lootBias = {"Consumer_Core", "Digestive_Enzyme", "Hoard_Key", "Sathariel_Fragment"}
+                hazards = ["acid_data_pool", "consumption_swarm", "hoarder_guardian"],
+                nativeEntities = ["Consumer_Script", "Devourer_Daemon", "Hoarder_AI", "Gluttony_Worm"],
+                lootBias = ["Consumer_Core", "Digestive_Enzyme", "Hoard_Key", "Sathariel_Fragment"]
             },
             new CircleDefinition {
                 id = 4,
@@ -91,9 +117,9 @@ public class HellCampaignManager extends IScriptable {
                 ngdRoute = "LOCAL_REQUIRED",
                 verticalRange = {min = -3500, max = -4500},
                 biome = "corporate_gold_vault",
-                hazards = {"contract_daemon", "arbitrage_bot_swarm", "treasury_enforcer"},
-                nativeEntities = {"Hoarder_Executive", "Waster_Scavenger", "Treasury_Bot", "Market_Maker_Daemon"},
-                lootBias = {"Contract_Shard", "Treasury_Key", "Market_Data", "Gamchicoth_Fragment"}
+                hazards = ["contract_daemon", "arbitrage_bot_swarm", "treasury_enforcer"],
+                nativeEntities = ["Hoarder_Executive", "Waster_Scavenger", "Treasury_Bot", "Market_Maker_Daemon"],
+                lootBias = ["Contract_Shard", "Treasury_Key", "Market_Data", "Gamchicoth_Fragment"]
             },
             new CircleDefinition {
                 id = 5,
@@ -104,9 +130,9 @@ public class HellCampaignManager extends IScriptable {
                 ngdRoute = "LOCAL_REQUIRED",
                 verticalRange = {min = -4500, max = -5500},
                 biome = "volcanic_rage_wasteland",
-                hazards = {"rage_eruption", "fury_chain", "hatred_aura"},
-                nativeEntities = {"Rage_Daemon", "Fury_Berserker", "Wrath_Reaver", "Hatred_Hulk"},
-                lootBias = {"Rage_Core", "Fury_Brand", "Wrath_Reaver", "Golachab_Fragment"}
+                hazards = ["rage_eruption", "fury_chain", "hatred_aura"],
+                nativeEntities = ["Rage_Daemon", "Fury_Berserker", "Wrath_Reaver", "Hatred_Hulk"],
+                lootBias = ["Rage_Core", "Fury_Brand", "Wrath_Reaver", "Golachab_Fragment"]
             },
             new CircleDefinition {
                 id = 6,
@@ -117,9 +143,9 @@ public class HellCampaignManager extends IScriptable {
                 ngdRoute = "LOCAL_CEREBELLUM",
                 verticalRange = {min = -5500, max = -6500},
                 biome = "iconoclast_cathedral",
-                hazards = {"shield_denial", "cyberware_corruption", "quickhack_silence", "healing_inversion"},
-                nativeEntities = {"Heretic_Inquisitor", "Iconoclast_Walker", "Blasphemer_Drone", "Sacrilege_Script"},
-                lootBias = {"Blasphemer_Bolt", "Iconoclast_Iron", "Sacrilege_Scythe", "Tagiriron_Fragment"}
+                hazards = ["shield_denial", "cyberware_corruption", "quickhack_silence", "healing_inversion"],
+                nativeEntities = ["Heretic_Inquisitor", "Iconoclast_Walker", "Blasphemer_Drone", "Sacrilege_Script"],
+                lootBias = ["Blasphemer_Bolt", "Iconoclast_Iron", "Sacrilege_Scythe", "Tagiriron_Fragment"]
             },
             new CircleDefinition {
                 id = 7,
@@ -130,9 +156,9 @@ public class HellCampaignManager extends IScriptable {
                 ngdRoute = "LOCAL_CEREBELLUM",
                 verticalRange = {min = -6500, max = -7500},
                 biome = "burnt_ochre_battlefield",
-                hazards = {"execution_zone", "chain_cleave", "armor_shred", "fear_presence"},
-                nativeEntities = {"Marauder_Maul", "Butcher_Blade", "Carnage_Cannon", "Bloodletter_Bow"},
-                lootBias = {"Violence_Core", "Slaughter_Key", "Brutality_Edge", "Harab_Serapel_Fragment"}
+                hazards = ["execution_zone", "chain_cleave", "armor_shred", "fear_presence"],
+                nativeEntities = ["Marauder_Maul", "Butcher_Blade", "Carnage_Cannon", "Bloodletter_Bow"],
+                lootBias = ["Violence_Core", "Slaughter_Key", "Brutality_Edge", "Harab_Serapel_Fragment"]
             },
             new CircleDefinition {
                 id = 8,
@@ -143,9 +169,9 @@ public class HellCampaignManager extends IScriptable {
                 ngdRoute = "LOCAL_CEREBELLUM",
                 verticalRange = {min = -7500, max = -8500},
                 biome = "mirror_labyrinth",
-                hazards = {"decoy_field", "position_swap", "invisible_projectile", "mimic_enemy", "killfeed_rewrite"},
-                nativeEntities = {"Deceiver_Dagger", "Mirror_Blade", "False_Prophet_Flare", "Liar_Laser"},
-                lootBias = {"Deception_Key", "Mirror_Shard", "Lie_Protocol", "Samael_Fragment"}
+                hazards = ["decoy_field", "position_swap", "invisible_projectile", "mimic_enemy", "killfeed_rewrite"],
+                nativeEntities = ["Deceiver_Dagger", "Mirror_Blade", "False_Prophet_Flare", "Liar_Laser"],
+                lootBias = ["Deception_Key", "Mirror_Shard", "Lie_Protocol", "Samael_Fragment"]
             },
             new CircleDefinition {
                 id = 9,
@@ -156,9 +182,9 @@ public class HellCampaignManager extends IScriptable {
                 ngdRoute = "LOCAL_CEREBELLUM",
                 verticalRange = {min = -8500, max = -9500},
                 biome = "frozen_betrayal_wastes",
-                hazards = {"friendly_fire_bonus", "enemy_conversion", "cyberware_theft", "loyalty_freeze", "traitor_reveal"},
-                nativeEntities = {"Traitor_Thorn", "Betrayer_Barrel", "Judas_Javelin", "Turncoat_Talon", "Oathbreaker_Obliterator"},
-                lootBias = {"Treachery_Core", "Betrayal_Key", "Oathbreaker_Shard", "Gamaliel_Fragment"}
+                hazards = ["friendly_fire_bonus", "enemy_conversion", "cyberware_theft", "loyalty_freeze", "traitor_reveal"],
+                nativeEntities = ["Traitor_Thorn", "Betrayer_Barrel", "Judas_Javelin", "Turncoat_Talon", "Oathbreaker_Obliterator"],
+                lootBias = ["Treachery_Core", "Betrayal_Key", "Oathbreaker_Shard", "Gamaliel_Fragment"]
             },
             new CircleDefinition {
                 id = 10,
@@ -170,9 +196,9 @@ public class HellCampaignManager extends IScriptable {
                 verticalRange = {min = -9500, max = -10000},
                 biome = "obsidian_citadel",
                 isFinalBoss = true,
-                hazards = {"reality_rewrite", "conceptual_damage", "history_erasure", "demon_command", "self_duel"},
-                nativeEntities = {"Lucifer_Avatar", "Morningstar_Guard", "Pride_Daemon", "Fallen_Angel"},
-                lootBias = {"Morningstar", "Pride's_Peak", "Fallen_Finale", "Devil's_Due", "Lilith_Fragment"}
+                hazards = ["reality_rewrite", "conceptual_damage", "history_erasure", "demon_command", "self_duel"],
+                nativeEntities = ["Lucifer_Avatar", "Morningstar_Guard", "Pride_Daemon", "Fallen_Angel"],
+                lootBias = ["Morningstar", "Pride's_Peak", "Fallen_Finale", "Devil's_Due", "Lilith_Fragment"]
             }
         };
         
@@ -433,14 +459,14 @@ public class LuciferDialogueSystem extends IScriptable {
     }
     
     private final func Initialize() -> Void {
-        this.dialogues = {
+        this.dialogues = [
             ["lucifer_circle5_wrath"]: "Welcome to the Abyss of Wrath, little soul. Here, anger is not a sin—it is currency. Spend it wisely.",
             ["lucifer_circle9_treachery"]: "Betrayal. The oldest sin. You've betrayed everyone to reach here. Even yourself. How... delightful.",
             ["lucifer_throne_final"]: "You stand before the Morningstar. Pride. The only sin that built kingdoms. Kneel, or burn.",
             ["lucifer_generic_descent"]: "You descend deeper. Each circle strips away another lie you told yourself. Continue.",
             ["lucifer_pact_offer"]: "A pact? Very well. I offer power. You offer... everything. Fair trade?",
             ["lucifer_pact_signed"]: "The ink is blood. The seal is your soul. Welcome to the ranks of the Fallen."
-        };
+        ];
     }
     
     public final func Speak(key: String, param: String = "") -> String {

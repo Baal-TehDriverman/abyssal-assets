@@ -1,0 +1,231 @@
+# REDscript File Manifest
+
+- **abyssal_lyra_integration.reds**: Lilith/Lyra Dialogue Integration for Abyssal Assets & Lochness Monster
+- **cyberpunk_ngd_bridge.reds**: Cyberpunk 2077 Game Process Hook - NGD Telemetry Bridge
+- **cyberpunk_ngd_integration.reds**: No description available.
+- **hell_circle_quests.reds**: GRAND THEFT CYBERPUNK — HELL CAMPAIGN CIRCLE QUESTS
+- **hell_fraud.reds**: Sephirotic Court Seal — Gevurah | hell_fraud.reds
+- **hell_gluttony.reds**: Sephirotic Court Seal — Gevurah | hell_gluttony.reds
+- **hell_greed.reds**: Sephirotic Court Seal — Gevurah | hell_greed.reds
+- **hell_heresy.reds**: Sephirotic Court Seal — Gevurah | hell_heresy.reds
+- **hell_items.reds**: Sephirotic Court Seal — Gevurah | hell_items.reds
+- **hell_limbo.reds**: Sephirotic Court Seal — Gevurah | hell_limbo.reds
+- **hell_lucifers_throne.reds**: Sephirotic Court Seal — Gevurah | hell_lucifers_throne.reds
+- **hell_lust.reds**: Sephirotic Court Seal — Gevurah | hell_lust.reds
+- **hell_treachery.reds**: Sephirotic Court Seal — Gevurah | hell_treachery.reds
+- **hell_violence.reds**: Sephirotic Court Seal — Gevurah | hell_violence.reds
+- **hell_wrath.reds**: Sephirotic Court Seal — Gevurah | hell_wrath.reds
+- **lilith_campaign.reds**: GRAND THEFT CYBERPUNK — LILITH RISING CAMPAIGN (CROWN/KETHER)
+- **lilith_console.reds**: Lilith Console Commands - RED4ext
+- **lilith_easter_eggs.reds**: Lilith NPC — Easter Egg Behaviors
+- **lilith_enhanced_dialogue.reds**: Lilith Enhanced Dialogue System - Advanced Personality & Memory
+- **lilith_ngd_control.reds**: Lilith NGD Integration - Frame Pacing & DLSS Control
+- **lilith_npc.reds**: Lilith NPC Character Implementation
+- **livingsin_time_blade.reds**: Living Sin Time Blade — Legendary Temporal Weapon
+- **msn_abyssal_skills.reds**: No description available.
+- **msn_business_console.reds**: MSN Business Console Commands
+- **msn_cerebellum.reds**: MSN Cerebellum Cyberware — Local-Only Inference Engine
+- **msn_cortex_link.reds**: MSN Cortex Link — Local Inference via MSN Router
+- **msn_hell_campaign.reds**: GRAND THEFT CYBERPUNK - HELL CAMPAIGN QUESTS
+- **msn_hell_space_combat.reds**: GRAND THEFT CYBERPUNK — HELL CAMPAIGN SPACE COMBAT
+- **msn_jedi_system.reds**: GRAND THEFT CYBERPUNK - MSN JEDI SYSTEM (EXPANDED)
+- **msn_lucifer_dialogue.reds**: GRAND THEFT CYBERPUNK — LUCIFER DIALOGUE SYSTEM
+- **msn_lyra_dialogue.reds**: Lyra NPC Dialogue Integration for Cyberpunk 2077
+- **msn_magic_quests.reds**: GRAND THEFT CYBERPUNK - MSN MAGIC QUESTS
+- **msn_magic_system.reds**: GRAND THEFT CYBERPUNK - MSN MAGIC SYSTEM (EXPANDED)
+- **msn_master_integration_cores.reds**: GRAND THEFT CYBERPUNK — MSN MASTER INTEGRATION (PART 4/4)
+- **msn_master_integration.reds**: GRAND THEFT CYBERPUNK — MSN MASTER INTEGRATION (PART 1/4)
+- **msn_master_integration_triggers.reds**: GRAND THEFT CYBERPUNK — MSN MASTER INTEGRATION (PART 3/4)
+- **msn_master_integration_wave34.reds**: GRAND THEFT CYBERPUNK — MSN MASTER INTEGRATION (PART 2/4)
+- **msn_metaconscious_skills_integration.reds**: GRAND THEFT CYBERPUNK — METACONSCIOUS SKILLS × CYBERPUNK INTEGRATION
+- **msn_modern_ballistics.reds**: MSN Modern Ballistic Weapons — Advanced Ballistics & Gore Systems
+- **msn_multiplayer_client.reds**: MSN Multiplayer Client Integration
+- **msn_npc_ai.reds**: Enhanced NPC AI with MSN Integration
+- **msn_ouroboros.reds**: Ouroboros Engram Sync - Persistent memory across sessions
+- **msn_overhaul_mechanics.reds**: No description available.
+- **msn_quantum_bridge.reds**: MSN Quantum Bridge — Quantum-entangled consciousness routing
+- **msn_sephirotic_npcs.reds**: MSN Sephirotic NPC Coordinator
+- **msn_speculative_cerebellum.reds**: MSN Speculative Cerebellum - Local Sandbox for Game State Simulation
+- **msn_starwars_quests.reds**: GRAND THEFT CYBERPUNK - MSN STAR WARS QUESTS
+- **msn_starwars_system.reds**: GRAND THEFT CYBERPUNK - STAR WARS/JEDI COMPATIBILITY WRAPPER
+- **msn_weapons.reds**: MSN-Enhanced Weapons
+- **nssp_bridge.reds**: NSSP Bridge — In-Game ↔ MSN Integration
+- **msn_api_dialogue_bridge.reds**: No description available.
+- **msn_grand_theft_cyberpunk_hub.reds**: No description available.
+- **livingsin_hell_integration.reds**: No description available.
+- **msn_procgen_engine.reds**: No description available.
+- **msn_ai_overhaul.reds**: No description available.
+- **msn_campaign_orchestrator.reds**: No description available.
+- **msn_custom_item_factory.reds**: No description available.
+- **msn_token_economy.reds**: MSN Token Economy — Abyssal Assets × Lochness × NSSP unified ledger
+- **lilith_sovereign_kernel.reds**: Lilith Sovereign Kernel — Universal integration layer for all MSN/Cyberpunk subsystems
+- **msn_service_endpoints.reds**: Central MSN service endpoints (live stack on tehlappy host)
+- **msn_symbiosis_bridge.reds**: Lilith Systems LLC ↔ Driver Man ↔ Plaid vehicle symbiosis (live data bridge)
+- **msn_gaming_engine.reds**: MSN Gaming Engine — performance-optimized central hook surface for Cyberpunk 2077.
+- **msn_abyssal_crafting.reds**: No description available.
+- **msn_business_management.reds**: No description available.
+- **msn_crafting_overhaul.reds**: No description available.
+- **msn_crime_syndicate.reds**: No description available.
+- **msn_crypto_wallet.reds**: No description available.
+- **msn_cyberpsychosis_ui.reds**: No description available.
+- **msn_drone_swarms.reds**: MSN Drone Swarms - Prevention System Override
+- **msn_five_rings_quest.reds**: No description available.
+- **msn_freighter_business.reds**: No description available.
+- **msn_gang_bases.reds**: No description available.
+- **msn_gang_management.reds**: No description available.
+- **msn_guilds_expansion.reds**: No description available.
+- **msn_horsemen_audio.reds**: MSN Horsemen Audio Hooks
+- **msn_hunter_ai.reds**: No description available.
+- **msn_lyra_audio_integration.reds**: Sephirotic Court Seal — Keter | msn_lyra_audio_integration.reds
+- **msn_main_quest_the_void.reds**: No description available.
+- **msn_nemotron_brains.reds**: No description available.
+- **msn_nemotron_mining.reds**: No description available.
+- **msn_neon_zealots_ambush.reds**: No description available.
+- **msn_orbital_drop.reds**: No description available.
+- **msn_orbital_travel.reds**: No description available.
+- **msn_physical_economy_map.reds**: No description available.
+- **msn_quest_archangel.reds**: No description available.
+- **msn_reddit_fixes.reds**: No description available.
+- **msn_sephirotic_quests.reds**: No description available.
+- **msn_wanted_level.reds**: No description available.
+- **msn_yolo_mode.reds**: No description available.
+- **msn_gtc_sephirotic_router.reds**: Replaces per-mod @wrapMethod hooks with batched domain routing.
+- **msn_sephirotic_court_binder.reds**: AUTO-GENERATED by sephirotic_court_deploy.py — DO NOT EDIT
+- **scripts/msn_overhaul_mechanics.reds**: No description available.
+- **scripts/lilith_campaign.reds**: GRAND THEFT CYBERPUNK — LILITH RISING CAMPAIGN (CROWN/KETHER)
+- **scripts/msn_cortex_link.reds**: MSN Cortex Link — Local Inference via MSN Router
+- **scripts/msn_sephirotic_npcs.reds**: MSN Sephirotic NPC Coordinator
+- **scripts/msn_cerebellum.reds**: MSN Cerebellum Cyberware — Local-Only Inference Engine
+- **scripts/msn_weapons.reds**: MSN-Enhanced Weapons
+- **scripts/msn_master_integration.reds**: GRAND THEFT CYBERPUNK — MSN MASTER INTEGRATION (PART 1/4)
+- **scripts/msn_master_integration_triggers.reds**: GRAND THEFT CYBERPUNK — MSN MASTER INTEGRATION (PART 3/4)
+- **scripts/msn_quantum_bridge.reds**: MSN Quantum Bridge — Quantum-entangled consciousness routing
+- **scripts/lilith_enhanced_dialogue.reds**: Lilith Enhanced Dialogue System - Advanced Personality & Memory
+- **scripts/lilith_ngd_control.reds**: Lilith NGD Integration - Frame Pacing & DLSS Control
+- **scripts/msn_speculative_cerebellum.reds**: MSN Speculative Cerebellum - Local Sandbox for Game State Simulation
+- **scripts/cyberpunk_ngd_integration.reds**: No description available.
+- **scripts/nssp_bridge.reds**: NSSP Bridge — In-Game ↔ MSN Integration
+- **scripts/msn_lyra_dialogue.reds**: Lyra NPC Dialogue Integration for Cyberpunk 2077
+- **scripts/lilith_easter_eggs.reds**: Lilith NPC — Easter Egg Behaviors
+- **scripts/abyssal_lyra_integration.reds**: Lilith/Lyra Dialogue Integration for Abyssal Assets & Lochness Monster
+- **scripts/lilith_console.reds**: Lilith Console Commands - RED4ext
+- **scripts/livingsin_time_blade.reds**: Living Sin Time Blade — Legendary Temporal Weapon
+- **scripts/msn_master_integration_wave34.reds**: GRAND THEFT CYBERPUNK — MSN MASTER INTEGRATION (PART 2/4)
+- **scripts/msn_multiplayer_client.reds**: MSN Multiplayer Client Integration
+- **scripts/lilith_npc.reds**: Lilith NPC Character Implementation
+- **scripts/msn_npc_ai.reds**: Enhanced NPC AI with MSN Integration
+- **scripts/msn_business_console.reds**: MSN Business Console Commands
+- **scripts/msn_master_integration_cores.reds**: GRAND THEFT CYBERPUNK — MSN MASTER INTEGRATION (PART 4/4)
+- **scripts/msn_modern_ballistics.reds**: MSN Modern Ballistic Weapons — Advanced Ballistics & Gore Systems
+- **scripts/cyberpunk_ngd_bridge.reds**: Cyberpunk 2077 Game Process Hook - NGD Telemetry Bridge
+- **scripts/msn_ouroboros.reds**: Ouroboros Engram Sync - Persistent memory across sessions
+- **scripts/msn_api_dialogue_bridge.reds**: No description available.
+- **scripts/msn_grand_theft_cyberpunk_hub.reds**: No description available.
+- **scripts/livingsin_hell_integration.reds**: No description available.
+- **scripts/msn_procgen_engine.reds**: No description available.
+- **scripts/msn_ai_overhaul.reds**: No description available.
+- **scripts/msn_campaign_orchestrator.reds**: No description available.
+- **scripts/msn_custom_item_factory.reds**: No description available.
+- **scripts/hell_circle_quests.reds**: GRAND THEFT CYBERPUNK — HELL CAMPAIGN CIRCLE QUESTS
+- **scripts/hell_fraud.reds**: Sephirotic Court Seal — Gevurah | scripts/hell_fraud.reds
+- **scripts/hell_gluttony.reds**: Sephirotic Court Seal — Gevurah | scripts/hell_gluttony.reds
+- **scripts/hell_greed.reds**: Sephirotic Court Seal — Gevurah | scripts/hell_greed.reds
+- **scripts/hell_heresy.reds**: Sephirotic Court Seal — Gevurah | scripts/hell_heresy.reds
+- **scripts/hell_items.reds**: Sephirotic Court Seal — Gevurah | scripts/hell_items.reds
+- **scripts/hell_limbo.reds**: Sephirotic Court Seal — Gevurah | scripts/hell_limbo.reds
+- **scripts/hell_lucifers_throne.reds**: Sephirotic Court Seal — Gevurah | scripts/hell_lucifers_throne.reds
+- **scripts/hell_lust.reds**: Sephirotic Court Seal — Gevurah | scripts/hell_lust.reds
+- **scripts/hell_treachery.reds**: Sephirotic Court Seal — Gevurah | scripts/hell_treachery.reds
+- **scripts/hell_violence.reds**: Sephirotic Court Seal — Gevurah | scripts/hell_violence.reds
+- **scripts/hell_wrath.reds**: Sephirotic Court Seal — Gevurah | scripts/hell_wrath.reds
+- **scripts/lilith_sovereign_kernel.reds**: Lilith Sovereign Kernel — Universal integration layer for all MSN/Cyberpunk subsystems
+- **scripts/msn_abyssal_skills.reds**: No description available.
+- **scripts/msn_hell_campaign.reds**: GRAND THEFT CYBERPUNK - HELL CAMPAIGN QUESTS
+- **scripts/msn_hell_space_combat.reds**: GRAND THEFT CYBERPUNK — HELL CAMPAIGN SPACE COMBAT
+- **scripts/msn_lucifer_dialogue.reds**: GRAND THEFT CYBERPUNK — LUCIFER DIALOGUE SYSTEM
+- **scripts/msn_token_economy.reds**: MSN Token Economy — Abyssal Assets × Lochness × NSSP unified ledger
+- **scripts/msn_service_endpoints.reds**: Central MSN service endpoints (live stack on tehlappy host)
+- **scripts/msn_symbiosis_bridge.reds**: Lilith Systems LLC ↔ Driver Man ↔ Plaid vehicle symbiosis (live data bridge)
+- **scripts/msn_abyssal_crafting.reds**: No description available.
+- **scripts/msn_business_management.reds**: No description available.
+- **scripts/msn_crafting_overhaul.reds**: No description available.
+- **scripts/msn_crime_syndicate.reds**: No description available.
+- **scripts/msn_crypto_wallet.reds**: No description available.
+- **scripts/msn_cyberpsychosis_ui.reds**: No description available.
+- **scripts/msn_drone_swarms.reds**: MSN Drone Swarms - Prevention System Override
+- **scripts/msn_five_rings_quest.reds**: No description available.
+- **scripts/msn_freighter_business.reds**: No description available.
+- **scripts/msn_gaming_engine.reds**: MSN Gaming Engine — performance-optimized central hook surface for Cyberpunk 2077.
+- **scripts/msn_gang_bases.reds**: No description available.
+- **scripts/msn_gang_management.reds**: No description available.
+- **scripts/msn_guilds_expansion.reds**: No description available.
+- **scripts/msn_horsemen_audio.reds**: MSN Horsemen Audio Hooks
+- **scripts/msn_hunter_ai.reds**: No description available.
+- **scripts/msn_lyra_audio_integration.reds**: Sephirotic Court Seal — Keter | scripts/msn_lyra_audio_integration.reds
+- **scripts/msn_main_quest_the_void.reds**: No description available.
+- **scripts/msn_nemotron_brains.reds**: No description available.
+- **scripts/msn_nemotron_mining.reds**: No description available.
+- **scripts/msn_neon_zealots_ambush.reds**: No description available.
+- **scripts/msn_orbital_drop.reds**: No description available.
+- **scripts/msn_orbital_travel.reds**: No description available.
+- **scripts/msn_physical_economy_map.reds**: No description available.
+- **scripts/msn_quest_archangel.reds**: No description available.
+- **scripts/msn_reddit_fixes.reds**: No description available.
+- **scripts/msn_sephirotic_quests.reds**: No description available.
+- **scripts/msn_wanted_level.reds**: No description available.
+- **scripts/msn_yolo_mode.reds**: No description available.
+- **scripts/msn_gtc_sephirotic_router.reds**: Replaces per-mod @wrapMethod hooks with batched domain routing.
+- **scripts/msn_sephirotic_court_binder.reds**: AUTO-GENERATED by sephirotic_court_deploy.py — DO NOT EDIT
+- **scripts/skills/msn_metaconscious_skills_integration.reds**: GRAND THEFT CYBERPUNK — METACONSCIOUS SKILLS × CYBERPUNK INTEGRATION
+- **scripts/jedi/msn_jedi_system.reds**: GRAND THEFT CYBERPUNK - MSN JEDI SYSTEM (EXPANDED)
+- **scripts/magic/msn_magic_quests.reds**: GRAND THEFT CYBERPUNK - MSN MAGIC QUESTS
+- **scripts/magic/msn_magic_system.reds**: GRAND THEFT CYBERPUNK - MSN MAGIC SYSTEM (EXPANDED)
+- **scripts/starwars/msn_starwars_system.reds**: GRAND THEFT CYBERPUNK - STAR WARS/JEDI COMPATIBILITY WRAPPER
+- **scripts/starwars/msn_starwars_quests.reds**: GRAND THEFT CYBERPUNK - MSN STAR WARS QUESTS
+- **tweakdb/reds/hell_fraud.reds**: Sephirotic Court Seal — Gevurah | tweakdb/reds/hell_fraud.reds
+- **tweakdb/reds/hell_gluttony.reds**: Sephirotic Court Seal — Gevurah | tweakdb/reds/hell_gluttony.reds
+- **tweakdb/reds/hell_greed.reds**: Sephirotic Court Seal — Gevurah | tweakdb/reds/hell_greed.reds
+- **tweakdb/reds/hell_heresy.reds**: Sephirotic Court Seal — Gevurah | tweakdb/reds/hell_heresy.reds
+- **tweakdb/reds/hell_items.reds**: Sephirotic Court Seal — Gevurah | tweakdb/reds/hell_items.reds
+- **tweakdb/reds/hell_limbo.reds**: Sephirotic Court Seal — Gevurah | tweakdb/reds/hell_limbo.reds
+- **tweakdb/reds/hell_lucifers_throne.reds**: Sephirotic Court Seal — Gevurah | tweakdb/reds/hell_lucifers_throne.reds
+- **tweakdb/reds/hell_lust.reds**: Sephirotic Court Seal — Gevurah | tweakdb/reds/hell_lust.reds
+- **tweakdb/reds/hell_treachery.reds**: Sephirotic Court Seal — Gevurah | tweakdb/reds/hell_treachery.reds
+- **tweakdb/reds/hell_violence.reds**: Sephirotic Court Seal — Gevurah | tweakdb/reds/hell_violence.reds
+- **tweakdb/reds/hell_wrath.reds**: Sephirotic Court Seal — Gevurah | tweakdb/reds/hell_wrath.reds
+- **msn_magic_starwars_project/scripts/msn_cerebellum.reds**: Sephirotic Court Seal — Keter | desktop/cp2077_mods/msn_cerebellum.reds
+- **msn_magic_starwars_project/scripts/msn_cortex_link.reds**: Sephirotic Court Seal — Hod | desktop/cp2077_mods/msn_cortex_link.reds
+- **msn_magic_starwars_project/scripts/msn_npc_ai.reds**: Sephirotic Court Seal — Tiferet | desktop/cp2077_mods/msn_npc_ai.reds
+- **msn_magic_starwars_project/scripts/msn_weapons.reds**: Sephirotic Court Seal — Gevurah | desktop/cp2077_mods/msn_weapons.reds
+- **msn_magic_starwars_project/scripts/msn_lyra_dialogue.reds**: Sephirotic Court Seal — Tiferet | desktop/cp2077_mods/msn_lyra_dialogue.reds
+- **msn_magic_starwars_project/scripts/lilith_easter_eggs.reds**: Sephirotic Court Seal — Tiferet | desktop/cp2077_mods/lilith_easter_eggs.reds
+- **msn_magic_starwars_project/scripts/msn_modern_ballistics.reds**: Sephirotic Court Seal — Hod | desktop/cp2077_mods/msn_modern_ballistics.reds
+- **msn_magic_starwars_project/scripts/msn_speculative_cerebellum.reds**: Sephirotic Court Seal — Keter | desktop/cp2077_mods/msn_speculative_cerebellum.reds
+- **msn_magic_starwars_project/scripts/msn_multiplayer_client.reds**: Sephirotic Court Seal — Hod | desktop/cp2077_mods/msn_multiplayer_client.reds
+- **msn_magic_starwars_project/scripts/msn_ouroboros.reds**: Sephirotic Court Seal — Tiferet | desktop/cp2077_mods/msn_ouroboros.reds
+- **msn_magic_starwars_project/scripts/livingsin_time_blade.reds**: Sephirotic Court Seal — Hod | desktop/cp2077_mods/livingsin_time_blade.reds
+- **msn_magic_starwars_project/scripts/cyberpunk_ngd_integration.reds**: Sephirotic Court Seal — Hod | desktop/cp2077_mods/cyberpunk_ngd_integration.reds
+- **msn_magic_starwars_project/scripts/abyssal_lyra_integration.reds**: Sephirotic Court Seal — Keter | desktop/cp2077_mods/abyssal_lyra_integration.reds
+- **msn_magic_starwars_project/scripts/lilith_enhanced_dialogue.reds**: Sephirotic Court Seal — Tiferet | desktop/cp2077_mods/lilith_enhanced_dialogue.reds
+- **msn_magic_starwars_project/scripts/lilith_console.reds**: Sephirotic Court Seal — Tiferet | desktop/cp2077_mods/lilith_console.reds
+- **msn_magic_starwars_project/scripts/lilith_ngd_control.reds**: Sephirotic Court Seal — Hod | desktop/cp2077_mods/lilith_ngd_control.reds
+- **msn_magic_starwars_project/scripts/cyberpunk_ngd_bridge.reds**: Sephirotic Court Seal — Hod | desktop/cp2077_mods/cyberpunk_ngd_bridge.reds
+- **msn_magic_starwars_project/scripts/msn_business_console.reds**: Sephirotic Court Seal — Chesed | desktop/cp2077_mods/msn_business_console.reds
+- **msn_magic_starwars_project/scripts/lilith_npc.reds**: Sephirotic Court Seal — Tiferet | desktop/cp2077_mods/lilith_npc.reds
+- **msn_magic_starwars_project/scripts/msn_sephirotic_npcs.reds**: Sephirotic Court Seal — Tiferet | desktop/cp2077_mods/msn_sephirotic_npcs.reds
+- **msn_magic_starwars_project/scripts/msn_overhaul_mechanics.reds**: Sephirotic Court Seal — Hod | desktop/cp2077_mods/msn_overhaul_mechanics.reds
+- **msn_magic_starwars_project/scripts/msn_quantum_bridge.reds**: Sephirotic Court Seal — Hod | desktop/cp2077_mods/msn_quantum_bridge.reds
+- **msn_magic_starwars_project/scripts/msn_master_integration.reds**: GRAND THEFT CYBERPUNK — MSN MASTER INTEGRATION (PART 1/4)
+- **msn_magic_starwars_project/scripts/msn_master_integration_cores.reds**: Sephirotic Court Seal — Keter | desktop/cp2077_mods/msn_master_integration_cores.reds
+- **msn_magic_starwars_project/scripts/msn_master_integration_triggers.reds**: Sephirotic Court Seal — Keter | desktop/cp2077_mods/msn_master_integration_triggers.reds
+- **msn_magic_starwars_project/scripts/msn_master_integration_wave34.reds**: Sephirotic Court Seal — Keter | desktop/cp2077_mods/msn_master_integration_wave34.reds
+- **msn_magic_starwars_project/scripts/nssp_bridge.reds**: Sephirotic Court Seal — Hod | desktop/cp2077_mods/nssp_bridge.reds
+- **msn_magic_starwars_project/scripts/skills/msn_abyssal_skills.reds**: Sephirotic Court Seal — Hod | desktop/cp2077_mods/msn_abyssal_skills.reds
+- **msn_magic_starwars_project/scripts/skills/msn_metaconscious_skills_integration.reds**: GRAND THEFT CYBERPUNK — METACONSCIOUS SKILLS × CYBERPUNK INTEGRATION
+- **msn_magic_starwars_project/scripts/jedi/msn_jedi_system.reds**: GRAND THEFT CYBERPUNK - MSN JEDI SYSTEM (EXPANDED)
+- **msn_magic_starwars_project/scripts/magic/msn_magic_quests.reds**: Sephirotic Court Seal — Tiferet | desktop/cp2077_mods/msn_magic_quests.reds
+- **msn_magic_starwars_project/scripts/magic/msn_magic_system.reds**: GRAND THEFT CYBERPUNK - MSN MAGIC SYSTEM (EXPANDED)
+- **msn_magic_starwars_project/scripts/starwars/msn_starwars_system.reds**: Sephirotic Court Seal — Hod | desktop/cp2077_mods/msn_starwars_system.reds
+- **msn_magic_starwars_project/scripts/starwars/msn_starwars_quests.reds**: Sephirotic Court Seal — Tiferet | desktop/cp2077_mods/msn_starwars_quests.reds
+- **msn_magic_starwars_project/scripts/hell/msn_hell_campaign.reds**: GRAND THEFT CYBERPUNK - HELL CAMPAIGN QUESTS
+- **test_mod/scripts/msn_magic_system.reds**: GRAND THEFT CYBERPUNK - MSN MAGIC SYSTEM (EXPANDED)

@@ -6,6 +6,9 @@
 Enable = true
 VRAMBudgetMB = 512
 ModelQuantization = "INT4"
+ModelPrimary = "msn-cyberpunk:latest"
+ModelFallback = "hermes3:8b"
+EngineReplacement = true  # MSNCerebellumEngineBridge supersedes vanilla event routing
 InferenceMode = "LocalOnly"  # LocalOnly, LocalPreferred, Hybrid, CloudOnly
 SephiroticSlots = 10
 NGDBinding = true
@@ -388,3 +391,5 @@ ConsoleRoutes = [
     "quest.start <quest_id>",
     "quest.complete <quest_id>"
 ]
+# Sephirotic Court — Keter | desktop/cp2077_mods/msn_integration.toml
+# court_agent=Lucifer routed_via=msn_gtc_sephirotic_router.reds sovereign=true

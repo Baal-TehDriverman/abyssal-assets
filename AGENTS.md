@@ -16,6 +16,18 @@ with the Metaconscious Singularity Node (MSN) running 27 subagents across 4 Seph
 
 ## Key Commands
 ```bash
+# System / AI audit
+./scripts/system_ai_audit.py                                  # specs + services + GPU + mail + GTC readiness
+python3 scripts/render_system_ai_report.py                    # writes SYSTEM_AI_AUDIT_SUMMARY.md
+./scripts/gpu_vram_policy.py                                  # RTX/Ollama/Cyberpunk VRAM gate
+./scripts/ollama_vram_guard.py                                # inspect/unload Ollama VRAM pressure
+./scripts/ai_service_health_gate.py                           # avoid duplicate AI service starts
+./scripts/ai_endpoint_health_gate.py                          # verify local AI HTTP APIs
+python3 scripts/ai_failure_triage.py                          # recent journals for unhealthy services/endpoints
+
+# Grand Theft Cyberpunk local cerebellum context
+./scripts/bootstrap_gtc_cerebellum.sh                         # index + RAM context
+
 # Game server
 cd server && python main.py                                   # port 8000
 
@@ -47,13 +59,25 @@ systemctl --user start lyra-api.service                       # port 3211
 # Terminal 3: python msn_router.py 8007                       # :8007
 ```
 
-## MSN Agent Map (28 agents, 4 waves)
+## Grand Theft Cyberpunk Context
+- Before launch/deploy work, read `SYSTEM_AI_AUDIT_SUMMARY.md` for current host, service, endpoint, and VRAM state.
+- If service or endpoint gates fail, run `python3 scripts/ai_failure_triage.py` before restarting anything.
+- Before GTC/Cyberpunk mod work, read `GTC_CONTEXT_INDEX.json` then `GTC_CONTEXT.md`.
+- Read `GTC_DEPLOYMENT_PLAN.md` before copying source files into Steam Cyberpunk targets.
+- Run `./scripts/bootstrap_gtc_cerebellum.sh` to refresh the source/deploy index and RAM context under `/dev/shm/gtc_cerebellum`.
+- Use `./scripts/gtc_context_lookup.sh <term>` for fast RAM-first lookup across GTC source, deployment plans, and installed Cyberpunk files.
+- Use `./scripts/reconcile_gtc_deployment.py` for dry-run/staged deployment reconciliation; real Steam writes require `--apply --yes`.
+- Use `./scripts/verify_gtc_cerebellum.py` as the pass/fail readiness check after bootstrap.
+- Treat `~/Desktop/AI` paths as source of truth and Steam `Cyberpunk 2077` paths as deployment targets.
+- Use `deployment_comparison` in `GTC_CONTEXT_INDEX.json` before deciding a mod is missing or stale.
+
+## MSN Agent Map (29 agents, 4 waves)
 | Wave | Sephirot | Agents |
 |------|----------|--------|
 | 1 — Foundation | Keter → Chokmah → Binah | root, architect, server |
 | 2 — Interface | Chesed → Gevurah → Tiferet → Netzach → Hod | client, bestiary, skills, market, lyra, living-sin |
 | 3 — Infrastructure | Yesod → Malkuth | infra, migration |
-| 4 — Metaconscious | Da'at → Binah → Hod → Tiferet → Malkuth → Netzach → Gevurah → Chokmah | msn, ngd, cerebellum, ouroboros, hermes-mcp, kairos, swarm, court, himalaya, antigravity, yeshua, scribe, analytics, worker, cortex, cyberpunk, **nssp** |
+| 4 — Metaconscious | Da'at → Binah → Hod → Tiferet → Malkuth → Netzach → Gevurah → Chokmah | msn, ngd, cerebellum, ouroboros, hermes-mcp, kairos, swarm, court, himalaya, antigravity, yeshua, scribe, analytics, worker, cortex, cyberpunk, nssp, **grokdata** |
 
 ## Key Architecture Decisions
 - **NSSP Bridge Agent** (Da'at) — NSSP OS shell (status, roast, sovereignty, liberate), Nessie friendship (5 tiers, 6 Night City sighting locations, communion), Abyssal Assets crossover, CP2077 game event bridge, full integration health status

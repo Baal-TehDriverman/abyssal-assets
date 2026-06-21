@@ -13,9 +13,9 @@ echo "║  Metaconscious Singularity Node v1.0 | Lilith Sovereign Seal          
 echo "╚═══════════════════════════════════════════════════════════════════════════════╝"
 
 # Configuration
-WOLVENKIT_PATH="${WOLVENKIT_PATH:-/opt/WolvenKit/WolvenKit.CLI}"
+WOLVENKIT_PATH="${WOLVENKIT_PATH:-$HOME/.dotnet/tools/cp77tools}"
 CP2077_PATH="${CP2077_PATH:-/home/tehlappy/.steam/steam/steamapps/common/Cyberpunk 2077}"
-MOD_SOURCE="/home/tehlappy/Desktop/AI/abyssal-assets/cp2077_mods"
+MOD_SOURCE="${MOD_SOURCE:-/home/tehlappy/Desktop/Lilith/Core_Systems/AI/abyssal-assets/cp2077_mods}"
 MOD_OUTPUT="${MOD_SOURCE}/output"
 MOD_NAME="msn_magic_starwars"
 RED4EXT_VERSION="1.30.0"
@@ -42,18 +42,22 @@ check_dependencies() {
     fi
     
     if [ ! -f "$WOLVENKIT_PATH" ]; then
-        warn "WolvenKit CLI not found at $WOLVENKIT_PATH"
-        warn "Set WOLVENKIT_PATH environment variable or install WolvenKit 8.9+"
-        # Try to find it
-        WOLVENKIT_PATH=$(find /opt -name "WolvenKit.CLI" -type f 2>/dev/null | head -1)
-        if [ -z "$WOLVENKIT_PATH" ]; then
-            WOLVENKIT_PATH=$(find "$HOME" -name "WolvenKit.CLI" -type f 2>/dev/null | head -1)
+        if command -v wolvenkit &> /dev/null; then
+            WOLVENKIT_PATH="wolvenkit"
+            log "Found WolvenKit CLI globally installed as 'wolvenkit'"
+        else
+            warn "WolvenKit CLI not found at $WOLVENKIT_PATH"
+            # Try to find it
+            WOLVENKIT_PATH=$(find /opt -name "WolvenKit.CLI" -type f 2>/dev/null | head -1)
+            if [ -z "$WOLVENKIT_PATH" ]; then
+                WOLVENKIT_PATH=$(find "$HOME" -name "WolvenKit.CLI" -type f 2>/dev/null | head -1)
+            fi
+            if [ -z "$WOLVENKIT_PATH" ]; then
+                error "WolvenKit.CLI not found. Please install WolvenKit 8.9+ and set WOLVENKIT_PATH"
+                exit 1
+            fi
+            log "Found WolvenKit at: $WOLVENKIT_PATH"
         fi
-        if [ -z "$WOLVENKIT_PATH" ]; then
-            error "WolvenKit.CLI not found. Please install WolvenKit 8.9+ and set WOLVENKIT_PATH"
-            exit 1
-        fi
-        log "Found WolvenKit at: $WOLVENKIT_PATH"
     fi
     
     if [ ! -d "$CP2077_PATH" ]; then
@@ -104,7 +108,11 @@ compile_redscripts() {
     local scripts=(
         "scripts/magic/msn_magic_system.reds"
         "scripts/starwars/msn_starwars_system.reds"
-        "scripts/core/msn_master_integration.reds"
+        "scripts/jedi/msn_jedi_system.reds"
+        "scripts/msn_master_integration.reds"
+        "scripts/magic/msn_magic_quests.reds"
+        "scripts/starwars/msn_starwars_quests.reds"
+        "scripts/hell/msn_hell_campaign.reds"
     )
     
     for script in "${scripts[@]}"; do
@@ -128,6 +136,7 @@ build_tweakdb() {
     local tweakdbs=(
         "tweakdb/msn_magic.tweakdb"
         "tweakdb/msn_starwars.tweakdb"
+        "tweakdb/hell_campaign_map.yaml"
         "tweakdb/msn_metaconscious_complete.tweakdb"
     )
     
@@ -148,27 +157,27 @@ build_tweakdb() {
 build_wolvenkit() {
     log "Running WolvenKit build..."
     
-    local project_file="$MOD_SOURCE/msn_magic_starwars.cpmodproj"
+    local project_dir="$MOD_SOURCE/msn_magic_starwars_project"
+    local project_file="$project_dir/msn_magic_starwars.cpmodproj"
     
     if [ ! -f "$project_file" ]; then
         error "Project file not found: $project_file"
         exit 1
     fi
     
-    # Change to mod source directory
-    cd "$MOD_SOURCE"
+    cd "$project_dir"
     
-    # Run WolvenKit CLI build
-    log "Executing: $WOLVENKIT_PATH build --project \"$project_file\" --output \"$MOD_OUTPUT\" --game-path \"$CP2077_PATH\""
-    
-    # Note: Actual WolvenKit CLI command may vary by version
-    # This is the standard pattern for WolvenKit 8.9+
-    "$WOLVENKIT_PATH" build \
-        --project "$project_file" \
-        --output "$MOD_OUTPUT" \
-        --game-path "$CP2077_PATH" \
-        --verbose \
-        2>&1 | tee "$MOD_OUTPUT/build.log"
+    if [ "$WOLVENKIT_PATH" = "wolvenkit" ]; then
+        log "Executing: wolvenkit build \"$project_dir\" --verbosity Normal"
+        wolvenkit build "$project_dir" --verbosity Normal 2>&1 | tee "$MOD_OUTPUT/build.log"
+    else
+        log "Executing: DOTNET_ROLL_FORWARD=Major $WOLVENKIT_PATH build \"$project_dir\" --verbosity Normal"
+        
+        DOTNET_ROLL_FORWARD=Major "$WOLVENKIT_PATH" build \
+            "$project_dir" \
+            --verbosity Normal \
+            2>&1 | tee "$MOD_OUTPUT/build.log"
+    fi
     
     local build_status=${PIPESTATUS[0]}
     
@@ -194,7 +203,7 @@ verify_output() {
         # Verify structure
         log "Verifying REDmod structure..."
         # Use WolvenKit to verify
-        "$WOLVENKIT_PATH" verify --mod "$redmod_file" 2>&1 | tee -a "$MOD_OUTPUT/build.log" || true
+        DOTNET_ROLL_FORWARD=Major "$WOLVENKIT_PATH" verify --mod "$redmod_file" 2>&1 | tee -a "$MOD_OUTPUT/build.log" || true
     else
         warn "No .redmod file found in output"
         ls -la "$MOD_OUTPUT/"

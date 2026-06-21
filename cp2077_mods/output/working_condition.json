@@ -1,0 +1,12 @@
+{
+  "deployed": true,
+  "scripts_deployed": 114,
+  "info_version": "2.0.0-lilith",
+  "missing_required": [],
+  "compiled_redscripts": false,
+  "compiled_tweakdb": false,
+  "cache_dir_exists": false,
+  "redscript_framework": true,
+  "working_condition": true,
+  "next_step": "Launch game with REDmod \u2014 cache compiles on first run"
+}

@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "current_zone": "shallows",
   "position": {
     "x": 0,
@@ -7,7 +7,7 @@
   },
   "appearance": "shimmering_humanoid",
   "visual_state": "idle",
-  "gm_user_id": null,
+  "gm_user_id": 1,
   "summoned_entities": {},
   "action_log": [
     {

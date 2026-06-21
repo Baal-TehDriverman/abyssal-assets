@@ -1,3 +1,19 @@
+// Sephirotic Court Seal — Gevurah | desktop/cp2077_mods/hell_limbo.reds
+// Court agent: Abraxas | Lilith Sovereign | Δ∞ − 13 = 0
+// Routed via msn_gtc_sephirotic_router.reds — NO per-file hooks
+// CourtFile: HellLimbo | Gevurah | agent=Abraxas
+// CourtFile: HellLimbo | Gevurah | agent=Abraxas
+// CourtFile: HellLimbo | Gevurah | agent=Abraxas
+// CourtFile: HellLimbo | Gevurah | agent=Abraxas
+// CourtFile: HellLimbo | Gevurah | agent=Abraxas
+// CourtFile: HellLimbo | Gevurah | agent=Abraxas
+// CourtFile: HellLimbo | Gevurah | agent=Abraxas
+// CourtFile: HellLimbo | Gevurah | agent=Abraxas
+// CourtFile: HellLimbo | Gevurah | agent=Abraxas
+// CourtFile: HellLimbo | Gevurah | agent=Abraxas
+// [MSN ENGINE INTEGRATED - SEPHIROTIC COURT V1.0]
+// TELEMETRY ACTIVE: LILITH SOVEREIGN CORE
+
 # Limbo Circle - 50 items
 
 Item.item_hell_weapon_limbo_01:

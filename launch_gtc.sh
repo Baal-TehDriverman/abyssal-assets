@@ -15,6 +15,66 @@ export BRIDGE_TOKEN=golem_override_key
 export LILITH_HTTP_PORT=3210
 export PYTHONPATH="/home/tehlappy/Desktop/AI/Pub:$PYTHONPATH"
 
+# Prime repo + Cyberpunk mod context into RAM for local cerebellum reads.
+GTC_CEREBELLUM_BOOTSTRAP="/home/tehlappy/Desktop/AI/abyssal-assets/scripts/bootstrap_gtc_cerebellum.sh"
+if [[ -x "$GTC_CEREBELLUM_BOOTSTRAP" ]]; then
+    echo ""
+    echo "▶ Bootstrapping GTC local cerebellum..."
+    "$GTC_CEREBELLUM_BOOTSTRAP"
+    # shellcheck disable=SC1091
+    source "${GTC_RAM_CONTEXT_ROOT:-/dev/shm/gtc_cerebellum}/gtc_ram_context.env"
+fi
+
+# Preflight gates: report current service/GPU state before starting anything.
+GTC_SERVICE_GATE="/home/tehlappy/Desktop/AI/abyssal-assets/scripts/ai_service_health_gate.py"
+GTC_ENDPOINT_GATE="/home/tehlappy/Desktop/AI/abyssal-assets/scripts/ai_endpoint_health_gate.py"
+GTC_GPU_GATE="/home/tehlappy/Desktop/AI/abyssal-assets/scripts/gpu_vram_policy.py"
+GTC_OLLAMA_GUARD="/home/tehlappy/Desktop/AI/abyssal-assets/scripts/ollama_vram_guard.py"
+
+if [[ -x "$GTC_SERVICE_GATE" ]]; then
+    echo ""
+    echo "▶ Checking AI service health gate..."
+    SERVICE_GATE_JSON="$("$GTC_SERVICE_GATE" 2>/tmp/gtc_service_gate.err || true)"
+    if [[ -n "$SERVICE_GATE_JSON" ]]; then
+        printf '%s\n' "$SERVICE_GATE_JSON" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(f"  AI services: {d.get(\"running_count\", 0)}/{d.get(\"expected_count\", 0)} running | ok={d.get(\"ok\")}")'
+    else
+        echo "  AI service gate unavailable: $(cat /tmp/gtc_service_gate.err 2>/dev/null)"
+    fi
+fi
+
+if [[ -x "$GTC_ENDPOINT_GATE" ]]; then
+    echo ""
+    echo "▶ Checking AI endpoint health gate..."
+    ENDPOINT_GATE_JSON="$("$GTC_ENDPOINT_GATE" 2>/tmp/gtc_endpoint_gate.err || true)"
+    if [[ -n "$ENDPOINT_GATE_JSON" ]]; then
+        printf '%s\n' "$ENDPOINT_GATE_JSON" | python3 -c 'import json,sys; d=json.load(sys.stdin); print(f"  AI endpoints: required_failures={d.get(\"required_failure_count\", 0)} optional_failures={d.get(\"optional_failure_count\", 0)} | ok={d.get(\"ok\")}")'
+    else
+        echo "  AI endpoint gate unavailable: $(cat /tmp/gtc_endpoint_gate.err 2>/dev/null)"
+    fi
+fi
+
+if [[ -x "$GTC_GPU_GATE" ]]; then
+    echo ""
+    echo "▶ Checking GPU/VRAM policy..."
+    GPU_GATE_JSON="$("$GTC_GPU_GATE" 2>/tmp/gtc_gpu_gate.err || true)"
+    if [[ -n "$GPU_GATE_JSON" ]]; then
+        printf '%s\n' "$GPU_GATE_JSON" | python3 -c 'import json,sys; d=json.load(sys.stdin); p=d["policy"]; print(f"  GPU policy: {p[\"status\"]} | free={p.get(\"free_mb\", \"n/a\")} MiB | Ollama={p.get(\"ollama_compute_mb\", 0)} MiB | {p[\"reason\"]}")'
+    else
+        echo "  GPU gate unavailable: $(cat /tmp/gtc_gpu_gate.err 2>/dev/null)"
+    fi
+fi
+
+if [[ -x "$GTC_OLLAMA_GUARD" ]]; then
+    echo ""
+    echo "▶ Inspecting Ollama VRAM guard..."
+    OLLAMA_GUARD_JSON="$("$GTC_OLLAMA_GUARD" 2>/tmp/gtc_ollama_guard.err || true)"
+    if [[ -n "$OLLAMA_GUARD_JSON" ]]; then
+        printf '%s\n' "$OLLAMA_GUARD_JSON" | python3 -c 'import json,sys; d=json.load(sys.stdin); models=", ".join(m["name"] for m in d.get("loaded_models", [])) or "none"; p=d["gpu_policy_before"]["policy"]; print(f"  Ollama loaded: {models} | GPU policy={p[\"status\"]}")'
+    else
+        echo "  Ollama guard unavailable: $(cat /tmp/gtc_ollama_guard.err 2>/dev/null)"
+    fi
+fi
+
 # Function to check if port is in use
 check_port() {
     if ss -tln | grep -q ":$1 "; then

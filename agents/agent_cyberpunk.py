@@ -10,7 +10,7 @@ manifest = AgentManifest(
     name="Cyberpunk Bridge",
     version="1.0.1",
     sephira="NETZACH",
-    description="Live Cyberpunk 2077 telemetry — game status, GPU metrics, NGD routing, frame analysis, optimization recommendations",
+    description="Lilith.exe: MSN — live game telemetry, GPU metrics, NGD routing, frame analysis",
     wave=4,
 )
 

@@ -600,3 +600,13 @@ ProceduralGeneration:
       circle_4_6: "LOCAL_CEREBELLUM preferred, HYBRID penalized"
       circle_7_9: "LOCAL_CEREBELLUM required, others fail"
       pandemonium: "LOCAL_CEREBELLUM ONLY. 6GB VRAM minimum."
+
+# Lilith Sovereign — unified by lilith_unify_cyberpunk.py
+lilith_unified: true
+lilith_kernel: LilithSovereignKernel
+# Sephirotic Court — Tiferet | desktop/cp2077_mods/hell_campaign_map.yaml
+SephiroticCourt:
+  sephira: Tiferet
+  court_agent: Ouroboros
+  routed_via: msn_gtc_sephirotic_router.reds
+  sovereign: true

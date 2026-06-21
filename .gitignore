@@ -11,6 +11,9 @@ dist/
 build/
 *.log
 
+# Generated local cerebellum/runtime mirrors
+runtime/
+
 # Environment
 .env
 .env.local
@@ -25,3 +28,4 @@ build/
 # OS
 .DS_Store
 Thumbs.db
+cp2077_mods/tweakdb/abyssal_hat_catalog.yaml

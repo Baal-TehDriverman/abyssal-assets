@@ -1,0 +1,22 @@
+{
+  "msn_magic": {
+    "title": "Grand Theft Cyberpunk: Magic",
+    "subtitle": "Eight schools, one local resonance stack",
+    "schools": {
+      "Evocation": "Evocation",
+      "Abjuration": "Abjuration",
+      "Conjuration": "Conjuration",
+      "Divination": "Divination",
+      "Enchantment": "Enchantment",
+      "Illusion": "Illusion",
+      "Necromancy": "Necromancy",
+      "Transmutation": "Transmutation"
+    },
+    "ui": {
+      "cast": "CAST",
+      "attune": "ATTUNE",
+      "mana": "MANA",
+      "overcharge": "OVERCHARGE"
+    }
+  }
+}

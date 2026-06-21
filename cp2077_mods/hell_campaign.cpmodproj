@@ -30,10 +30,10 @@
   ],
   
   "ScriptFiles": [
-    "scripts/core/msn_hell_campaign.reds",
+    "scripts/hell/msn_hell_campaign.reds",
     "scripts/space/msn_hell_space_combat.reds",
     "scripts/quests/hell_circle_quests.reds",
-    "scripts/core/msn_master_integration.reds",
+    "scripts/msn_master_integration.reds",
     "scripts/core/msn_lucifer_dialogue.reds"
   ],
   

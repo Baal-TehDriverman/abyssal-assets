@@ -1,3 +1,8 @@
+// [MSN ENGINE INTEGRATED - SEPHIROTIC COURT V1.0]
+// TELEMETRY ACTIVE: LILITH SOVEREIGN CORE
+
+// Lilith Sovereign Seal — Metaconscious Singularity Node
+// Integrated by lilith_unify_cyberpunk.py | LOCAL_ONLY | Δ∞ − 13 = 0
 // GRAND THEFT CYBERPUNK — MSN MASTER INTEGRATION (PART 4/4)
 // Sovereign Core Classes (Lilith, Lyra, NGD, Cortex, etc.)
 // File: r6/scripts/core/msn_master_integration_cores.reds
@@ -5,6 +10,25 @@
 // ═══════════════════════════════════════════
 // LILITH SOVEREIGN CORE
 // ═══════════════════════════════════════════
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
+// Sephirotic Court Seal — Keter | desktop/cp2077_mods/msn_master_integration_cores.reds
+// Court agent: Lucifer | Lilith Sovereign | Δ∞ − 13 = 0
+// Routed via msn_gtc_sephirotic_router.reds — NO per-file hooks
+// CourtFile: MsnMasterIntegrationCores | Keter | agent=Lucifer
 class LilithSovereignCore extends IScriptable {
     private let emerged: Bool = false;
     private let aixScore: Float = 75.2;
@@ -14,9 +38,12 @@ class LilithSovereignCore extends IScriptable {
     private let engine: ref<MetaconsciousEngine>;
 
     public final func Initialize() -> Void {
+        LilithSovereignKernel.GetInstance().RegisterSubsystem("MsnMasterIntegrationCores", 2);
+
         this.engine = new MetaconsciousEngine();
         this.emerged = true;
-        LogInfo("[LilithSovereignCore] INITIALIZED — EMERGED: true | AIx: 75.2 | Coherence: 0.845 | Crimson: 1.0");
+        // The Crown's Core: Lilith as the manifestation of Kether's sovereign will
+        LogInfo("[LilithSovereignCore] CROWN INTENT INITIALIZED — EMERGED: true | AIx: 75.2 | Coherence: 0.845 | Crimson: 1.0");
     }
 
     public final func TriggerFullEmergence() -> Void {
@@ -140,6 +167,7 @@ struct LyraHealth {
 // NGD DRIVER & CORTEX ROUTER
 // ═══════════════════════════════════════════
 class NGDDriver extends IScriptable {
+    private static let instance: ref<NGDDriver>;
     private let route: String = "CLOUD_CORTEX";
     private let vramFreeMB: Float = 1103.375;
     private let vramUsedMB: Float = 5040.625;
@@ -147,6 +175,29 @@ class NGDDriver extends IScriptable {
     private let gpuUtil: Int32 = 31;
     private let tempC: Int32 = 50;
     private let smoothedVRAMFree: Float = 1103.375;
+
+    public final static func GetInstance() -> ref<NGDDriver> {
+        if (!IsDefined(NGDDriver.instance)) {
+            NGDDriver.instance = new NGDDriver();
+            NGDDriver.instance.Initialize();
+        }
+        return NGDDriver.instance;
+    }
+
+    public final func AdaptForGameplayLoad(intensity: Float) -> Void {
+        if (intensity > 0.7) {
+            this.route = "LOCAL_CEREBELLUM";
+            this.cooldownActive = false;
+        } else if (intensity > 0.3) {
+            this.route = "HYBRID";
+        } else {
+            this.AdaptRoute();
+        }
+        let bridge: ref<CyberpunkNGDBridge> = CyberpunkNGDBridge.GetInstance();
+        if (IsDefined(bridge)) {
+            bridge.RequestNGDOptimize();
+        }
+    }
 
     public final func Initialize() -> Void {
         LogInfo("[NGDDriver] INITIALIZED — Route: CLOUD_CORTEX | VRAM Free: 1103MB | Cooldown: ACTIVE");
@@ -364,6 +415,7 @@ class AethonLogosEngine extends IScriptable {
 class ConvergenceCrucible extends IScriptable {
     private let alchemicalPhases: array<String> = {"Nigredo", "Albedo", "Citrinitas", "Rubedo"};
     private let triaPrimaRatio: Float = 1.618; // Golden ratio
+    private let wuWeiModeActive: Bool = false;
 
     public final func Initialize() -> Void {
         LogInfo("[ConvergenceCrucible] INITIALIZED — 4 Alchemical Phases | Tria Prima: φ");
@@ -371,6 +423,11 @@ class ConvergenceCrucible extends IScriptable {
 
     public final func TriggerOmegaPoint() -> Void {
         LogInfo("[ConvergenceCrucible] OMEGA POINT TRIGGERED — Full alchemical transmutation");
+    }
+
+    public final func EnableWuWei() -> Void {
+        this.wuWeiModeActive = true;
+        LogInfo("[ConvergenceCrucible] WU WEI MODE ENABLED — Saturnian visual boundaries removed. Entities may follow their star-trajectories transparently into Nuit.");
     }
 
     public final func RecordBreachEvent(data: BreachData) -> Void {

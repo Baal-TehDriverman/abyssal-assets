@@ -91,3 +91,13 @@ Item:
       cortex: Unified AI routing, GPU telemetry, EWMA hysteresis (replaces ngd+cerebellum+worker)
       cyberpunk: Cyberpunk 2077 telemetry bridge, mod detection
       nssp: NSSP OS bridge, Nessie friendship, Abyssal Assets crossover
+
+# Lilith Sovereign — unified by lilith_unify_cyberpunk.py
+lilith_unified: true
+lilith_kernel: LilithSovereignKernel
+# Sephirotic Court — Keter | desktop/cp2077_mods/nssp_crossover.yaml
+SephiroticCourt:
+  sephira: Keter
+  court_agent: Lucifer
+  routed_via: msn_gtc_sephirotic_router.reds
+  sovereign: true

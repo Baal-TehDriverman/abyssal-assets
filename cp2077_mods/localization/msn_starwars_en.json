@@ -1,0 +1,26 @@
+{
+  "msn_starwars": {
+    "title": "Grand Theft Cyberpunk: Star Wars",
+    "subtitle": "Force powers, saber forms, and alignment",
+    "alignments": {
+      "Light": "Jedi",
+      "Dark": "Sith",
+      "Grey": "Gray"
+    },
+    "forms": {
+      "Form_I_Shii_Cho": "Shii-Cho",
+      "Form_II_Makashi": "Makashi",
+      "Form_III_Soresu": "Soresu",
+      "Form_IV_Ataru": "Ataru",
+      "Form_V_Shien_DjemSo": "Shien / Djem So",
+      "Form_VI_Niman": "Niman",
+      "Form_VII_Juyo_Vaapad": "Juyo / Vaapad"
+    },
+    "ui": {
+      "force": "FORCE",
+      "lightsaber": "LIGHTSABER",
+      "holocron": "HOLOCRON",
+      "status": "STATUS"
+    }
+  }
+}

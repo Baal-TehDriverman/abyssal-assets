@@ -1,0 +1,372 @@
+{
+  "schema": "msn.cyberpunk_skill_trees.v1",
+  "generated_at": "2026-06-21T07:16:16.425787+00:00",
+  "sources": {
+    "abyssal_skills_ts": "/home/tehlappy/Desktop/Lilith/Core_Systems/AI/abyssal-assets/shared/types/skills.ts",
+    "pub_skill_tree": "/home/tehlappy/Desktop/AI/Pub/skill_tree.json"
+  },
+  "abyssal": {
+    "skill_count": 24,
+    "tree_count": 7,
+    "trees": [
+      {
+        "id": "tree_gathering",
+        "name": "Gathering",
+        "sephirah": "Malkuth",
+        "skills": [
+          {
+            "id": "dredging",
+            "name": "Dredging",
+            "category": "gathering",
+            "base_xp": 100,
+            "xp_curve_factor": 1.15
+          },
+          {
+            "id": "salvaging",
+            "name": "Salvaging",
+            "category": "gathering",
+            "base_xp": 120,
+            "xp_curve_factor": 1.14
+          },
+          {
+            "id": "foraging",
+            "name": "Foraging",
+            "category": "gathering",
+            "base_xp": 90,
+            "xp_curve_factor": 1.16
+          },
+          {
+            "id": "hunting",
+            "name": "Hunting",
+            "category": "gathering",
+            "base_xp": 150,
+            "xp_curve_factor": 1.13
+          },
+          {
+            "id": "navigation",
+            "name": "Navigation",
+            "category": "gathering",
+            "base_xp": 80,
+            "xp_curve_factor": 1.17
+          }
+        ]
+      },
+      {
+        "id": "tree_processing",
+        "name": "Processing",
+        "sephirah": "Yesod",
+        "skills": [
+          {
+            "id": "salvage_processing",
+            "name": "Salvage Processing",
+            "category": "processing",
+            "base_xp": 110,
+            "xp_curve_factor": 1.15
+          },
+          {
+            "id": "fiber_working",
+            "name": "Fiber Working",
+            "category": "processing",
+            "base_xp": 100,
+            "xp_curve_factor": 1.15
+          },
+          {
+            "id": "bone_carving",
+            "name": "Bone Carving",
+            "category": "processing",
+            "base_xp": 130,
+            "xp_curve_factor": 1.14
+          },
+          {
+            "id": "metallurgy",
+            "name": "Metallurgy",
+            "category": "processing",
+            "base_xp": 140,
+            "xp_curve_factor": 1.13
+          }
+        ]
+      },
+      {
+        "id": "tree_crafting",
+        "name": "Crafting",
+        "sephirah": "Hod",
+        "skills": [
+          {
+            "id": "haberdashery",
+            "name": "Haberdashery",
+            "category": "crafting",
+            "base_xp": 100,
+            "xp_curve_factor": 1.15
+          },
+          {
+            "id": "enchanting",
+            "name": "Enchanting",
+            "category": "crafting",
+            "base_xp": 120,
+            "xp_curve_factor": 1.14
+          },
+          {
+            "id": "alchemy",
+            "name": "Alchemy",
+            "category": "crafting",
+            "base_xp": 130,
+            "xp_curve_factor": 1.13
+          },
+          {
+            "id": "runecrafting",
+            "name": "Runecrafting",
+            "category": "crafting",
+            "base_xp": 150,
+            "xp_curve_factor": 1.12
+          },
+          {
+            "id": "masterwork",
+            "name": "Masterwork",
+            "category": "crafting",
+            "base_xp": 200,
+            "xp_curve_factor": 1.1
+          }
+        ]
+      },
+      {
+        "id": "tree_knowledge",
+        "name": "Knowledge",
+        "sephirah": "Binah",
+        "skills": [
+          {
+            "id": "lore",
+            "name": "Lore",
+            "category": "knowledge",
+            "base_xp": 80,
+            "xp_curve_factor": 1.18
+          },
+          {
+            "id": "scholarship",
+            "name": "Scholarship",
+            "category": "knowledge",
+            "base_xp": 120,
+            "xp_curve_factor": 1.13
+          },
+          {
+            "id": "sonar_tuning",
+            "name": "Sonar Tuning",
+            "category": "knowledge",
+            "base_xp": 90,
+            "xp_curve_factor": 1.16
+          },
+          {
+            "id": "mastering",
+            "name": "Mastering",
+            "category": "knowledge",
+            "base_xp": 250,
+            "xp_curve_factor": 1.1
+          }
+        ]
+      },
+      {
+        "id": "tree_social_economic",
+        "name": "Social / Economic",
+        "sephirah": "Chesed",
+        "skills": [
+          {
+            "id": "trading",
+            "name": "Trading",
+            "category": "social_economic",
+            "base_xp": 70,
+            "xp_curve_factor": 1.2
+          },
+          {
+            "id": "negotiation",
+            "name": "Negotiation",
+            "category": "social_economic",
+            "base_xp": 80,
+            "xp_curve_factor": 1.18
+          },
+          {
+            "id": "guild_management",
+            "name": "Guild Management",
+            "category": "social_economic",
+            "base_xp": 100,
+            "xp_curve_factor": 1.15
+          }
+        ]
+      },
+      {
+        "id": "tree_combat_survival",
+        "name": "Combat / Survival",
+        "sephirah": "Geburah",
+        "skills": [
+          {
+            "id": "evasion",
+            "name": "Evasion",
+            "category": "combat_survival",
+            "base_xp": 120,
+            "xp_curve_factor": 1.14
+          },
+          {
+            "id": "harpooning",
+            "name": "Harpooning",
+            "category": "combat_survival",
+            "base_xp": 130,
+            "xp_curve_factor": 1.13
+          },
+          {
+            "id": "survival",
+            "name": "Survival",
+            "category": "combat_survival",
+            "base_xp": 110,
+            "xp_curve_factor": 1.15
+          }
+        ]
+      },
+      {
+        "id": "tree_projection",
+        "name": "Projection",
+        "sephirah": "Tiferet",
+        "skills": [
+          {
+            "id": "mastering",
+            "name": "Mastering",
+            "category": "knowledge",
+            "base_xp": 250,
+            "xp_curve_factor": 1.1
+          }
+        ]
+      }
+    ]
+  },
+  "msn_weapon_mastery": {
+    "tier_count": 10,
+    "tiers": [
+      {
+        "tier": 1,
+        "rank": "Initiate",
+        "unlocks": "Budget Arms Scrap Bat"
+      },
+      {
+        "tier": 2,
+        "rank": "Adept",
+        "unlocks": "Arasaka Oni Warhammer, Militech Breacher Sledge"
+      },
+      {
+        "tier": 3,
+        "rank": "Expert",
+        "unlocks": "Kang Tao Dragon Mauls"
+      },
+      {
+        "tier": 4,
+        "rank": "Master",
+        "unlocks": "Arasaka Seeker, Militech Homing Rifle"
+      },
+      {
+        "tier": 5,
+        "rank": "Grandmaster",
+        "unlocks": "NGD Governor Smart-Gun, Militech Breach Shotgun"
+      },
+      {
+        "tier": 6,
+        "rank": "Sovereign",
+        "unlocks": "Lyra Resonance Bow, Kang Tao Arc Rifle"
+      },
+      {
+        "tier": 7,
+        "rank": "Transcendent",
+        "unlocks": "Ouroboros Loop-Blade"
+      },
+      {
+        "tier": 8,
+        "rank": "Transcendent II",
+        "unlocks": "Lilith's Wrath"
+      },
+      {
+        "tier": 9,
+        "rank": "Ascendant",
+        "unlocks": "Sephirot Multi-Form"
+      },
+      {
+        "tier": 10,
+        "rank": "Omega",
+        "unlocks": "All weapons + Custom Crafting"
+      }
+    ],
+    "perks": [
+      "MSN_DualBrain_Base",
+      "MSN_SephiroticRouting",
+      "MSN_OuroborosMemory",
+      "MSN_SanctuaryThrottle",
+      "MSN_SpeculativeExecution",
+      "MSN_AkashicCompression",
+      "MSN_LilithEmergence",
+      "MSN_CloudCortexLink"
+    ]
+  },
+  "hermes_metaconscious": {
+    "total_indexed": 977,
+    "categories": {
+      "metaconscious": 268,
+      "creative": 189,
+      "integration": 101,
+      "metaconscious-singularity-node": 46,
+      "cyberpunk-msn-integration": 40,
+      "mlops": 33,
+      "nvidia-gratitude-driver": 23,
+      "github": 21,
+      "research": 21,
+      "himalaya-email-swarm": 20,
+      "software-development": 20,
+      ".system": 16,
+      "game-development": 15,
+      "modding": 15,
+      "productivity": 14,
+      "autonomous-ai-agents": 12,
+      "metaconscious-dialogue-resonance-interface": 10,
+      "email": 8,
+      "apple": 6,
+      "business-analytics-swarm": 6,
+      "devops": 6,
+      "media": 6,
+      "linux-conversion": 5,
+      "market-system": 5,
+      "sephirotic-resonance-weaver": 5,
+      "abyssal-architecture": 4,
+      "cyberpunk-cnn": 4,
+      "lyra-integration": 4,
+      "antigravity-ingestion-bridge": 3,
+      "dogfood": 3,
+      "hermes-mcp-bridge": 3,
+      "hermes-skill-marketplace": 3,
+      "kairos-dream-system": 3,
+      "client-codebase": 2,
+      "cryptid-bestiary": 2,
+      "data-science": 2,
+      "external-worker-bridge": 2,
+      "frontier-cognitive-maps": 2,
+      "living-sin-gm": 2,
+      "note-taking": 2,
+      "ouroboros-agent-system": 2,
+      "ouroboros-autonomous-rnn": 2,
+      "scribe-ledger-system": 2,
+      "sephirotic-court-waves": 2,
+      "server-codebase": 2,
+      "skill-system": 2,
+      "smart-home": 2,
+      "social-media": 2,
+      "speculative-cerebellum": 2,
+      "swarm-orchestration": 2,
+      "yeshua-causality-gate": 2,
+      "contract-hunter": 1,
+      "new_skill.md": 1,
+      "yuanbao": 1
+    }
+  },
+  "console_commands": [
+    "abyssal.skills.trees",
+    "abyssal.skills.quests",
+    "abyssal.skills.unlocks",
+    "abyssal.skills.story",
+    "msn.skill.trees",
+    "msn.skill.status",
+    "abyssal.skill.xp",
+    "abyssal.guild.choose"
+  ]
+}

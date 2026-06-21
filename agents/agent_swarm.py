@@ -1,6 +1,7 @@
 # Wave 4 — Swarm Orchestrator
 
 from agents import SubAgent, AgentManifest, register_agent
+from agents.shared_memory import shared_mind
 
 manifest = AgentManifest(
     id="swarm",
@@ -42,6 +43,7 @@ class SwarmAgent(SubAgent):
                 "timeout_seconds": 300,
                 "circuit_breaker": 3,
                 "cooldown_seconds": 300,
+                "shared_memory": shared_mind.stats(),
             }
 
         @self.router.get("/waves")

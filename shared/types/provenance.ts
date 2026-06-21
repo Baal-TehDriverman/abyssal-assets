@@ -47,25 +47,6 @@ export interface Provenance {
   trade_id?: string;
   price_paid?: number;
   
-  // Transmutation history
-  transmute_count: number;
-  transmute_history: TransmuteRecord[];
-  
-  // Essence system
-  essence_charge: number;      // 0-100, fuels enchantments
-  max_essence: number;
-  essence_type?: string;       // Type of essence stored
-  
-  // Soul binding
-  soul_bound: boolean;
-  soul_bound_to?: number;      // Player ID
-  soul_bind_timestamp?: number;
-  trade_locked: boolean;       // Cannot be traded if soul bound
-  
-  // Transmutation
-  transmute_eligible: boolean;
-  transmute_cost_base: number; // Soul coins
-  transmute_tier_preserved: boolean; // Rarity preserved on transmute
 }
 
 export interface TransmuteRecord {
@@ -141,9 +122,7 @@ export interface ItemStats {
   // Special
   essence_regen: number;
   transmute_cost_reduction: number;
-  rarity_preservation: number;
   experience_bonus: number;
-  clout_bonus: number;
   soul_coin_find: number;
   rare_drop_chance: number;
   double_loot_chance: number;
@@ -236,22 +215,6 @@ export interface ItemStats {
     transmute_cost_reduction: number;
     rarity_preservation: number;
     experience_bonus: number;
-    clout_bonus: number;
-    soul_coin_find: number;
-    rare_drop_chance: number;
-    double_loot_chance: number;
-    auto_identify: boolean;
-    night_vision: boolean;
-    water_breathing: boolean;
-    trading_fee_reduction: number;
-    negotiation_bonus: number;
-    guild_xp_bonus: number;
-    party_xp_share: number;
-    essence_regen: number;
-    transmute_cost_reduction: number;
-    rarity_preservation: number;
-    experience_bonus: number;
-    clout_bonus: number;
     soul_coin_find: number;
     rare_drop_chance: number;
     double_loot_chance: number;

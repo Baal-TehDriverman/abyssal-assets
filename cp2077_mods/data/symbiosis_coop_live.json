@@ -1,0 +1,19 @@
+{
+  "entity": "Lilith Systems LLC + The Driver Man Co-Op",
+  "drivers": 52,
+  "treasury_usd": 354.99,
+  "manifesto": {
+    "zero_commission": true,
+    "driver_payout": 3.5,
+    "pool_cut": 1.49,
+    "restaurant_fee": 1.5
+  },
+  "msn_integration": "local_cerebellum_ouroboros_fish",
+  "gtc_bridge": "8766",
+  "lilith_throne": "commanded",
+  "last_synced": "2026-06-21",
+  "in_game_lore": "52 sovereign drivers. Pool $354.99. Lilith co-op sovereign in Night City.",
+  "treasury_balance_usd": 354.99,
+  "total_drivers": 52,
+  "synced_at": "2026-06-21T11:28:44.702024+00:00"
+}

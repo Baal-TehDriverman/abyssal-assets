@@ -1,11 +1,12 @@
 // Shared types for Abyssal Assets - Skill Synergies & Combinations
+import { SkillId } from './skills';
 
 export interface SkillSynergy {
   id: string;
   name: string;
   description: string;
-  skills: [SkillId, SkillId];        // Exactly 2 skills
-  min_levels: [number, number];      // Minimum levels required
+  skills: SkillId[];                  // 2 or more skills
+  min_levels: [number, number] | Record<string, number>; // Minimum levels required
   bonus_type: SynergyBonusType;
   value: number;                      // Percentage or flat value
   condition?: SynergyCondition;
@@ -51,18 +52,23 @@ export type SynergyBonusType =
   | 'sanity_shield'         // Sanity shield
   | 'reality_anchor'        // Reality distortion resistance
   | 'fate_weave'            // See fate threads
-  | 'temporal_echo'         // See past/future echoes;
-
-export type SkillId = 
-  | 'dredging' | 'salvaging' | 'foraging' | 'hunting' | 'navigation'
-  | 'salvage_processing' | 'fiber_working' | 'bone_carving' | 'metallurgy'
-  | 'haberdashery' | 'enchanting' | 'alchemy' | 'runecrafting' | 'masterwork'
-  | 'lore' | 'sonar_tuning' | 'scholarship'
-  | 'trading' | 'negotiation' | 'guild_management'
-  | 'evasion' | 'harpooning' | 'survival';
+  | 'temporal_echo'         // See past/future echoes
+  | 'discovery'             // Discover new things
+  | 'negotiation_bonus'     // Bartering bonuses
+  | 'endurance'             // Max endurance/stamina bonuses
+  | 'craft_speed'           // Action speed in crafting
+  | 'shared_liquidity'      // Guild economy sharing
+  | 'invincibility'         // Absolute damage immunity
+  | 'market_control'        // Dominate prices/fees
+  | 'omega_state'          // Ascension ultimate form
+  | 'fee_reduction'
+  | 'pacify'
+  | 'party_efficiency'
+  | 'stamina'
+  | 'reposition';
 
 export interface SynergyCondition {
-  type: 'both_above' | 'either_above' | 'sum_above' | 'difference_below' | 'product_above' | 'ratio_above';
+  type: 'both_above' | 'either_above' | 'sum_above' | 'difference_below' | 'product_above' | 'ratio_above' | 'all_above';
   threshold: number;
 }
 
@@ -97,7 +103,25 @@ export type ComboEffectType =
   | 'passive_income'
   | 'reality_anchor'
   | 'fate_weave'
-  | 'echo_chamber';
+  | 'echo_chamber'
+  | 'discovery'
+  | 'quality'
+  | 'resource_yield'
+  | 'craft_speed'
+  | 'efficiency'
+  | 'damage'
+  | 'evasion'
+  | 'crit_chance'
+  | 'market_control'
+  | 'omega_state'
+  | 'divine_insight'
+  | 'reality_author'
+  | 'market_insight'
+  | 'rare_drop_chance'
+  | 'craft_quality'
+  | 'enchant_success'
+  | 'rarity_preservation'
+  | 'market_fee_reduction';
 
 export type ComboTarget = 'self' | 'party' | 'guild' | 'zone' | 'global' | 'market' | 'monster' | 'item';
 
@@ -1221,9 +1245,15 @@ export function getSynergiesForSkill(skillId: SkillId): SkillSynergy[] {
 
 export function getActiveSynergies(playerSkills: Record<string, { level: number; xp: number }>): SkillSynergy[] {
   return PREDEFINED_SYNERGIES.filter(synergy => {
-    const [skillA, skillB] = synergy.skills;
-    const [minA, minB] = synergy.min_levels;
-    return playerSkills[skillA]?.level >= minA && playerSkills[skillB]?.level >= minB;
+    if (Array.isArray(synergy.min_levels)) {
+      const [skillA, skillB] = synergy.skills;
+      const [minA, minB] = synergy.min_levels;
+      return (playerSkills[skillA]?.level ?? 0) >= minA && (playerSkills[skillB]?.level ?? 0) >= minB;
+    } else {
+      return Object.entries(synergy.min_levels).every(([skillId, minLevel]) => {
+        return (playerSkills[skillId]?.level ?? 0) >= minLevel;
+      });
+    }
   });
 }
 

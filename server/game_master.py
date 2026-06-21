@@ -502,6 +502,8 @@ class LivingSin:
             if edata.get("is_active", False) and edata.get("expires_at", 0) > now:
                 self.summoned_entities[eid] = SummonedEntity(**edata)
         for alog in data.get("action_log", []):
+            if "type" in alog and "action_type" not in alog:
+                alog["action_type"] = alog.pop("type")
             self.action_log.append(GMAction(**alog))
 
     def activate(self, gm_user_id: int):

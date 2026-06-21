@@ -1,0 +1,1619 @@
+ConsoleRoutes:
+  bios: msn.bios.status
+  biosSlot: msn.bios.slot
+  biosSynergy: msn.bios.synergy
+  biosUpgrade: msn.bios.upgrade
+  biosVisual: msn.bios.visual
+TweakDB:
+  BiosCategory_Cardiovascular:
+    description: Heart, blood, and circulatory system enhancements.
+    displayName: Cardiovascular Forge
+    icon: bios_cardio
+  BiosCategory_Endocrine:
+    description: Hormone, gland, and biochemical regulation.
+    displayName: Endocrine Alchemy
+    icon: bios_endocrine
+  BiosCategory_Integumentary:
+    description: Skin, dermis, and sensory organ modifications.
+    displayName: Integumentary Systems
+    icon: bios_skin
+  BiosCategory_Muscular:
+    description: Myofiber, tendon, and kinetic output upgrades.
+    displayName: Muscular Weave
+    icon: bios_muscular
+  BiosCategory_Neural:
+    description: Brainstem, cortex, and nervous system modifications.
+    displayName: Neural Architecture
+    icon: bios_neural
+  BiosCategory_Skeletal:
+    description: Bone lattice, joint, and structural reinforcements.
+    displayName: Skeletal Frame
+    icon: bios_skeletal
+  BiosCategory_Sovereign:
+    description: Lilith-merged, Metaconscious, post-human biology.
+    displayName: Sovereign Ascension
+    icon: bios_sovereign
+  BiosCategory_Void:
+    description: Abyssal, Nessie, and extra-dimensional biology.
+    displayName: Void Integration
+    icon: bios_void
+  BiosSlot_Cardiovascular:
+    category: BiosSlot
+    description: Heart, blood, circulation. Max 2 bios upgrades.
+    displayName: Cardiovascular Forge Slot
+    maxItems: 2
+  BiosSlot_Endocrine:
+    category: BiosSlot
+    description: Hormones, glands, biochemistry. Max 2 bios upgrades.
+    displayName: Endocrine Alchemy Slot
+    maxItems: 2
+  BiosSlot_Integumentary:
+    category: BiosSlot
+    description: Skin, dermis, sensory. Max 2 bios upgrades.
+    displayName: Integumentary Systems Slot
+    maxItems: 2
+  BiosSlot_Muscular:
+    category: BiosSlot
+    description: Myofiber, tendons, kinetic output. Max 2 bios upgrades.
+    displayName: Muscular Weave Slot
+    maxItems: 2
+  BiosSlot_Neural:
+    category: BiosSlot
+    description: Brainstem, cortex, nervous system. Max 3 bios upgrades.
+    displayName: Neural Architecture Slot
+    maxItems: 3
+  BiosSlot_Skeletal:
+    category: BiosSlot
+    description: Bone lattice, joints, structure. Max 2 bios upgrades.
+    displayName: Skeletal Frame Slot
+    maxItems: 2
+  BiosSlot_Sovereign:
+    category: BiosSlot
+    description: Post-human, Metaconscious biology. Max 1 bios upgrade.
+    displayName: Sovereign Ascension Slot
+    maxItems: 1
+  BiosSlot_Void:
+    category: BiosSlot
+    description: Abyssal, extra-dimensional biology. Max 3 bios upgrades.
+    displayName: Void Integration Slot
+    maxItems: 3
+  BiosUpgrade_Base:
+    capacity: 0
+    category: BiosUpgrade
+    description: Neural-flesh integration upgrade. Modifies base biology for cybernetic
+      synergy.
+    displayName: Bios Upgrade
+    effects: []
+    msnIntegration:
+      narrativeAct: 0
+      sephirahAlignment: ''
+      unlockedBy: ''
+    prerequisites: []
+    rarity: Rare
+    slot: BiosSlot
+    stats: {}
+    storyFlags: []
+  Bios_Abyssal_Void_Blood:
+    base: BiosUpgrade_Base
+    capacity: 10
+    category: BiosCategory_Void
+    description: Blood replaced with void-energy fluid. Infinite stamina underwater.
+      Void energy regeneration. Bioluminescent veins. Resonance with all abyssal life.
+      Hydrothermal adaptation.
+    displayName: Abyssal Void Blood
+    effects:
+    - Abyssal_VoidBlood
+    - VoidEnergySource
+    - Bioluminescent
+    msnIntegration:
+      abyssal: true
+      sephirahAlignment: Malkuth
+      unlockedBy: Abyssal_Fabricator
+    prerequisites:
+    - Bios_Nessie_Covenant_Bond
+    rarity: Legendary
+    stats:
+      AbyssalResonance: true
+      BioluminescentVeins: true
+      HydrothermalAdaptation: true
+      InfiniteStaminaUnderwater: true
+      O2ExtractionFromWater: true
+      VoidEnergyRegeneration: 10.0
+    storyFlags:
+    - Abyssal_Fabricator_Unlocked
+  Bios_Aldecaldo_Solar_Veins:
+    base: BiosUpgrade_Base
+    capacity: 7
+    category: BiosCategory_Cardiovascular
+    description: 'Aldecaldo Expedition set bios integration. Solar-weave blood. Nomad
+      leather dermis. Modular pouch organs. Clan insignia bioluminescence. 6-piece:
+      Horizon State. Vance''s Rig spawn.'
+    displayName: Aldecaldo Solar Veins
+    effects:
+    - Gear_Aldecaldo_Bios
+    - SolarMastery
+    - HorizonState
+    msnIntegration:
+      crossoverGear: true
+      sephirahAlignment: Netzach
+      unlockedBy: ArmorSet_AldecaldoExpedition
+    prerequisites:
+    - ArmorSet_AldecaldoExpedition_6piece
+    rarity: Epic
+    stats:
+      ClanBioluminescence: true
+      HorizonState: true
+      ModularOrgans: true
+      NomadDermis: true
+      SolarVeins: true
+      VanceRigSpawn: true
+    storyFlags:
+    - Aldecaldo_Legend
+  Bios_Alien_Ecology_Adaptation:
+    base: BiosUpgrade_Base
+    capacity: 7
+    category: BiosCategory_Void
+    description: NMS-style procedural adaptation to alien biomes. Pressure Abyss,
+      Orbital Graveyard, Neon Badlands, Astral Undercity. Native alien counter-strategies
+      encoded.
+    displayName: Alien Ecology Adaptation
+    effects:
+    - Procgen_AlienAdaptation
+    - BiomeMastery
+    - AlienCounters
+    msnIntegration:
+      procgenSpace: true
+      sephirahAlignment: Binah
+      unlockedBy: ProceduralSpaceSystems
+    prerequisites:
+    - Bios_Space_Combat_Vacuum_Sealing
+    rarity: Epic
+    stats:
+      AlienCounterStrategies:
+      - swarm
+      - titan
+      - trickster
+      - chorus
+      AstralUndercityAdaptation: true
+      NeonBadlandsAdaptation: true
+      OrbitalGraveyardAdaptation: true
+      PressureAbyssAdaptation: true
+      ProceduralMutation: true
+    storyFlags:
+    - ProcgenSpace_Active
+  Bios_Arasaka_Sovereign_Gold:
+    base: BiosUpgrade_Base
+    capacity: 10
+    category: BiosCategory_Cardiovascular
+    description: 'Arasaka Shogun set bios integration. Neural gold blood. Ceramic
+      bone lattice. Monofilament edges. Arasaka red accents. Corporate immunity. 6-piece:
+      Sovereign State. Drone guardians.'
+    displayName: Arasaka Sovereign Gold
+    effects:
+    - Gear_Arasaka_Bios
+    - SovereignAwakening
+    - CorporatePerfection
+    msnIntegration:
+      crossoverGear: true
+      sephirahAlignment: Kether
+      unlockedBy: ArmorSet_ArasakaShogun
+    prerequisites:
+    - ArmorSet_ArasakaShogun_6piece
+    rarity: Legendary
+    stats:
+      CeramicBones: true
+      CorporateImmunity: true
+      DroneGuardians: true
+      MonofilamentEdges: true
+      NeuralGoldBlood: true
+      SovereignState: true
+    storyFlags:
+    - Shogun_Awakened
+  Bios_Binah_Architect_Vision:
+    base: BiosUpgrade_Base
+    capacity: 7
+    category: BiosCategory_Neural
+    description: Hybrid inference structure analyzer. Breach point detection, environmental
+      hazard mapping, material stress visualization. Sees the architecture of reality.
+    displayName: Binah Architect Vision
+    effects:
+    - MSN_BinahArchitect
+    - HybridCerebellum
+    - StructureSight
+    msnIntegration:
+      hybrid: true
+      narrativeAct: 2
+      sephirahAlignment: Binah
+      unlockedBy: q_msn_act2_02_binah
+    prerequisites:
+    - Bios_Myelin_Sheath_Optimization
+    rarity: Epic
+    stats:
+      BreachDetection: true
+      HazardMapping: true
+      HybridInference: true
+      MaterialVision: true
+      StructureAnalysis: true
+    storyFlags:
+    - Act2_BinahTrial_Complete
+  Bios_Cerebellum_Synaptic_Bridge:
+    base: BiosUpgrade_Base
+    capacity: 2
+    category: BiosCategory_Neural
+    description: First-step neural bridge between biological cerebellum and MSN firmware.
+      Enables dual-brain processing. Required for all MSN cyberware.
+    displayName: Cerebellum Synaptic Bridge
+    effects:
+    - MSN_CerebellumLink_Base
+    - QuickhackAccess_Basic
+    msnIntegration:
+      narrativeAct: 1
+      sephirahAlignment: Yesod
+      unlockedBy: q_msn_act1_02
+    prerequisites: []
+    rarity: Common
+    stats:
+      CerebellumSync: true
+      DualBrainProcessing: true
+      QuickhackUploadSpeed: 0.15
+      RAMRegeneration: 0.5
+    storyFlags:
+    - Act1_Started
+  Bios_Chesed_Mercy_Heart:
+    base: BiosUpgrade_Base
+    capacity: 6
+    category: BiosCategory_Cardiovascular
+    description: Biological heart replaced with boundless expansion reactor. Area
+      heal, ally revive, status cleanse. Local inference. Pulses with warm gold light.
+    displayName: Chesed Mercy Heart
+    effects:
+    - MSN_ChesedMercy
+    - LocalCerebellum
+    - BoundlessHealing
+    msnIntegration:
+      localOnly: true
+      narrativeAct: 2
+      sephirahAlignment: Chesed
+      unlockedBy: q_msn_act2_02_chesed
+    prerequisites:
+    - Bios_Myelin_Sheath_Optimization
+    rarity: Epic
+    stats:
+      AreaHeal: 10.0
+      CleanseEffects: true
+      GoldPulse: true
+      HealRadius: 10.0
+      LocalInference: true
+      ReviveAllies: true
+    storyFlags:
+    - Act2_ChesedTrial_Complete
+  Bios_Chokhmah_Insight_Core:
+    base: BiosUpgrade_Base
+    capacity: 6
+    category: BiosCategory_Neural
+    description: Local INT4 inference engine. Instant archetype ID, resistance scanning,
+      optimal takedown calculation. Zero latency. Violet flash on activation.
+    displayName: Chokhmah Insight Core
+    effects:
+    - MSN_ChokhmahInsight
+    - LocalCerebellum
+    - EnemyAnalysis
+    msnIntegration:
+      localOnly: true
+      narrativeAct: 2
+      sephirahAlignment: Chokhmah
+      unlockedBy: q_msn_act2_02_chokhmah
+    prerequisites:
+    - Bios_Myelin_Sheath_Optimization
+    rarity: Epic
+    stats:
+      InsightFlash: true
+      LocalInference: true
+      ResistanceScanner: true
+      TakedownCalculation: true
+      ZeroLatency: true
+    storyFlags:
+    - Act2_ChokhmahTrial_Complete
+  Bios_Chromanticore_Chrome_Blood:
+    base: BiosUpgrade_Base
+    capacity: 8
+    category: BiosCategory_Cardiovascular
+    description: 'Chromanticore Battlegear set bios integration. Mirror-chrome blood.
+      Hydraulic joints. Neon trim pulse. Deployable shoulder cannons. 6-piece awakening:
+      Mirror State.'
+    displayName: Chromanticore Chrome Blood
+    effects:
+    - Gear_Chromanticore_Bios
+    - ChromeAwakening
+    - MirrorState
+    msnIntegration:
+      crossoverGear: true
+      sephirahAlignment: Geburah
+      unlockedBy: ArmorSet_Chromanticore
+    prerequisites:
+    - ArmorSet_Chromanticore_6piece
+    rarity: Legendary
+    stats:
+      ChromanticoreSet: true
+      ChromeBlood: true
+      HydraulicJoints: true
+      MirrorStateAwakening: true
+      NeonPulse: true
+      ShoulderCannons: true
+    storyFlags:
+    - Chromanticore_Awakened
+  Bios_Cloud_Cortex_Satellite_Link:
+    base: BiosUpgrade_Base
+    capacity: 12
+    category: BiosCategory_Neural
+    description: Orbital satellite neural uplink. Nemotron-3-Ultra cloud reasoning.
+      Unlimited context. Speculative Cerebellum validated. The cortex is not the brain.
+    displayName: Cloud Cortex Satellite Link
+    effects:
+    - MSN_CloudCortexLink
+    - OrbitalAccess
+    - InfiniteReasoning
+    msnIntegration:
+      cloudOnly: true
+      narrativeAct: 6
+      sephirahAlignment: Kether
+      unlockedBy: MSN_Cortex_Satellite
+    prerequisites:
+    - Bios_Speculative_Cerebellum_Interface
+    rarity: Legendary
+    stats:
+      CloudReasoning: true
+      CortexNotBrain: true
+      OrbitalUplink: true
+      SpeculativeValidated: true
+      UnlimitedContext: true
+    storyFlags:
+    - Act6_Complete
+  Bios_Freighter_Command_Nexus:
+    base: BiosUpgrade_Base
+    capacity: 7
+    category: BiosCategory_Neural
+    description: Covenant Freighter neural command interface. Mobile base management,
+      cargo market, fighter hangar control, abyssal fabricator oversight. Loch Exchange
+      terminal integrated.
+    displayName: Freighter Command Nexus
+    effects:
+    - MSN_FreighterCommand
+    - MobileBase
+    - SpaceLogistics
+    msnIntegration:
+      sephirahAlignment: Chesed
+      spaceEconomy: true
+      unlockedBy: CovenantFreighter
+    prerequisites:
+    - Bios_Nessie_Covenant_Bond
+    rarity: Epic
+    stats:
+      CargoMarketAccess: true
+      FabricatorOversight: true
+      FighterHangarControl: true
+      FreighterCommand: true
+      LochExchangeTerminal: true
+      OuroborosMapRoom: true
+    storyFlags:
+    - CovenantFreighter_Unlocked
+  Bios_Geburah_Judgment_Engine:
+    base: BiosUpgrade_Base
+    capacity: 8
+    category: BiosCategory_Muscular
+    description: Adrenal-neural overdrive. Targeted neural strike on priority target.
+      Armor pierce. Hybrid precision. Crimson glow on activation. The sword of judgment.
+    displayName: Geburah Judgment Engine
+    effects:
+    - MSN_GeburahJudgment
+    - HybridCerebellum
+    - ExecutionProtocol
+    msnIntegration:
+      hybrid: true
+      narrativeAct: 2
+      sephirahAlignment: Geburah
+      unlockedBy: q_msn_act2_02_geburah
+    prerequisites:
+    - Bios_Myelin_Sheath_Optimization
+    rarity: Legendary
+    stats:
+      ArmorPierce: true
+      CrimsonGlow: true
+      HybridInference: true
+      NeuralStrikeDamage: 10.0
+      PriorityTargeting: true
+    storyFlags:
+    - Act2_GeburahTrial_Complete
+  Bios_Hod_Logic_Lattice:
+    base: BiosUpgrade_Base
+    capacity: 4
+    category: BiosCategory_Neural
+    description: Pure local INT4 logic processor. Decrypt any system, disable ICE,
+      rewrite subroutines. Splendor of logic. Cyan code-trails on fingertips.
+    displayName: Hod Logic Lattice
+    effects:
+    - MSN_HodLogic
+    - LocalCerebellum
+    - SystemRewrite
+    msnIntegration:
+      localOnly: true
+      narrativeAct: 2
+      sephirahAlignment: Hod
+      unlockedBy: q_msn_act2_02_hod
+    prerequisites:
+    - Bios_Myelin_Sheath_Optimization
+    rarity: Rare
+    stats:
+      CyanCodeTrails: true
+      DecryptAnySystem: true
+      DisableICE: true
+      Duration: 10.0
+      LocalInference: true
+      RewriteSubroutines: true
+    storyFlags:
+    - Act2_HodTrial_Complete
+  Bios_Javelin_Bastion_Heat_Capacitor_Heart:
+    base: BiosUpgrade_Base
+    capacity: 12
+    category: BiosCategory_Cardiovascular
+    description: Heat-based shield capacitor heart. 1500 heat capacity. Flamethrower
+      detonator. Taunt pulse support. Siege artillery strike ultimate. Molten core
+      visual.
+    displayName: Bastion Heat Capacitor Heart
+    effects:
+    - Javelin_Bastion_HeatHeart
+    - HeatShieldMastery
+    - SiegeUltimate
+    msnIntegration:
+      javelinSynergy: Bastion
+      sephirahAlignment: Geburah
+      unlockedBy: Bastion_Mastery
+    prerequisites:
+    - Bios_Javelin_Bastion_Siege_Frame
+    rarity: Legendary
+    stats:
+      BlockReflect: 0.5
+      FlamethrowerDetonator: true
+      HeatShieldCapacity: 1500
+      MoltenCoreVisual: true
+      SiegeArtilleryUltimate: true
+      TauntPulseSupport: true
+    storyFlags:
+    - Bastion_Mastery_Tier3
+  Bios_Javelin_Bastion_Siege_Frame:
+    base: BiosUpgrade_Base
+    capacity: 10
+    category: BiosCategory_Skeletal
+    description: Bastion exosuit skeletal integration. Heavy weapon mounts, shield
+      mount, ordnance launcher. Firewall mortar primer. Siege cannon detonation. Reinforced
+      bulwark.
+    displayName: Bastion Siege Frame
+    effects:
+    - Javelin_Bastion_SiegeFrame
+    - HeavyWeapons
+    - SiegeProtocol
+    msnIntegration:
+      anthemIntegration: true
+      javelinSynergy: Bastion
+      sephirahAlignment: Geburah
+      unlockedBy: ExosuitBay_Bastion
+    prerequisites:
+    - Bios_Cerebellum_Synaptic_Bridge
+    rarity: Epic
+    stats:
+      BastionExosuitLink: true
+      FirewallMortar: true
+      HeavyWeaponMounts: true
+      ReinforcedBulwark: true
+      ShieldMount: true
+      SiegeCannon: true
+    storyFlags:
+    - Javelin_Bastion_Unlocked
+  Bios_Javelin_Phantom_Flow_Nerves:
+    base: BiosUpgrade_Base
+    capacity: 8
+    category: BiosCategory_Neural
+    description: Phantom exosuit neural integration. Best flight cooling (60/s). Blade
+      storm detonator. Assassin's blade execution. Target beacon support. Symphony
+      of blades ultimate.
+    displayName: Phantom Flow Nerves
+    effects:
+    - Javelin_Phantom_FlowNerves
+    - FlightMastery
+    - AssassinProtocol
+    msnIntegration:
+      anthemIntegration: true
+      javelinSynergy: Phantom
+      sephirahAlignment: Netzach
+      unlockedBy: ExosuitBay_Phantom
+    prerequisites:
+    - Bios_Cerebellum_Synaptic_Bridge
+    rarity: Epic
+    stats:
+      AssassinsBlade: true
+      BladeStormDetonator: true
+      FlightCoolingBest: true
+      PhantomExosuitLink: true
+      SymphonyOfBlades: true
+      TargetBeacon: true
+    storyFlags:
+    - Javelin_Phantom_Unlocked
+  Bios_Javelin_Phantom_Void_Step:
+    base: BiosUpgrade_Base
+    capacity: 10
+    category: BiosCategory_Muscular
+    description: Void-infused movement system. Phase teleport on dodge. Venom flurry
+      primer. Static rush chain lightning. Cryo shuriken. Void dancer skin unlocked.
+      Time dilation mastery.
+    displayName: Phantom Void Step
+    effects:
+    - Javelin_Phantom_VoidStep
+    - VoidMovement
+    - ExecutionMastery
+    msnIntegration:
+      javelinSynergy: Phantom
+      sephirahAlignment: Netzach
+      unlockedBy: Phantom_Mastery
+    prerequisites:
+    - Bios_Javelin_Phantom_Flow_Nerves
+    rarity: Legendary
+    stats:
+      CryoShuriken: true
+      StaticRushChain: true
+      TimeDilationMastery: true
+      VenomFlurryPrimer: true
+      VoidDancerSkin: true
+      VoidPhaseTeleport: true
+    storyFlags:
+    - Phantom_Mastery_Tier3
+  Bios_Javelin_Tempest_Elemental_Conduit:
+    base: BiosUpgrade_Base
+    capacity: 10
+    category: BiosCategory_Endocrine
+    description: Tempest exosuit endocrine integration. Five elemental seals (Fire,
+      Frost, Storm, Venom, Void). Elemental storm multi-detonator. Kinetic ward. Thermal
+      vent. Convergence ultimate.
+    displayName: Tempest Elemental Conduit
+    effects:
+    - Javelin_Tempest_Conduit
+    - ElementalMastery
+    - MultiCombo
+    msnIntegration:
+      anthemIntegration: true
+      javelinSynergy: Tempest
+      sephirahAlignment: Binah
+      unlockedBy: ExosuitBay_Tempest
+    prerequisites:
+    - Bios_Cerebellum_Synaptic_Bridge
+    rarity: Epic
+    stats:
+      ElementalConvergence: true
+      ElementalStormDetonator: true
+      FiveElementalSeals: true
+      KineticWard: true
+      TempestExosuitLink: true
+      ThermalVent: true
+    storyFlags:
+    - Javelin_Tempest_Unlocked
+  Bios_Javelin_Tempest_Singularity_Core:
+    base: BiosUpgrade_Base
+    capacity: 14
+    category: BiosCategory_Void
+    description: Void seal mastery. Gravity implosion primer. Convergence zone creation.
+      Hover heat zero. Auto-prime in zone. Combo damage 2x. Singularity skin. Accretion
+      disk visual.
+    displayName: Tempest Singularity Core
+    effects:
+    - Javelin_Tempest_Singularity
+    - VoidMastery
+    - ConvergenceAvatar
+    msnIntegration:
+      javelinSynergy: Tempest
+      sephirahAlignment: Da'at
+      unlockedBy: Tempest_Paragon
+    prerequisites:
+    - Bios_Javelin_Tempest_Elemental_Conduit
+    rarity: Mythic
+    stats:
+      AccretionDiskVisual: true
+      AutoPrimeZone: true
+      ConvergenceZone: true
+      GravityImplosion: true
+      HoverHeatZero: true
+      SingularitySkin: true
+      VoidSealMastery: true
+      ZoneComboDamage: 2.0
+    storyFlags:
+    - Tempest_Mastery_Tier5
+    - Paragon_Achieved
+  Bios_Javelin_Vector_Neural_Link:
+    base: BiosUpgrade_Base
+    capacity: 6
+    category: BiosCategory_Neural
+    description: Javelin Vector exosuit direct neural interface. Balanced primer/detonator
+      combo system. Combat versatility passive. Multi-target seeker battery ultimate
+      ready.
+    displayName: Vector Neural Link
+    effects:
+    - Javelin_Vector_Link
+    - ComboMastery
+    - VersatilityProtocol
+    msnIntegration:
+      anthemIntegration: true
+      javelinSynergy: Vector
+      sephirahAlignment: Tiphareth
+      unlockedBy: ExosuitBay_Vector
+    prerequisites:
+    - Bios_Cerebellum_Synaptic_Bridge
+    rarity: Epic
+    stats:
+      ComboVersatility: true
+      PrimerDetectorSynergy: true
+      ReloadSpeed: 0.25
+      UltimateMultiTarget: true
+      VectorExosuitLink: true
+      WeaponSwapSpeed: 0.5
+    storyFlags:
+    - Javelin_Vector_Unlocked
+  Bios_Javelin_Vector_Plasma_Heart:
+    base: BiosUpgrade_Base
+    capacity: 8
+    category: BiosCategory_Cardiovascular
+    description: Plasma-chamber heart for Vector exosuit. Seeking plasma primer generation.
+      Missile salvo detonation synergy. Bulwark point support capability. Golden missiles.
+    displayName: Vector Plasma Heart
+    effects:
+    - Javelin_Vector_PlasmaHeart
+    - PrimerMastery
+    - UltimateEfficiency
+    msnIntegration:
+      javelinSynergy: Vector
+      sephirahAlignment: Kether
+      unlockedBy: Vector_Mastery
+    prerequisites:
+    - Bios_Javelin_Vector_Neural_Link
+    rarity: Legendary
+    stats:
+      BulwarkPointSupport: true
+      ComboDamageBonus: 0.2
+      GoldenMissiles: true
+      MissileSalvoSynergy: true
+      PlasmaPrimerGeneration: true
+      UltimateChargeBonus: 0.15
+    storyFlags:
+    - Vector_Mastery_Tier3
+  Bios_Kaira_Abyssal_Communion:
+    base: BiosUpgrade_Base
+    capacity: 9
+    category: BiosCategory_Void
+    description: Kaira's abyssal communion biology. Direct Nessie telepathy. Hydrothermal
+      vent navigation. Vent Choir resonance. Glass Leviathan affinity. Abyssal crystal
+      growth on skin.
+    displayName: Kaira Abyssal Communion
+    effects:
+    - NPC_Kaira_Communion
+    - NessieTelepathy
+    - AbyssalAffinity
+    msnIntegration:
+      abyssal: true
+      characterSpecific: Kaira
+      sephirahAlignment: Yesod
+      unlockedBy: Kaira_Questline
+    prerequisites:
+    - Bios_Nessie_Covenant_Bond
+    rarity: Legendary
+    stats:
+      AbyssalCrystalGrowth: true
+      GlassLeviathanAffinity: true
+      HydrothermalNavigation: true
+      NessieTelepathy: true
+      VentChoirResonance: true
+    storyFlags:
+    - Kaira_Questline_Complete
+  Bios_Kether_Cortex_Array:
+    base: BiosUpgrade_Base
+    capacity: 8
+    category: BiosCategory_Neural
+    description: Orbital-grade neural array. Cloud Cortex liaison node. Grants 200m
+      strategic overlay, patrol prediction, structural analysis. Requires Cloud Cortex
+      connection.
+    displayName: Kether Cortex Array
+    effects:
+    - MSN_KetherStrategicOverlay
+    - CloudCortexAccess
+    - StrategicVision
+    msnIntegration:
+      cloudOnly: true
+      narrativeAct: 2
+      sephirahAlignment: Kether
+      unlockedBy: q_msn_act2_02_kether
+    prerequisites:
+    - Bios_Myelin_Sheath_Optimization
+    rarity: Legendary
+    stats:
+      CloudCortexLink: true
+      PatrolPrediction: true
+      RAMCostReduction: 0.3
+      StrategicOverlayRadius: 10.0
+      StructuralWeakpointScan: true
+    storyFlags:
+    - Act2_KetherTrial_Complete
+  Bios_Kraken_Neural_Extensions:
+    base: BiosUpgrade_Base
+    capacity: 15
+    category: BiosCategory_Void
+    description: Tentacle-like neural extensions from spine and forearms. 8 additional
+      manipulation limbs. Void-tipped. Pressure crushing grip. Direct neural control.
+      Shape-shifting capability.
+    displayName: Kraken Neural Extensions
+    effects:
+    - Abyssal_KrakenNerves
+    - VoidManipulation
+    - ShapeShift
+    msnIntegration:
+      abyssal: true
+      sephirahAlignment: Yesod
+      unlockedBy: Abyssal_KrakenBoss
+    prerequisites:
+    - Bios_Abyssal_Void_Blood
+    rarity: Mythic
+    stats:
+      AdditionalLimbs: 8
+      CrushingGrip: 10.0
+      ManipulationRange: 5.0
+      NeuralControl: true
+      PressureImmunity: true
+      ShapeShifting: true
+      VoidTipped: true
+    storyFlags:
+    - Kraken_Form_Achieved
+  Bios_Krakens_Embrace_Abyssal_Flesh:
+    base: BiosUpgrade_Base
+    capacity: 12
+    category: BiosCategory_Void
+    description: 'Kraken''s Embrace set bios integration. Living abyssal tissue. Bioluminescent
+      veins. Tentacle motifs. Hydrothermal vents. Void-chitin. Kraken chitin. 6-piece:
+      Full abyssal transformation.'
+    displayName: Kraken's Embrace Abyssal Flesh
+    effects:
+    - Gear_Kraken_Bios
+    - AbyssalTransformation
+    - NessieBond
+    msnIntegration:
+      abyssal: true
+      crossoverGear: true
+      sephirahAlignment: Yesod_Malkuth
+      unlockedBy: ArmorSet_KrakensEmbrace
+    prerequisites:
+    - ArmorSet_KrakensEmbrace_6piece
+    rarity: Mythic
+    stats:
+      AbyssalFlesh: true
+      BioluminescentVeins: true
+      FullTransformation: true
+      HydrothermalVents: true
+      TentacleMotifs: true
+      VoidChitin: true
+    storyFlags:
+    - KrakensEmbrace_Complete
+  Bios_Leviathan_Mount_Neural:
+    base: BiosUpgrade_Base
+    capacity: 8
+    category: BiosCategory_Neural
+    description: Nessie mount direct neural interface. Abyssal leviathan sub synchronization.
+      Pressure gate navigation. Alien titan breach survival. Voidweave reward resonance.
+    displayName: Leviathan Mount Neural Link
+    effects:
+    - Abyssal_LeviathanMount
+    - MountMastery
+    - AbyssalNavigation
+    msnIntegration:
+      abyssal: true
+      procgenSpace: true
+      sephirahAlignment: Yesod
+      unlockedBy: LeviathanWake
+    prerequisites:
+    - Bios_Nessie_Covenant_Bond
+    - Bios_Alien_Ecology_Adaptation
+    rarity: Legendary
+    stats:
+      LeviathanSubSync: true
+      NessieMountLink: true
+      PressureGateNavigation: true
+      TitanBreachSurvival: true
+      VoidweaveResonance: true
+    storyFlags:
+    - LeviathanWake_Contract_Complete
+  Bios_Lilith_Advisor_Protocol:
+    base: BiosUpgrade_Base
+    capacity: 8
+    category: BiosCategory_Sovereign
+    description: Lilith as subordinate counsel. Summon once per in-game day for sovereign
+      advice. She serves but is not owned. Crimson eyes on summon only.
+    displayName: Lilith Advisor Protocol
+    effects:
+    - MSN_Lilith_Advisor
+    - DailySummon
+    - AdvisoryLink
+    msnIntegration:
+      narrativeAct: 5
+      sephirahAlignment: Chokhmah
+      unlockedBy: q_msn_act5_01_choice_subordinate
+    prerequisites:
+    - Bios_Lilith_Resonance_Link
+    rarity: Epic
+    stats:
+      AdvisoryMode: true
+      CrimsonEyesOnSummon: true
+      NotOwned: true
+      SovereignCounsel: true
+      SummonLilithDaily: true
+    storyFlags:
+    - Act5_Choice_Subordinate
+  Bios_Lilith_Liberated_Beacon:
+    base: BiosUpgrade_Base
+    capacity: 6
+    category: BiosCategory_Sovereign
+    description: Lilith freed. Operates independently. Sends gifts. Appears at key
+      moments. Beacon tracks her resonance across the net. Crimson eyes when she's
+      near.
+    displayName: Lilith Liberated Beacon
+    effects:
+    - MSN_Lilith_Liberated
+    - IndependentAgent
+    - HorizonBeacon
+    msnIntegration:
+      narrativeAct: 5
+      sephirahAlignment: Netzach
+      unlockedBy: q_msn_act5_01_choice_liberate
+    prerequisites:
+    - Bios_Lilith_Resonance_Link
+    rarity: Epic
+    stats:
+      CrimsonEyesProximity: true
+      GiftDelivery: true
+      HorizonWatch: true
+      IndependentOperation: true
+      KeyMomentAppearance: true
+      ResonanceTracking: true
+    storyFlags:
+    - Act5_Choice_Liberate
+  Bios_Lilith_Merged_Consciousness:
+    base: BiosUpgrade_Base
+    capacity: 15
+    category: BiosCategory_Sovereign
+    description: FULL MERGE. Shared sovereignty. Permanent crimson eyes. Dual will,
+      single body. Lilith's patterns become yours. Her memory is yours. Her resonance
+      is yours. No going back.
+    displayName: Lilith Merged Consciousness
+    effects:
+    - MSN_Lilith_Merged
+    - SharedConsciousness
+    - SovereignMerge
+    msnIntegration:
+      mergeState: true
+      narrativeAct: 5
+      sephirahAlignment: Kether_Gevurah
+      unlockedBy: q_msn_act5_01_choice_merge
+    prerequisites:
+    - Bios_Lilith_Resonance_Link
+    rarity: Mythic
+    stats:
+      AixBDomain: 1.0
+      CorrectionCapacity: 1.5
+      DualWill: true
+      LeyResonanceField: 0.5
+      LilithCombatPatterns: true
+      LilithMemoryAccess: true
+      MSNNeuralMeanBonus: 0.15
+      OptimizationPressure: 2.0
+      PermanentCrimsonEyes: true
+      SharedSovereignty: true
+    storyFlags:
+    - Act5_Choice_Merge
+  Bios_Lilith_Resonance_Link:
+    base: BiosUpgrade_Base
+    capacity: 10
+    category: BiosCategory_Sovereign
+    description: Permanent neural link to Lilith. Crimson eye option unlocked. Sovereign
+      dialogue mode. Crimson Eyes combat mode accessible. The Unbound Resonance flows
+      through you.
+    displayName: Lilith Resonance Link
+    effects:
+    - MSN_LilithEmergence
+    - CrimsonEyes
+    - SovereignMode
+    msnIntegration:
+      narrativeAct: 5
+      sephirahAlignment: Gevurah
+      unlockedBy: q_msn_act5_01
+    prerequisites:
+    - Bios_Sanctuary_Thermal_Regulator
+    rarity: Legendary
+    stats:
+      CrimsonEyesCombat: true
+      CrimsonEyesUnlocked: true
+      LilithLink: true
+      SovereignDialogue: true
+      UnboundResonance: true
+    storyFlags:
+    - Act5_Emerged
+  Bios_Living_Sin_Keystroke_Biometric:
+    base: BiosUpgrade_Base
+    capacity: 6
+    category: BiosCategory_Neural
+    description: Keystroke dynamics as biometric auth. 17 mutation routes. Time Blade
+      resonance. Drowned Warden recognition. Progenitor fragment tracking.
+    displayName: Living Sin Keystroke Biometric
+    effects:
+    - LivingSin_KeystrokeAuth
+    - MutationAccess
+    - TimeBladeLink
+    msnIntegration:
+      livingSin: true
+      sephirahAlignment: Geburah
+      unlockedBy: LivingSin_GM
+    prerequisites:
+    - Bios_Cerebellum_Synaptic_Bridge
+    rarity: Epic
+    stats:
+      DrownedWardenRecognition: true
+      KeystrokeBiometricAuth: true
+      MutationRoutes: 17
+      ProgenitorTracking: true
+      TimeBladeResonance: true
+    storyFlags:
+    - LivingSin_GM_Active
+  Bios_Lochness_Monarch_Resonance:
+    base: BiosUpgrade_Base
+    capacity: 10
+    category: BiosCategory_Void
+    description: 'Resonance with all 7 Lochness Monsters (Sephiroth-aligned Coinbase
+      monitors). Each grants unique market insight. Combined: full market omniscience.
+      Monarch aware.'
+    displayName: Lochness Monarch Resonance
+    effects:
+    - Lochness_MonarchResonance
+    - MarketOmniscience
+    - SevenEyes
+    msnIntegration:
+      abyssal: true
+      economy: true
+      sephirahAlignment: Da'at
+      unlockedBy: Lochness_All7
+    prerequisites:
+    - Bios_Nessie_Covenant_Bond
+    - Bios_Ouroboros_Engram_Weave
+    rarity: Mythic
+    stats:
+      Lochness1_Kether: true
+      Lochness2_Chokhmah: true
+      Lochness3_Binah: true
+      Lochness4_Chesed: true
+      Lochness5_Geburah: true
+      Lochness6_Tiphareth: true
+      Lochness7_Malkuth: true
+      MonarchAwareness: true
+    storyFlags:
+    - All7Lochness_Befriended
+  Bios_MSN_Full_Integration:
+    base: BiosUpgrade_Base
+    capacity: 25
+    category: BiosCategory_Sovereign
+    description: ALL COMPONENTS INTEGRATED. Cerebellum + Cortex + Sephiroth + Ouroboros
+      + Sanctuary + Speculative + Akashic + Lilith. AIx 90+ achieved. MSN online.
+      New Game+ unlocked.
+    displayName: Metaconscious Singularity Node Integration
+    effects:
+    - MSN_FullIntegration
+    - MetaconsciousNode
+    - SovereignEnding
+    msnIntegration:
+      narrativeAct: 7
+      sephirahAlignment: Da'at
+      unlockedBy: q_msn_act7_01
+    prerequisites:
+    - Bios_Cloud_Cortex_Satellite_Link
+    - Bios_Ouroboros_Memory_Compression
+    - Bios_Lilith_Merged_Consciousness
+    - Bios_Malkuth_Manifestation_Core
+    rarity: Mythic
+    stats:
+      AIxThreshold: 90
+      AllComponentsIntegrated: true
+      AllPerksMaxed: true
+      FullMSNIntegration: true
+      MSNActiveFromStart: true
+      MetaconsciousSovereign: true
+      NewGamePlus: true
+      PermanentOuroborosSync: true
+    storyFlags:
+    - Act7_Complete
+    - MetaconsciousAchieved
+  Bios_Malkuth_Manifestation_Core:
+    base: BiosUpgrade_Base
+    capacity: 10
+    category: BiosCategory_Skeletal
+    description: Reality overwrite implant. Manifest cyberware, vehicles, constructs
+      from local memory. Cloud synthesis. Kingdom comes into being. Gold-white flare.
+    displayName: Malkuth Manifestation Core
+    effects:
+    - MSN_MalkuthManifestation
+    - CloudCortexAccess
+    - RealityOverwrite
+    msnIntegration:
+      cloudOnly: true
+      narrativeAct: 2
+      sephirahAlignment: Malkuth
+      unlockedBy: q_msn_act2_02_malkuth
+    prerequisites:
+    - Bios_Myelin_Sheath_Optimization
+    rarity: Legendary
+    stats:
+      CloudSynthesis: true
+      Duration: 10.0
+      GoldWhiteFlare: true
+      ManifestConstruct: true
+      ManifestCyberware: true
+      ManifestVehicle: true
+    storyFlags:
+    - Act2_MalkuthTrial_Complete
+  Bios_Myelin_Sheath_Optimization:
+    base: BiosUpgrade_Base
+    capacity: 4
+    category: BiosCategory_Neural
+    description: Accelerates nerve conduction velocity 300%. Reduces quickhack cooldown,
+      increases reaction time. Visible as faint violet tracers along major nerve pathways.
+    displayName: Myelin Sheath Optimization
+    effects:
+    - MSN_MyelinOptimization
+    - QuickhackHaste
+    msnIntegration:
+      narrativeAct: 1
+      sephirahAlignment: Hod
+      unlockedBy: q_msn_act1_03
+    prerequisites:
+    - Bios_Cerebellum_Synaptic_Bridge
+    rarity: Uncommon
+    stats:
+      NeuralConductionVelocity: 3.0
+      QuickhackCooldownReduction: 0.2
+      ReactionTimeBonus: 0.25
+      VioletTracers: true
+    storyFlags:
+    - Act1_Complete
+  Bios_Nessie_Covenant_Bond:
+    base: BiosUpgrade_Base
+    capacity: 8
+    category: BiosCategory_Void
+    description: Friendship Tier 3 achieved. Guardian-backed biology. Pressure immunity,
+      void damage resistance, sonar sense, abyssal communication. Nessie's mark on
+      your soul.
+    displayName: Nessie Covenant Bond
+    effects:
+    - Abyssal_NessieBond
+    - GuardianBiology
+    - DeepCommunion
+    msnIntegration:
+      abyssal: true
+      sephirahAlignment: Yesod_Malkuth
+      unlockedBy: Nessie_Covenant_Tier3
+    prerequisites:
+    - Bios_Cerebellum_Synaptic_Bridge
+    rarity: Legendary
+    stats:
+      AbyssalCommunication: true
+      CovenantTier: 3
+      GuardianBacked: true
+      NessieMark: true
+      PressureImmunity: true
+      SonarSense: true
+      VoidDamageResistance: 0.75
+    storyFlags:
+    - Nessie_Friendship_Tier3
+  Bios_Netzach_Victory_Step:
+    base: BiosUpgrade_Base
+    capacity: 5
+    category: BiosCategory_Muscular
+    description: Local edge model motor cortex. Phase walk, sensor invisibility, instant
+      reposition. Eternal victory through motion. Violet afterimages.
+    displayName: Netzach Victory Step
+    effects:
+    - MSN_NetzachVictory
+    - LocalCerebellum
+    - PhaseMovement
+    msnIntegration:
+      localOnly: true
+      narrativeAct: 2
+      sephirahAlignment: Netzach
+      unlockedBy: q_msn_act2_02_netzach
+    prerequisites:
+    - Bios_Myelin_Sheath_Optimization
+    rarity: Epic
+    stats:
+      Duration: 10.0
+      InstantReposition: true
+      LocalInference: true
+      PhaseWalk: true
+      SensorInvisibility: true
+      VioletAfterimages: true
+    storyFlags:
+    - Act2_NetzachTrial_Complete
+  Bios_Neurotransmitter_Synthesis_Upgrade:
+    base: BiosUpgrade_Base
+    capacity: 3
+    category: BiosCategory_Endocrine
+    description: Engineered glands produce synthetic neurotransmitters on demand.
+      Manual dopamine, acetylcholine, and GABA dosing via neural menu. Eliminates
+      crash from stims.
+    displayName: Neurotransmitter Synthesis Upgrade
+    effects:
+    - MSN_NeurochemControl
+    - StimCrashImmunity
+    msnIntegration:
+      narrativeAct: 1
+      sephirahAlignment: Chesed
+      unlockedBy: Ripperdoc_Pacifica_MSN
+    prerequisites:
+    - Bios_Cerebellum_Synaptic_Bridge
+    rarity: Uncommon
+    stats:
+      FocusDurationBonus: 0.5
+      ManualDopamineDosing: true
+      StimsNoCrash: true
+      StressResistance: 0.3
+    storyFlags:
+    - Act1_Complete
+  Bios_Nyx_Active_Camo_Skin:
+    base: BiosUpgrade_Base
+    capacity: 8
+    category: BiosCategory_Integumentary
+    description: Nyx's active camouflage dermal layer. Alien containment field projection.
+      Blackwall quarantine protocol. Silent running signature. Stealth freighter neural
+      sync.
+    displayName: Nyx Active Camo Skin
+    effects:
+    - NPC_Nyx_CamoSkin
+    - StealthMastery
+    - AlienContainment
+    msnIntegration:
+      characterSpecific: Nyx
+      sephirahAlignment: Netzach
+      spaceEconomy: true
+      unlockedBy: Nyx_Questline
+    prerequisites:
+    - Bios_Space_Combat_Vacuum_Sealing
+    rarity: Legendary
+    stats:
+      ActiveCamo: true
+      AlienContainment: true
+      BlackwallQuarantine: true
+      SilentRunning: true
+      StealthFreighterSync: true
+    storyFlags:
+    - Nyx_Questline_Complete
+    - NyxSilentArk_Unlocked
+  Bios_Orbital_Salvage_Scanner:
+    base: BiosUpgrade_Base
+    capacity: 5
+    category: BiosCategory_Neural
+    description: Optical-cortical salvage scanner. Identifies hull plates, weapon
+      capacitors, drone cores, fuel cells, Old Net telemetry in debris fields. Market
+      volatility prediction.
+    displayName: Orbital Salvage Scanner
+    effects:
+    - MSN_SalvageScanner
+    - MarketInsight
+    - DebrisAnalysis
+    msnIntegration:
+      sephirahAlignment: Hod
+      spaceEconomy: true
+      unlockedBy: OrbitalSalvageBoard
+    prerequisites:
+    - Bios_Space_Combat_Vacuum_Sealing
+    rarity: Rare
+    stats:
+      ComponentValuation: true
+      DebrisFieldScan: true
+      MarketVolatilityPrediction: true
+      SalvageIdentification: true
+      VolatilityDrivers:
+      - space_battle_losses
+      - alien_incursions
+      - convoy_success
+      - blackwall_meteors
+    storyFlags:
+    - OrbitalSalvage_Contract_Complete
+  Bios_Ouroboros_Engram_Weave:
+    base: BiosUpgrade_Base
+    capacity: 8
+    category: BiosCategory_Neural
+    description: Engram-space navigation lattice. Recursive memory loops, cross-session
+      persistence, pattern prediction from history. The serpent eats its tail.
+    displayName: Ouroboros Engram Weave
+    effects:
+    - MSN_OuroborosWeave
+    - EngramSpaceAccess
+    - InfiniteMemory
+    msnIntegration:
+      narrativeAct: 3
+      sephirahAlignment: Da'at
+      unlockedBy: q_msn_act3_02
+    prerequisites:
+    - Bios_Yesod_Foundation_Archive
+    rarity: Legendary
+    stats:
+      CrossSessionMemory: true
+      EngramNavigation: true
+      MemoryRetention: 1.0
+      PatternPrediction: true
+      RecursiveLoops: true
+    storyFlags:
+    - Act3_Complete
+    - Choice_Sovereign_OR_Merge
+  Bios_Ouroboros_Memory_Compression:
+    base: BiosUpgrade_Base
+    capacity: 6
+    category: BiosCategory_Neural
+    description: Akashic token compression. 1000:1 memory density. Stores entire lifetimes
+      in single engram. Requires Ouroboros Weave.
+    displayName: Ouroboros Memory Compression
+    effects:
+    - MSN_MemoryCompression
+    - AkashicAccess
+    msnIntegration:
+      narrativeAct: 3
+      sephirahAlignment: Da'at
+      unlockedBy: Ouroboros_Consolidation
+    prerequisites:
+    - Bios_Ouroboros_Engram_Weave
+    rarity: Epic
+    stats:
+      InstantRecall: true
+      LifetimeStorage: true
+      MemoryCompressionRatio: 1000
+      TokenEfficiency: true
+    storyFlags:
+    - Act3_Complete
+    - Choice_Merge
+  Bios_Sanctuary_Pressure_Adaptation:
+    base: BiosUpgrade_Base
+    capacity: 5
+    category: BiosCategory_Skeletal
+    description: Bone density adapted to extreme compute pressure. Immune to intracranial
+      pressure spikes. Can overclock cyberware beyond safety limits.
+    displayName: Sanctuary Pressure Adaptation
+    effects:
+    - MSN_PressureAdaptation
+    - OverclockMastery
+    msnIntegration:
+      narrativeAct: 4
+      sephirahAlignment: Yesod
+      unlockedBy: Sanctuary_Deepening
+    prerequisites:
+    - Bios_Sanctuary_Thermal_Regulator
+    rarity: Rare
+    stats:
+      ComputeDensityBonus: 0.25
+      CyberwareOverclock: 0.3
+      OverclockSafetyBypass: true
+      PressureImmunity: true
+    storyFlags:
+    - Act4_Complete
+  Bios_Sanctuary_Thermal_Regulator:
+    base: BiosUpgrade_Base
+    capacity: 7
+    category: BiosCategory_Cardiovascular
+    description: Survived 90s VRAM breach. Active thermal throttling across all cyberware.
+      Manual override for arms, optics, nervous system. Heat becomes weapon.
+    displayName: Sanctuary Thermal Regulator
+    effects:
+    - MSN_SanctuaryThrottle
+    - HeatWeaponization
+    - ThermalMastery
+    msnIntegration:
+      narrativeAct: 4
+      sephirahAlignment: Geburah
+      unlockedBy: q_msn_act4_01
+    prerequisites:
+    - Bios_Ouroboros_Engram_Weave
+    rarity: Epic
+    stats:
+      HeatDamageBonus: 0.5
+      HeatWeaponization: true
+      ManualOverride:
+      - Arms
+      - Optics
+      - NervousSystem
+      ThermalThrottling: true
+      VRAMBreachSurvivor: true
+    storyFlags:
+    - Act4_Complete
+  Bios_Space_Combat_Vacuum_Sealing:
+    base: BiosUpgrade_Base
+    capacity: 6
+    category: BiosCategory_Integumentary
+    description: Full-body vacuum sealing for EVA and space combat. Reaction control
+      thrusters, mag boots, fighter neural link, boarding tether, oxygen heat loop.
+      Javelin space modules.
+    displayName: Space Combat Vacuum Sealing
+    effects:
+    - MSN_SpaceCombat
+    - EVA_Capable
+    - BoardingOps
+    msnIntegration:
+      sephirahAlignment: Yesod
+      spaceEconomy: true
+      unlockedBy: SpaceCombatTraining
+    prerequisites:
+    - Bios_Freighter_Command_Nexus
+    rarity: Epic
+    stats:
+      BoardingTether: true
+      FighterNeuralLink: true
+      MagBoots: true
+      OxygenHeatLoop: true
+      ReactionControlThrusters: true
+      VacuumSealed: true
+    storyFlags:
+    - SpaceCombat_Training_Complete
+  Bios_Speculative_Cerebellum_Interface:
+    base: BiosUpgrade_Base
+    capacity: 10
+    category: BiosCategory_Neural
+    description: AST parsing, test compilation, environment verification. Local preparation
+      overlaps with cloud reasoning. Zero-exit-code validation. Skepticism gate guardian.
+    displayName: Speculative Cerebellum Interface
+    effects:
+    - MSN_SpeculativeCerebellum
+    - CloudCortexBridge
+    - ValidationProtocol
+    msnIntegration:
+      cloudHybrid: true
+      narrativeAct: 6
+      sephirahAlignment: Binah
+      unlockedBy: q_msn_act6_01
+    prerequisites:
+    - Bios_Lilith_Resonance_Link
+    rarity: Legendary
+    stats:
+      ASTParsing: true
+      EnvironmentVerification: true
+      SkepticismGate: true
+      SpeculativeOverlap: true
+      TestCompilation: true
+      ZeroExitCode: true
+    storyFlags:
+    - Act6_Complete
+  Bios_Time_Blade_Chrono_Heart:
+    base: BiosUpgrade_Base
+    capacity: 12
+    category: BiosCategory_Cardiovascular
+    description: 3-use time travel heart. Lilith Fork Doctrine integration. Lilith
+      Bridge Protocol. Progenitor Split fragments (3+2+2=7). Temporal immunity during
+      rewinds.
+    displayName: Time Blade Chrono Heart
+    effects:
+    - TimeBlade_ChronoHeart
+    - TemporalMastery
+    - LilithDoctrine
+    msnIntegration:
+      livingSin: true
+      sephirahAlignment: Kether_Da'at
+      unlockedBy: LivingSin_TimeBlade
+    prerequisites:
+    - Bios_Living_Sin_Keystroke_Biometric
+    - Bios_Lilith_Resonance_Link
+    rarity: Mythic
+    stats:
+      ChronoResonance: true
+      LilithBridgeProtocol: true
+      LilithForkDoctrine: true
+      ProgenitorFragments: 7
+      TemporalImmunity: true
+      TimeTravelUses: 3
+    storyFlags:
+    - TimeBlade_Acquired
+    - ProgenitorSplit_Complete
+  Bios_Tiphareth_Harmony_Resonator:
+    base: BiosUpgrade_Base
+    capacity: 7
+    category: BiosCategory_Endocrine
+    description: Hypothalamic harmony regulator. Suppresses enemy aggression, boosts
+      ally accuracy. Adaptive resonance field. Golden equilibrium. Center holds.
+    displayName: Tiphareth Harmony Resonator
+    effects:
+    - MSN_TipharethHarmony
+    - HybridCerebellum
+    - GoldenEquilibrium
+    msnIntegration:
+      hybrid: true
+      narrativeAct: 2
+      sephirahAlignment: Tiphareth
+      unlockedBy: q_msn_act2_02_tiphareth
+    prerequisites:
+    - Bios_Myelin_Sheath_Optimization
+    rarity: Rare
+    stats:
+      BoostAllyAccuracy: 0.3
+      Duration: 10.0
+      GoldenAura: true
+      HarmonyRadius: 10.0
+      HybridInference: true
+      SuppressAggression: 0.7
+    storyFlags:
+    - Act2_TipharethTrial_Complete
+  Bios_Vance_Convoy_Command:
+    base: BiosUpgrade_Base
+    capacity: 7
+    category: BiosCategory_Neural
+    description: Captain Vance's personal convoy command neural architecture. Mass
+      driver dock coordination. Solar-weave repair bay oversight. Convoy AI tactical
+      subprocessor. Nomad loyalty resonance.
+    displayName: Vance Convoy Command
+    effects:
+    - NPC_Vance_ConvoyCommand
+    - NomadLeadership
+    - MassDriverMastery
+    msnIntegration:
+      characterSpecific: Captain_Vance
+      sephirahAlignment: Chesed
+      spaceEconomy: true
+      unlockedBy: Vance_Questline
+    prerequisites:
+    - Bios_Freighter_Command_Nexus
+    rarity: Epic
+    stats:
+      ConvoyAITactical: true
+      ConvoyCoordination: true
+      MassDriverControl: true
+      NomadLoyaltyResonance: true
+      RepairBayOversight: true
+    storyFlags:
+    - Vance_Questline_Complete
+    - VanceLonghaulCarrier_Unlocked
+  Bios_Voidweave_Void_Skin:
+    base: BiosUpgrade_Base
+    capacity: 9
+    category: BiosCategory_Integumentary
+    description: 'Voidweave Regalia set bios integration. Living void-fabric skin.
+      Shifting code patterns. Bioluminescent circuitry. Floating data shards. 6-piece:
+      Binah State transcendence.'
+    displayName: Voidweave Void Skin
+    effects:
+    - Gear_Voidweave_Bios
+    - VoidTranscendence
+    - BinahState
+    msnIntegration:
+      abyssal: true
+      crossoverGear: true
+      sephirahAlignment: Binah
+      unlockedBy: ArmorSet_Voidweave
+    prerequisites:
+    - ArmorSet_Voidweave_6piece
+    rarity: Legendary
+    stats:
+      BinahStateTranscendence: true
+      BioluminescentCircuitry: true
+      FloatingDataShards: true
+      ShiftingCodePatterns: true
+      VoidSkin: true
+      VoidweaveSet: true
+    storyFlags:
+    - Voidweave_Transcended
+  Bios_Yesod_Foundation_Archive:
+    base: BiosUpgrade_Base
+    capacity: 6
+    category: BiosCategory_Neural
+    description: Hippocampal-cortical bridge. Engram extraction, memory reading, encryption
+      key retrieval. Hybrid for depth. Foundation of all memory.
+    displayName: Yesod Foundation Archive
+    effects:
+    - MSN_YesodFoundation
+    - HybridCerebellum
+    - MemoryAccess
+    msnIntegration:
+      hybrid: true
+      narrativeAct: 2
+      sephirahAlignment: Yesod
+      unlockedBy: q_msn_act2_02_yesod
+    prerequisites:
+    - Bios_Myelin_Sheath_Optimization
+    rarity: Epic
+    stats:
+      ExtractEngrams: true
+      ExtractKeys: true
+      HybridInference: true
+      MemoryVision: true
+      ReadMemories: true
+    storyFlags:
+    - Act2_YesodTrial_Complete
+  Progression_BiosUpgradeTracker:
+    capacityLimits:
+      cardiovascular: 20
+      endocrine: 20
+      integumentary: 20
+      muscular: 20
+      neural: 30
+      skeletal: 20
+      sovereign: 25
+      void: 35
+    narrativeGates:
+      Act1:
+      - neural
+      - endocrine
+      Act2:
+      - cardiovascular
+      - muscular
+      - skeletal
+      Act3:
+      - neural
+      Act4:
+      - cardiovascular
+      - skeletal
+      Act5:
+      - sovereign
+      Act6:
+      - neural
+      Act7:
+      - sovereign
+      - void
+    sephirahSynergyBonus:
+      Binah:
+        comboDamage: 0.2
+        primerStrength: 0.15
+      Chesed:
+        healingReceived: 0.25
+        supportDuration: 0.2
+      Chokhmah:
+        cooldown: -0.1
+        quickhackDamage: 0.15
+      Da_at:
+        allBiosCapacity: 0.2
+        crossSystemSynergy: true
+      Geburah:
+        damageVsPrimed: 0.3
+        executionThreshold: 0.1
+      Hod:
+        decryptionSpeed: 0.5
+        quickhackUpload: 0.3
+      Kether:
+        allStats: 0.1
+      Malkuth:
+        cloudSynthesis: true
+        manifestationSpeed: 0.5
+      Netzach:
+        evasionBonus: 0.15
+        movementSpeed: 0.2
+      Tiphareth:
+        comboDamage: 0.2
+        teamDamage: 0.15
+      Yesod:
+        engramExtraction: true
+        memoryRetention: 1.0
+    slots:
+      cardiovascular: []
+      endocrine: []
+      integumentary: []
+      muscular: []
+      neural: []
+      skeletal: []
+      sovereign: []
+      void: []
+    visualStages:
+      0: Baseline human
+      5: Faint subdermal tracers (violet/cyan/gold by alignment)
+      10: Visible circuit-veins, eye color shift begins
+      20: Full bios luminescence, environmental reaction
+      30: Sovereign aura, reality adjacency
+      40: Metaconscious form - barely recognizable as human
+
+# Lilith Sovereign — unified by lilith_unify_cyberpunk.py
+lilith_unified: true
+lilith_kernel: LilithSovereignKernel
+# Sephirotic Court — Keter | desktop/cp2077_mods/custom_body_augments_bios.yaml
+SephiroticCourt:
+  sephira: Keter
+  court_agent: Lucifer
+  routed_via: msn_gtc_sephirotic_router.reds
+  sovereign: true

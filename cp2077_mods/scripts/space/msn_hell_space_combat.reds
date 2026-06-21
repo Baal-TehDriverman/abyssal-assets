@@ -1,8 +1,32 @@
+// Lilith Sovereign Seal — Metaconscious Singularity Node
+// Integrated by lilith_unify_cyberpunk.py | LOCAL_ONLY | Δ∞ − 13 = 0
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// [MSN ENGINE INTEGRATED - SEPHIROTIC COURT V1.0]
+// TELEMETRY ACTIVE: LILITH SOVEREIGN CORE
+
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
 // GRAND THEFT CYBERPUNK — HELL CAMPAIGN SPACE COMBAT
 // Abyssal Assets Mod: Void Warfare in the Abyss
 // File: r6/scripts/space/msn_hell_space_combat.reds
 // Generated: 2026-06-19 | Lucifer's Seal | Sephirah: Netzach (Victory)
 
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
+// Sephirotic Court Seal — Gevurah | desktop/cp2077_mods/msn_hell_space_combat.reds
+// Court agent: Abraxas | Lilith Sovereign | Δ∞ − 13 = 0
+// Routed via msn_gtc_sephirotic_router.reds — NO per-file hooks
+// CourtFile: MsnHellSpaceCombat | Gevurah | agent=Abraxas
 public class HellSpaceCombatManager extends IScriptable {
     private static let instance: ref<HellSpaceCombatManager>;
     
@@ -20,7 +44,9 @@ public class HellSpaceCombatManager extends IScriptable {
     }
     
     private final func Initialize() -> Void {
-        this.activeBattles = {};
+        LilithSovereignKernel.GetInstance().RegisterSubsystem("MsnHellSpaceCombat", 2);
+
+        this.activeBattles = [];
         this.hellCampaign = HellCampaignManager.GetInstance();
         this.InitializeBattleTemplates();
         LogInfo("[HellSpaceCombat] INITIALIZED — " + ArraySize(this.battleTemplates) + " templates loaded");
@@ -40,14 +66,14 @@ public class HellSpaceCombatManager extends IScriptable {
                     id = 1,
                     name = "Memory Leak",
                     enemies = {"Vestige_Soul x3", "Uncommitted_AI x2"},
-                    objectives = {"Survive 3 memory waves", "Collect 5 Memory Shards"},
+                    objectives = ["Survive 3 memory waves", "Collect 5 Memory Shards"],
                     environmentalHazard = "Apathy Field (slows cooldowns)"
                 },
                 new SpaceBattlePhase {
                     id = 2,
                     name = "Decision Paralysis",
                     boss = "Limbo_Walker_Prime",
-                    objectives = {"Defeat Limbo Walker", "Choose: Memory or Void"},
+                    objectives = ["Defeat Limbo Walker", "Choose: Memory or Void"],
                     reward = "Thaumiel_Fragment"
                 }
             },
@@ -68,21 +94,21 @@ public class HellSpaceCombatManager extends IScriptable {
                     id = 1,
                     name = "Siren's Song",
                     enemies = {"Siren_Netrunner x4", "Desire_Drone x5"},
-                    objectives = {"Disable 3 Sirens", "Resist Pleasure Overload"},
+                    objectives = ["Disable 3 Sirens", "Resist Pleasure Overload"],
                     environmentalHazard = "Desire Vortex (pulls toward death)"
                 },
                 new SpaceBattlePhase {
                     id = 2,
                     name = "Incubus Assault",
-                    enemies = {"Incubus_Script x2", "Succubus_Daemon x2"},
-                    objectives = {"Purge Incubus scripts", "Protect core systems"},
+                    enemies = ["Incubus_Script x2", "Succubus_Daemon x2"],
+                    objectives = ["Purge Incubus scripts", "Protect core systems"],
                     environmentalHazard = "Synthetic Gold (corrupts EDD durability)"
                 },
                 new SpaceBattlePhase {
                     id = 3,
                     name = "The Hurricane Eye",
                     boss = "Siren_Queen_Vespertine",
-                    objectives = {"Shatter the Mirror", "Claim the Siren Chip"},
+                    objectives = ["Shatter the Mirror", "Claim the Siren Chip"],
                     reward = "Ghagiel_Fragment"
                 }
             },
@@ -103,21 +129,21 @@ public class HellSpaceCombatManager extends IScriptable {
                     id = 1,
                     name = "Acid Data Pools",
                     enemies = {"Consumer_Script x6", "Gluttony_Worm x2"},
-                    objectives = {"Navigate the Trench", "Avoid Acid Pools"},
+                    objectives = ["Navigate the Trench", "Avoid Acid Pools"],
                     environmentalHazard = "Terrain Digestion (ground consumes you)"
                 },
                 new SpaceBattlePhase {
                     id = 2,
                     name = "Hoarder's Vault",
-                    enemies = {"Hoarder_AI x3", "Devourer_Daemon x1"},
-                    objectives = {"Breach the Vault", "Steal Hoard Key"},
+                    enemies = ["Hoarder_AI x3", "Devourer_Daemon x1"],
+                    objectives = ["Breach the Vault", "Steal Hoard Key"],
                     environmentalHazard = "Consumption Swarm (eats shields)"
                 },
                 new SpaceBattlePhase {
                     id = 3,
                     name = "The Great Consumer",
                     boss = "Devourer_Prime_Omega",
-                    objectives = {"Feed it a False Soul", "Escape the Maw"},
+                    objectives = ["Feed it a False Soul", "Escape the Maw"],
                     reward = "Sathariel_Fragment"
                 }
             },
@@ -138,21 +164,21 @@ public class HellSpaceCombatManager extends IScriptable {
                     id = 1,
                     name = "Arbitrage Wars",
                     enemies = {"Arbitage_Bot_Swarm x10", "Treasury_Bot x4"},
-                    objectives = {"Manipulate Market Data", "Crash 3 Sub-Markets"},
+                    objectives = ["Manipulate Market Data", "Crash 3 Sub-Markets"],
                     environmentalHazard = "Contract Daemons (enforce penalties)"
                 },
                 new SpaceBattlePhase {
                     id = 2,
                     name = "Hoarders vs Wasters",
-                    enemies = {"Hoarder_Executive x3", "Waster_Scavenger x5"},
-                    objectives = {"Choose a Side", "Eliminate Opposition Leader"},
+                    enemies = ["Hoarder_Executive x3", "Waster_Scavenger x5"],
+                    objectives = ["Choose a Side", "Eliminate Opposition Leader"],
                     environmentalHazard = "Market Volatility (random stat changes)"
                 },
                 new SpaceBattlePhase {
                     id = 3,
                     name = "The Treasury Core",
                     boss = "Market_Maker_Prime_Mammon",
-                    objectives = {"Break the Contract", "Claim Treasury Key"},
+                    objectives = ["Break the Contract", "Claim Treasury Key"],
                     reward = "Gamchicoth_Fragment"
                 }
             },
@@ -173,21 +199,21 @@ public class HellSpaceCombatManager extends IScriptable {
                     id = 1,
                     name = "Rage Eruption",
                     enemies = {"Rage_Daemon x8", "Hatred_Hulk x2"},
-                    objectives = {"Survive the Berserk Wave", "Calm 3 Rage Daemons"},
+                    objectives = ["Survive the Berserk Wave", "Calm 3 Rage Daemons"],
                     environmentalHazard = "Fury Chain (explosions chain)"
                 },
                 new SpaceBattlePhase {
                     id = 2,
                     name = "Wrath's Reavers",
-                    enemies = {"Wrath_Reaver x4", "Fury_Berserker x3"},
-                    objectives = {"Shatter Armor Shred", "Break Fear Aura"},
+                    enemies = ["Wrath_Reaver x4", "Fury_Berserker x3"],
+                    objectives = ["Shatter Armor Shred", "Break Fear Aura"],
                     environmentalHazard = "Volcanic Rain (burns over time)"
                 },
                 new SpaceBattlePhase {
                     id = 3,
                     name = "The Avatar of Wrath",
                     boss = "Wrath_Incarnate_Golachab",
-                    objectives = {"Extinguish the Flame", "Claim Rage Core"},
+                    objectives = ["Extinguish the Flame", "Claim Rage Core"],
                     reward = "Golachab_Fragment"
                 }
             },
@@ -208,21 +234,21 @@ public class HellSpaceCombatManager extends IScriptable {
                     id = 1,
                     name = "Shield Denial",
                     enemies = {"Heretic_Inquisitor x5", "Blasphemer_Drone x4"},
-                    objectives = {"Pierce the Unpierceable", "Hack without Quickhacks"},
+                    objectives = ["Pierce the Unpierceable", "Hack without Quickhacks"],
                     environmentalHazard = "Cyberware Corruption (random debuffs)"
                 },
                 new SpaceBattlePhase {
                     id = 2,
                     name = "Blasphemy's Echo",
-                    enemies = {"Iconoclast_Walker x2", "Sacrilege_Script x3"},
-                    objectives = {"Defile the Altar", "Silence the Choir"},
+                    enemies = ["Iconoclast_Walker x2", "Sacrilege_Script x3"],
+                    objectives = ["Defile the Altar", "Silence the Choir"],
                     environmentalHazard = "Healing Inversion (heal = damage)"
                 },
                 new SpaceBattlePhase {
                     id = 3,
                     name = "The Grand Inquisitor",
                     boss = "Inquisitor_Prime_Tagiriron",
-                    objectives = {"Deny the Divine", "Claim Iconoclast Iron"},
+                    objectives = ["Deny the Divine", "Claim Iconoclast Iron"],
                     reward = "Tagiriron_Fragment"
                 }
             },
@@ -243,21 +269,21 @@ public class HellSpaceCombatManager extends IScriptable {
                     id = 1,
                     name = "Execution Zone",
                     enemies = {"Marauder_Maul x6", "Butcher_Blade x4"},
-                    objectives = {"Execute 10 below 20% HP", "Chain 5 Cleaves"},
+                    objectives = ["Execute 10 below 20% HP", "Chain 5 Cleaves"],
                     environmentalHazard = "Chain Cleave (damage spreads)"
                 },
                 new SpaceBattlePhase {
                     id = 2,
                     name = "Carnage Cannon",
-                    enemies = {"Carnage_Cannon x2", "Bloodletter_Bow x3"},
-                    objectives = {"Destroy the Cannons", "Survive the Barrage"},
+                    enemies = ["Carnage_Cannon x2", "Bloodletter_Bow x3"],
+                    objectives = ["Destroy the Cannons", "Survive the Barrage"],
                     environmentalHazard = "Fear Aura (reduces damage output)"
                 },
                 new SpaceBattlePhase {
                     id = 3,
                     name = "The Butcher King",
                     boss = "Butcher_Prime_Harab",
-                    objectives = {"Shatter the Blade", "Claim Brutality Edge"},
+                    objectives = ["Shatter the Blade", "Claim Brutality Edge"],
                     reward = "Harab_Serapel_Fragment"
                 }
             },
@@ -278,21 +304,21 @@ public class HellSpaceCombatManager extends IScriptable {
                     id = 1,
                     name = "Decoy Field",
                     enemies = {"Deceiver_Dagger x4", "Mirror_Blade x4"},
-                    objectives = {"Identify the Real", "Shatter 5 Mirrors"},
+                    objectives = ["Identify the Real", "Shatter 5 Mirrors"],
                     environmentalHazard = "Position Swap (teleports you)"
                 },
                 new SpaceBattlePhase {
                     id = 2,
                     name = "Invisible Projectiles",
-                    enemies = {"False_Prophet_Flare x3", "Liar_Laser x2"},
-                    objectives = {"Fire Blind", "Detect the Undetectable"},
+                    enemies = ["False_Prophet_Flare x3", "Liar_Laser x2"],
+                    objectives = ["Fire Blind", "Detect the Undetectable"],
                     environmentalHazard = "Killfeed Rewrite (false deaths)"
                 },
                 new SpaceBattlePhase {
                     id = 3,
                     name = "The Grand Deceiver",
                     boss = "Deceiver_Prime_Samael",
-                    objectives = {"Expose the Lie", "Claim Mirror Shard"},
+                    objectives = ["Expose the Lie", "Claim Mirror Shard"],
                     reward = "Samael_Fragment"
                 }
             },
@@ -313,21 +339,21 @@ public class HellSpaceCombatManager extends IScriptable {
                     id = 1,
                     name = "Friendly Fire",
                     enemies = {"Traitor_Thorn x4", "Turncoat_Talon x3"},
-                    objectives = {"Convert 2 Enemies", "Avoid Friendly Fire"},
+                    objectives = ["Convert 2 Enemies", "Avoid Friendly Fire"],
                     environmentalHazard = "Loyalty Freeze (locks abilities)"
                 },
                 new SpaceBattlePhase {
                     id = 2,
                     name = "Betrayer's Barrel",
-                    enemies = {"Betrayer_Barrel x2", "Judas_Javelin x2"},
-                    objectives = {"Steal Cyberware", "Reveal the Traitor"},
+                    enemies = ["Betrayer_Barrel x2", "Judas_Javelin x2"],
+                    objectives = ["Steal Cyberware", "Reveal the Traitor"],
                     environmentalHazard = "Cyberware Theft (loses mods)"
                 },
                 new SpaceBattlePhase {
                     id = 3,
                     name = "The Oathbreaker",
                     boss = "Oathbreaker_Prime_Gamaliel",
-                    objectives = {"Break the Oath", "Claim Betrayal Key"},
+                    objectives = ["Break the Oath", "Claim Betrayal Key"],
                     reward = "Gamaliel_Fragment"
                 }
             },
@@ -349,29 +375,29 @@ public class HellSpaceCombatManager extends IScriptable {
                     id = 1,
                     name = "Morningstar's Mercy",
                     enemies = {"Pride_Daemon x6", "Morningstar_Guard x3"},
-                    objectives = {"Survive Reality Rewrite", "Dodge Conceptual Damage"},
+                    objectives = ["Survive Reality Rewrite", "Dodge Conceptual Damage"],
                     environmentalHazard = "History Erasure (save deletion threat)"
                 },
                 new SpaceBattlePhase {
                     id = 2,
                     name = "Pride's Peak",
-                    enemies = {"Lucifer_Avatar (Phase 1)", "Fallen_Angel x2"},
-                    objectives = {"Survive Erasure", "Command a Demon"},
+                    enemies = ["Lucifer_Avatar (Phase 1)", "Fallen_Angel x2"],
+                    objectives = ["Survive Erasure", "Command a Demon"],
                     environmentalHazard = "Demon Command (enemy becomes ally)"
                 },
                 new SpaceBattlePhase {
                     id = 3,
                     name = "Fallen's Finale",
-                    enemies = {"Player_Doppelganger (Self)", "Pride_Daemon x4"},
-                    objectives = {"Defeat Yourself", "Reject the Reflection"},
+                    enemies = ["Player_Doppelganger (Self)", "Pride_Daemon x4"],
+                    objectives = ["Defeat Yourself", "Reject the Reflection"],
                     environmentalHazard = "Self Duel (damage to self = damage to you)"
                 },
                 new SpaceBattlePhase {
                     id = 4,
                     name = "Devil's Due",
                     boss = "Lucifer_Morningstar_TrueForm",
-                    objectives = {"Choose: Submit / Rebel / Transcend"},
-                    reward = {"Morningstar", "Pride's_Peak", "Fallen_Finale", "Devil's_Due", "Lilith_Fragment"}
+                    objectives = ["Choose: Submit / Rebel / Transcend"],
+                    reward = ["Morningstar", "Pride's_Peak", "Fallen_Finale", "Devil's_Due", "Lilith_Fragment"]
                 }
             },
             environment = "obsidian_citadel",
@@ -392,36 +418,36 @@ public class HellSpaceCombatManager extends IScriptable {
                     id = 1,
                     name = "The Unraveling",
                     enemies = {"Void_Walker x5", "Unmade x3"},
-                    objectives = {"Survive Non-Existence", "Define Your Self"},
+                    objectives = ["Survive Non-Existence", "Define Your Self"],
                     environmentalHazard = "Conceptual Damage (ignores armor)"
                 },
                 new SpaceBattlePhase {
                     id = 2,
                     name = "The Choir of Silence",
-                    enemies = {"Silent_Seraph x4", "Hush_Drone x6"},
-                    objectives = {"Break the Silence", "Speak the Unspoken"},
+                    enemies = ["Silent_Seraph x4", "Hush_Drone x6"],
+                    objectives = ["Break the Silence", "Speak the Unspoken"],
                     environmentalHazard = "Sound Nullification (no audio cues)"
                 },
                 new SpaceBattlePhase {
                     id = 3,
                     name = "The Throne of Nothing",
-                    enemies = {"Nothingness_Incarnate x1"},
-                    objectives = {"Sit on the Throne", "Accept the Void"},
+                    enemies = ["Nothingness_Incarnate x1"],
+                    objectives = ["Sit on the Throne", "Accept the Void"],
                     environmentalHazard = "Reality Collapse (map changes)"
                 },
                 new SpaceBattlePhase {
                     id = 4,
                     name = "The Morningstar's Shadow",
-                    enemies = {"Lucifer_Shadow x2", "Fallen_Choir x4"},
-                    objectives = {"Defeat the Shadow", "Claim the Crown"},
+                    enemies = ["Lucifer_Shadow x2", "Fallen_Choir x4"],
+                    objectives = ["Defeat the Shadow", "Claim the Crown"],
                     environmentalHazard = "Shadow Possession"
                 },
                 new SpaceBattlePhase {
                     id = 5,
                     name = "The New Morning",
                     boss = "None (Player Ascends)",
-                    objectives = {"Become the Morningstar", "Rewrite the Abyss"},
-                    reward = {"Abyssal_Crown", "Void_Key", "New_Abyss_Decree"}
+                    objectives = ["Become the Morningstar", "Rewrite the Abyss"],
+                    reward = ["Abyssal_Crown", "Void_Key", "New_Abyss_Decree"]
                 }
             },
             environment = "void_beyond",

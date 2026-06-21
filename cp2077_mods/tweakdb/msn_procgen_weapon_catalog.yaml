@@ -1,0 +1,887 @@
+schema: msn.procgen_weapon_catalog.v1
+localOnly: true
+generatedCount: 96
+purpose: >
+  Deterministic procgen weapon variants for MSN ProcGen Engine.
+  Same seed recreates same item; memory hash mutates stats.
+integration:
+  engine: scripts/msn_procgen_engine.reds
+  factory: scripts/msn_custom_item_factory.reds
+  consoleCommands:
+    - msn.procedural.generate_weapon
+    - msn.items.grant procgen
+items:
+  - id: MSN_ProcGen_Abyssal_Voidsplitter_000
+    displayName: "Abyssal Voidsplitter Mk I"
+    category: SniperRifle
+    rarity: Common
+    damage: 80
+    damageType: Physical+Void
+    sephirah: Binah
+    seedChannel: 0
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Phantom_Kraken_001
+    displayName: "Phantom Kraken Prime"
+    category: HeavyWeapon
+    rarity: Common
+    damage: 95
+    damageType: Physical+Void+Pressure
+    sephirah: Geburah
+    seedChannel: 1
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Sovereign_Nyx_002
+    displayName: "Sovereign Nyx Mk I"
+    category: Melee
+    rarity: Common
+    damage: 110
+    damageType: Physical+Void
+    sephirah: Hod
+    seedChannel: 2
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Violet_Lucifer_003
+    displayName: "Violet Lucifer Prime"
+    category: Pistol
+    rarity: Common
+    damage: 125
+    damageType: Thermal+Light
+    sephirah: Kether
+    seedChannel: 3
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nacre_LivingSin_004
+    displayName: "Nacre LivingSin Mk I"
+    category: Katana
+    rarity: Common
+    damage: 140
+    damageType: Temporal+Paradox
+    sephirah: Tiphareth
+    seedChannel: 4
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Thoth_Phantom_005
+    displayName: "Thoth Phantom Prime"
+    category: SMG
+    rarity: Common
+    damage: 155
+    damageType: Physical+Net
+    sephirah: Yesod
+    seedChannel: 5
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Solar_Nessie_006
+    displayName: "Solar Nessie Mk I"
+    category: Shotgun
+    rarity: Common
+    damage: 170
+    damageType: Physical+Pressure
+    sephirah: Chesed
+    seedChannel: 6
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Orbital_Ouroboros_007
+    displayName: "Orbital Ouroboros Prime"
+    category: AssaultRifle
+    rarity: Common
+    damage: 185
+    damageType: Physical+Memory
+    sephirah: Malkuth
+    seedChannel: 7
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Crimson_Voidsplitter_008
+    displayName: "Crimson Voidsplitter Mk I"
+    category: SniperRifle
+    rarity: Common
+    damage: 200
+    damageType: Physical+Void
+    sephirah: Binah
+    seedChannel: 8
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Chromatic_Kraken_009
+    displayName: "Chromatic Kraken Prime"
+    category: HeavyWeapon
+    rarity: Common
+    damage: 215
+    damageType: Physical+Void+Pressure
+    sephirah: Geburah
+    seedChannel: 9
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nyx_Nyx_010
+    displayName: "Nyx Nyx Mk I"
+    category: Melee
+    rarity: Common
+    damage: 230
+    damageType: Physical+Void
+    sephirah: Hod
+    seedChannel: 10
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Void_Lucifer_011
+    displayName: "Void Lucifer Prime"
+    category: Pistol
+    rarity: Common
+    damage: 245
+    damageType: Thermal+Light
+    sephirah: Kether
+    seedChannel: 11
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Abyssal_LivingSin_012
+    displayName: "Abyssal LivingSin Mk I"
+    category: Katana
+    rarity: Common
+    damage: 160
+    damageType: Temporal+Paradox
+    sephirah: Tiphareth
+    seedChannel: 12
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Phantom_Phantom_013
+    displayName: "Phantom Phantom Prime"
+    category: SMG
+    rarity: Common
+    damage: 175
+    damageType: Physical+Net
+    sephirah: Yesod
+    seedChannel: 13
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Sovereign_Nessie_014
+    displayName: "Sovereign Nessie Mk I"
+    category: Shotgun
+    rarity: Common
+    damage: 190
+    damageType: Physical+Pressure
+    sephirah: Chesed
+    seedChannel: 14
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Violet_Ouroboros_015
+    displayName: "Violet Ouroboros Prime"
+    category: AssaultRifle
+    rarity: Common
+    damage: 205
+    damageType: Physical+Memory
+    sephirah: Malkuth
+    seedChannel: 15
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nacre_Voidsplitter_016
+    displayName: "Nacre Voidsplitter Mk I"
+    category: SniperRifle
+    rarity: Common
+    damage: 220
+    damageType: Physical+Void
+    sephirah: Binah
+    seedChannel: 16
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Thoth_Kraken_017
+    displayName: "Thoth Kraken Prime"
+    category: HeavyWeapon
+    rarity: Common
+    damage: 235
+    damageType: Physical+Void+Pressure
+    sephirah: Geburah
+    seedChannel: 17
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Solar_Nyx_018
+    displayName: "Solar Nyx Mk I"
+    category: Melee
+    rarity: Common
+    damage: 250
+    damageType: Physical+Void
+    sephirah: Hod
+    seedChannel: 18
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Orbital_Lucifer_019
+    displayName: "Orbital Lucifer Prime"
+    category: Pistol
+    rarity: Common
+    damage: 265
+    damageType: Thermal+Light
+    sephirah: Kether
+    seedChannel: 19
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Crimson_LivingSin_020
+    displayName: "Crimson LivingSin Mk I"
+    category: Katana
+    rarity: Uncommon
+    damage: 280
+    damageType: Temporal+Paradox
+    sephirah: Tiphareth
+    seedChannel: 20
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Chromatic_Phantom_021
+    displayName: "Chromatic Phantom Prime"
+    category: SMG
+    rarity: Uncommon
+    damage: 295
+    damageType: Physical+Net
+    sephirah: Yesod
+    seedChannel: 21
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nyx_Nessie_022
+    displayName: "Nyx Nessie Mk I"
+    category: Shotgun
+    rarity: Uncommon
+    damage: 310
+    damageType: Physical+Pressure
+    sephirah: Chesed
+    seedChannel: 22
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Void_Ouroboros_023
+    displayName: "Void Ouroboros Prime"
+    category: AssaultRifle
+    rarity: Uncommon
+    damage: 325
+    damageType: Physical+Memory
+    sephirah: Malkuth
+    seedChannel: 23
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Abyssal_Voidsplitter_024
+    displayName: "Abyssal Voidsplitter Mk I"
+    category: SniperRifle
+    rarity: Uncommon
+    damage: 240
+    damageType: Physical+Void
+    sephirah: Binah
+    seedChannel: 24
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Phantom_Kraken_025
+    displayName: "Phantom Kraken Prime"
+    category: HeavyWeapon
+    rarity: Uncommon
+    damage: 255
+    damageType: Physical+Void+Pressure
+    sephirah: Geburah
+    seedChannel: 25
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Sovereign_Nyx_026
+    displayName: "Sovereign Nyx Mk I"
+    category: Melee
+    rarity: Uncommon
+    damage: 270
+    damageType: Physical+Void
+    sephirah: Hod
+    seedChannel: 26
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Violet_Lucifer_027
+    displayName: "Violet Lucifer Prime"
+    category: Pistol
+    rarity: Uncommon
+    damage: 285
+    damageType: Thermal+Light
+    sephirah: Kether
+    seedChannel: 27
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nacre_LivingSin_028
+    displayName: "Nacre LivingSin Mk I"
+    category: Katana
+    rarity: Uncommon
+    damage: 300
+    damageType: Temporal+Paradox
+    sephirah: Tiphareth
+    seedChannel: 28
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Thoth_Phantom_029
+    displayName: "Thoth Phantom Prime"
+    category: SMG
+    rarity: Uncommon
+    damage: 315
+    damageType: Physical+Net
+    sephirah: Yesod
+    seedChannel: 29
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Solar_Nessie_030
+    displayName: "Solar Nessie Mk I"
+    category: Shotgun
+    rarity: Uncommon
+    damage: 330
+    damageType: Physical+Pressure
+    sephirah: Chesed
+    seedChannel: 30
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Orbital_Ouroboros_031
+    displayName: "Orbital Ouroboros Prime"
+    category: AssaultRifle
+    rarity: Uncommon
+    damage: 345
+    damageType: Physical+Memory
+    sephirah: Malkuth
+    seedChannel: 31
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Crimson_Voidsplitter_032
+    displayName: "Crimson Voidsplitter Mk I"
+    category: SniperRifle
+    rarity: Uncommon
+    damage: 360
+    damageType: Physical+Void
+    sephirah: Binah
+    seedChannel: 32
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Chromatic_Kraken_033
+    displayName: "Chromatic Kraken Prime"
+    category: HeavyWeapon
+    rarity: Uncommon
+    damage: 375
+    damageType: Physical+Void+Pressure
+    sephirah: Geburah
+    seedChannel: 33
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nyx_Nyx_034
+    displayName: "Nyx Nyx Mk I"
+    category: Melee
+    rarity: Uncommon
+    damage: 390
+    damageType: Physical+Void
+    sephirah: Hod
+    seedChannel: 34
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Void_Lucifer_035
+    displayName: "Void Lucifer Prime"
+    category: Pistol
+    rarity: Uncommon
+    damage: 405
+    damageType: Thermal+Light
+    sephirah: Kether
+    seedChannel: 35
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Abyssal_LivingSin_036
+    displayName: "Abyssal LivingSin Mk I"
+    category: Katana
+    rarity: Uncommon
+    damage: 320
+    damageType: Temporal+Paradox
+    sephirah: Tiphareth
+    seedChannel: 36
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Phantom_Phantom_037
+    displayName: "Phantom Phantom Prime"
+    category: SMG
+    rarity: Uncommon
+    damage: 335
+    damageType: Physical+Net
+    sephirah: Yesod
+    seedChannel: 37
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Sovereign_Nessie_038
+    displayName: "Sovereign Nessie Mk I"
+    category: Shotgun
+    rarity: Uncommon
+    damage: 350
+    damageType: Physical+Pressure
+    sephirah: Chesed
+    seedChannel: 38
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Violet_Ouroboros_039
+    displayName: "Violet Ouroboros Prime"
+    category: AssaultRifle
+    rarity: Uncommon
+    damage: 365
+    damageType: Physical+Memory
+    sephirah: Malkuth
+    seedChannel: 39
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nacre_Voidsplitter_040
+    displayName: "Nacre Voidsplitter Mk I"
+    category: SniperRifle
+    rarity: Rare
+    damage: 380
+    damageType: Physical+Void
+    sephirah: Binah
+    seedChannel: 40
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Thoth_Kraken_041
+    displayName: "Thoth Kraken Prime"
+    category: HeavyWeapon
+    rarity: Rare
+    damage: 395
+    damageType: Physical+Void+Pressure
+    sephirah: Geburah
+    seedChannel: 41
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Solar_Nyx_042
+    displayName: "Solar Nyx Mk I"
+    category: Melee
+    rarity: Rare
+    damage: 410
+    damageType: Physical+Void
+    sephirah: Hod
+    seedChannel: 42
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Orbital_Lucifer_043
+    displayName: "Orbital Lucifer Prime"
+    category: Pistol
+    rarity: Rare
+    damage: 425
+    damageType: Thermal+Light
+    sephirah: Kether
+    seedChannel: 43
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Crimson_LivingSin_044
+    displayName: "Crimson LivingSin Mk I"
+    category: Katana
+    rarity: Rare
+    damage: 440
+    damageType: Temporal+Paradox
+    sephirah: Tiphareth
+    seedChannel: 44
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Chromatic_Phantom_045
+    displayName: "Chromatic Phantom Prime"
+    category: SMG
+    rarity: Rare
+    damage: 455
+    damageType: Physical+Net
+    sephirah: Yesod
+    seedChannel: 45
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nyx_Nessie_046
+    displayName: "Nyx Nessie Mk I"
+    category: Shotgun
+    rarity: Rare
+    damage: 470
+    damageType: Physical+Pressure
+    sephirah: Chesed
+    seedChannel: 46
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Void_Ouroboros_047
+    displayName: "Void Ouroboros Prime"
+    category: AssaultRifle
+    rarity: Rare
+    damage: 485
+    damageType: Physical+Memory
+    sephirah: Malkuth
+    seedChannel: 47
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Abyssal_Voidsplitter_048
+    displayName: "Abyssal Voidsplitter Mk I"
+    category: SniperRifle
+    rarity: Rare
+    damage: 400
+    damageType: Physical+Void
+    sephirah: Binah
+    seedChannel: 48
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Phantom_Kraken_049
+    displayName: "Phantom Kraken Prime"
+    category: HeavyWeapon
+    rarity: Rare
+    damage: 415
+    damageType: Physical+Void+Pressure
+    sephirah: Geburah
+    seedChannel: 49
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Sovereign_Nyx_050
+    displayName: "Sovereign Nyx Mk I"
+    category: Melee
+    rarity: Rare
+    damage: 430
+    damageType: Physical+Void
+    sephirah: Hod
+    seedChannel: 50
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Violet_Lucifer_051
+    displayName: "Violet Lucifer Prime"
+    category: Pistol
+    rarity: Rare
+    damage: 445
+    damageType: Thermal+Light
+    sephirah: Kether
+    seedChannel: 51
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nacre_LivingSin_052
+    displayName: "Nacre LivingSin Mk I"
+    category: Katana
+    rarity: Rare
+    damage: 460
+    damageType: Temporal+Paradox
+    sephirah: Tiphareth
+    seedChannel: 52
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Thoth_Phantom_053
+    displayName: "Thoth Phantom Prime"
+    category: SMG
+    rarity: Rare
+    damage: 475
+    damageType: Physical+Net
+    sephirah: Yesod
+    seedChannel: 53
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Solar_Nessie_054
+    displayName: "Solar Nessie Mk I"
+    category: Shotgun
+    rarity: Rare
+    damage: 490
+    damageType: Physical+Pressure
+    sephirah: Chesed
+    seedChannel: 54
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Orbital_Ouroboros_055
+    displayName: "Orbital Ouroboros Prime"
+    category: AssaultRifle
+    rarity: Rare
+    damage: 505
+    damageType: Physical+Memory
+    sephirah: Malkuth
+    seedChannel: 55
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Crimson_Voidsplitter_056
+    displayName: "Crimson Voidsplitter Mk I"
+    category: SniperRifle
+    rarity: Rare
+    damage: 520
+    damageType: Physical+Void
+    sephirah: Binah
+    seedChannel: 56
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Chromatic_Kraken_057
+    displayName: "Chromatic Kraken Prime"
+    category: HeavyWeapon
+    rarity: Rare
+    damage: 535
+    damageType: Physical+Void+Pressure
+    sephirah: Geburah
+    seedChannel: 57
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nyx_Nyx_058
+    displayName: "Nyx Nyx Mk I"
+    category: Melee
+    rarity: Rare
+    damage: 550
+    damageType: Physical+Void
+    sephirah: Hod
+    seedChannel: 58
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Void_Lucifer_059
+    displayName: "Void Lucifer Prime"
+    category: Pistol
+    rarity: Rare
+    damage: 565
+    damageType: Thermal+Light
+    sephirah: Kether
+    seedChannel: 59
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Abyssal_LivingSin_060
+    displayName: "Abyssal LivingSin Mk I"
+    category: Katana
+    rarity: Epic
+    damage: 480
+    damageType: Temporal+Paradox
+    sephirah: Tiphareth
+    seedChannel: 60
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Phantom_Phantom_061
+    displayName: "Phantom Phantom Prime"
+    category: SMG
+    rarity: Epic
+    damage: 495
+    damageType: Physical+Net
+    sephirah: Yesod
+    seedChannel: 61
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Sovereign_Nessie_062
+    displayName: "Sovereign Nessie Mk I"
+    category: Shotgun
+    rarity: Epic
+    damage: 510
+    damageType: Physical+Pressure
+    sephirah: Chesed
+    seedChannel: 62
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Violet_Ouroboros_063
+    displayName: "Violet Ouroboros Prime"
+    category: AssaultRifle
+    rarity: Epic
+    damage: 525
+    damageType: Physical+Memory
+    sephirah: Malkuth
+    seedChannel: 63
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nacre_Voidsplitter_064
+    displayName: "Nacre Voidsplitter Mk I"
+    category: SniperRifle
+    rarity: Epic
+    damage: 540
+    damageType: Physical+Void
+    sephirah: Binah
+    seedChannel: 64
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Thoth_Kraken_065
+    displayName: "Thoth Kraken Prime"
+    category: HeavyWeapon
+    rarity: Epic
+    damage: 555
+    damageType: Physical+Void+Pressure
+    sephirah: Geburah
+    seedChannel: 65
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Solar_Nyx_066
+    displayName: "Solar Nyx Mk I"
+    category: Melee
+    rarity: Epic
+    damage: 570
+    damageType: Physical+Void
+    sephirah: Hod
+    seedChannel: 66
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Orbital_Lucifer_067
+    displayName: "Orbital Lucifer Prime"
+    category: Pistol
+    rarity: Epic
+    damage: 585
+    damageType: Thermal+Light
+    sephirah: Kether
+    seedChannel: 67
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Crimson_LivingSin_068
+    displayName: "Crimson LivingSin Mk I"
+    category: Katana
+    rarity: Epic
+    damage: 600
+    damageType: Temporal+Paradox
+    sephirah: Tiphareth
+    seedChannel: 68
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Chromatic_Phantom_069
+    displayName: "Chromatic Phantom Prime"
+    category: SMG
+    rarity: Epic
+    damage: 615
+    damageType: Physical+Net
+    sephirah: Yesod
+    seedChannel: 69
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nyx_Nessie_070
+    displayName: "Nyx Nessie Mk I"
+    category: Shotgun
+    rarity: Epic
+    damage: 630
+    damageType: Physical+Pressure
+    sephirah: Chesed
+    seedChannel: 70
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Void_Ouroboros_071
+    displayName: "Void Ouroboros Prime"
+    category: AssaultRifle
+    rarity: Epic
+    damage: 645
+    damageType: Physical+Memory
+    sephirah: Malkuth
+    seedChannel: 71
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Abyssal_Voidsplitter_072
+    displayName: "Abyssal Voidsplitter Mk I"
+    category: SniperRifle
+    rarity: Epic
+    damage: 560
+    damageType: Physical+Void
+    sephirah: Binah
+    seedChannel: 72
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Phantom_Kraken_073
+    displayName: "Phantom Kraken Prime"
+    category: HeavyWeapon
+    rarity: Epic
+    damage: 575
+    damageType: Physical+Void+Pressure
+    sephirah: Geburah
+    seedChannel: 73
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Sovereign_Nyx_074
+    displayName: "Sovereign Nyx Mk I"
+    category: Melee
+    rarity: Epic
+    damage: 590
+    damageType: Physical+Void
+    sephirah: Hod
+    seedChannel: 74
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Violet_Lucifer_075
+    displayName: "Violet Lucifer Prime"
+    category: Pistol
+    rarity: Epic
+    damage: 605
+    damageType: Thermal+Light
+    sephirah: Kether
+    seedChannel: 75
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nacre_LivingSin_076
+    displayName: "Nacre LivingSin Mk I"
+    category: Katana
+    rarity: Epic
+    damage: 620
+    damageType: Temporal+Paradox
+    sephirah: Tiphareth
+    seedChannel: 76
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Thoth_Phantom_077
+    displayName: "Thoth Phantom Prime"
+    category: SMG
+    rarity: Epic
+    damage: 635
+    damageType: Physical+Net
+    sephirah: Yesod
+    seedChannel: 77
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Solar_Nessie_078
+    displayName: "Solar Nessie Mk I"
+    category: Shotgun
+    rarity: Epic
+    damage: 650
+    damageType: Physical+Pressure
+    sephirah: Chesed
+    seedChannel: 78
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Orbital_Ouroboros_079
+    displayName: "Orbital Ouroboros Prime"
+    category: AssaultRifle
+    rarity: Epic
+    damage: 665
+    damageType: Physical+Memory
+    sephirah: Malkuth
+    seedChannel: 79
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Crimson_Voidsplitter_080
+    displayName: "Crimson Voidsplitter Mk I"
+    category: SniperRifle
+    rarity: Legendary
+    damage: 680
+    damageType: Physical+Void
+    sephirah: Binah
+    seedChannel: 80
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Chromatic_Kraken_081
+    displayName: "Chromatic Kraken Prime"
+    category: HeavyWeapon
+    rarity: Legendary
+    damage: 695
+    damageType: Physical+Void+Pressure
+    sephirah: Geburah
+    seedChannel: 81
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nyx_Nyx_082
+    displayName: "Nyx Nyx Mk I"
+    category: Melee
+    rarity: Legendary
+    damage: 710
+    damageType: Physical+Void
+    sephirah: Hod
+    seedChannel: 82
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Void_Lucifer_083
+    displayName: "Void Lucifer Prime"
+    category: Pistol
+    rarity: Legendary
+    damage: 725
+    damageType: Thermal+Light
+    sephirah: Kether
+    seedChannel: 83
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Abyssal_LivingSin_084
+    displayName: "Abyssal LivingSin Mk I"
+    category: Katana
+    rarity: Legendary
+    damage: 640
+    damageType: Temporal+Paradox
+    sephirah: Tiphareth
+    seedChannel: 84
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Phantom_Phantom_085
+    displayName: "Phantom Phantom Prime"
+    category: SMG
+    rarity: Legendary
+    damage: 655
+    damageType: Physical+Net
+    sephirah: Yesod
+    seedChannel: 85
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Sovereign_Nessie_086
+    displayName: "Sovereign Nessie Mk I"
+    category: Shotgun
+    rarity: Legendary
+    damage: 670
+    damageType: Physical+Pressure
+    sephirah: Chesed
+    seedChannel: 86
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Violet_Ouroboros_087
+    displayName: "Violet Ouroboros Prime"
+    category: AssaultRifle
+    rarity: Legendary
+    damage: 685
+    damageType: Physical+Memory
+    sephirah: Malkuth
+    seedChannel: 87
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nacre_Voidsplitter_088
+    displayName: "Nacre Voidsplitter Mk I"
+    category: SniperRifle
+    rarity: Legendary
+    damage: 700
+    damageType: Physical+Void
+    sephirah: Binah
+    seedChannel: 88
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Thoth_Kraken_089
+    displayName: "Thoth Kraken Prime"
+    category: HeavyWeapon
+    rarity: Legendary
+    damage: 715
+    damageType: Physical+Void+Pressure
+    sephirah: Geburah
+    seedChannel: 89
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Solar_Nyx_090
+    displayName: "Solar Nyx Mk I"
+    category: Melee
+    rarity: Legendary
+    damage: 730
+    damageType: Physical+Void
+    sephirah: Hod
+    seedChannel: 90
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Orbital_Lucifer_091
+    displayName: "Orbital Lucifer Prime"
+    category: Pistol
+    rarity: Legendary
+    damage: 745
+    damageType: Thermal+Light
+    sephirah: Kether
+    seedChannel: 91
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Crimson_LivingSin_092
+    displayName: "Crimson LivingSin Mk I"
+    category: Katana
+    rarity: Legendary
+    damage: 760
+    damageType: Temporal+Paradox
+    sephirah: Tiphareth
+    seedChannel: 92
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Chromatic_Phantom_093
+    displayName: "Chromatic Phantom Prime"
+    category: SMG
+    rarity: Legendary
+    damage: 775
+    damageType: Physical+Net
+    sephirah: Yesod
+    seedChannel: 93
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Nyx_Nessie_094
+    displayName: "Nyx Nessie Mk I"
+    category: Shotgun
+    rarity: Legendary
+    damage: 790
+    damageType: Physical+Pressure
+    sephirah: Chesed
+    seedChannel: 94
+    procgenTag: msn.procgen.weapon.v1
+  - id: MSN_ProcGen_Void_Ouroboros_095
+    displayName: "Void Ouroboros Prime"
+    category: AssaultRifle
+    rarity: Legendary
+    damage: 805
+    damageType: Physical+Memory
+    sephirah: Malkuth
+    seedChannel: 95
+    procgenTag: msn.procgen.weapon.v1
+
+# Lilith Sovereign — unified by lilith_unify_cyberpunk.py
+lilith_unified: true
+lilith_kernel: LilithSovereignKernel
+# Sephirotic Court — Binah | desktop/cp2077_mods/msn_procgen_weapon_catalog.yaml
+SephiroticCourt:
+  sephira: Binah
+  court_agent: Yeshua
+  routed_via: msn_gtc_sephirotic_router.reds
+  sovereign: true

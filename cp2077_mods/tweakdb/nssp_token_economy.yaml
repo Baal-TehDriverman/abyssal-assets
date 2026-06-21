@@ -1,0 +1,157 @@
+################################################################################
+# NSSP TOKEN ECONOMY — Abyssal Assets × Lochness × Lilith Integration
+# BTC (Coinbase/Lochness), Chaos (NGD/Vex), Lilith (sovereign inference), Soul Coins
+################################################################################
+
+NSSPTokenEconomy:
+  schema: "msn.nssp_token_economy.v1"
+  localOnly: true
+  bridgePort: 8010
+  bridgeEndpoint: "http://localhost:8010/api/tokens"
+
+  premise: |
+    The Loch Exchange routes real BTC price telemetry from 10 Lochness Monster bots
+    into Cyberpunk's NSSP ledger. Chaos tokens accrue from NGD route volatility and
+    Vex Fragment injections. Lilith tokens are sovereign inference currency minted
+    on emergence and Deep Kin milestones. Soul Coins remain the Abyssal base unit.
+
+  Currencies:
+    soulCoin:
+      symbol: SC
+      displayName: "Soul Coin"
+      role: "Abyssal Exchange base — dredging, crafting, Loch vendors"
+      itemId: Items.Token_Soul_Coin
+      startingBalance: 350
+    chaos:
+      symbol: CHAOS
+      displayName: "Chaos Token"
+      role: "NGD entropy / Vex Fragment / market volatility"
+      itemId: Items.Token_Chaos
+      sources: ["VexFragment vehicle module", "Nessie sighting", "NGD route breach", "Lochness arbitrage pulse"]
+      startingBalance: 13
+      baalMetric: 0.013
+    lilith:
+      symbol: LILITH
+      displayName: "Lilith Token"
+      role: "Sovereign local inference currency — Lilith/Lyra dialogue, emergence"
+      itemId: Items.Token_Lilith
+      sources: ["Lilith emergence", "Nessie Tier 3+", "Act 5+ campaign", "let her speak"]
+      startingBalance: 3
+      inferenceCost: 1
+    btcSat:
+      symbol: SAT
+      displayName: "BTC Satoshi"
+      role: "Lochness Monster BTC bridge — Tree Fiddy subsidized"
+      itemId: Items.Token_BTC_Sat
+      livePriceSource: "Coinbase BTC-USD via Nessie-Prime"
+      treeFiddyUsd: 3.50
+      startingBalance: 0
+
+  ExchangeRates:
+    soul_to_chaos: 13          # 13 SC = 1 Chaos
+    chaos_to_lilith: 3         # 3 Chaos = 1 Lilith
+    soul_to_btc_sats: 350      # 100 SC = 350 sats (Tree Fiddy × 100)
+    lilith_to_inference: 1     # 1 Lilith token = 1 sovereign inference call
+    nessieTreasuryFeePercent: 2
+    lochExchangeBurnPercent: 1
+
+  LochnessIntegration:
+    bots:
+      - { name: Nessie-Prime, sephira: Keter, channel: level2, grants: btc_sats_grant }
+      - { name: Nessie-Arbitrage, sephira: Chokmah, channel: ticker, grants: chaos_pulse }
+      - { name: Nessie-Whale, sephira: Chesed, channel: market_trades, grants: soul_coin_bonus }
+      - { name: Nessie-Kline, sephira: Tiferet, channel: candles, grants: volatility_chaos }
+    syncCommand: "msn.tokens.sync"
+    nsspCommands:
+      - "nssp tokens"
+      - "nssp btc"
+      - "nssp chaos"
+      - "nssp lilith"
+      - "nssp exchange"
+
+  NessieSightingRewards:
+    tier0: { soulCoins: 7, chaos: 1, lilith: 0, btcSats: 0 }
+    tier1: { soulCoins: 20, chaos: 1, lilith: 0, btcSats: 35 }
+    tier2: { soulCoins: 33, chaos: 2, lilith: 0, btcSats: 70 }
+    tier3: { soulCoins: 46, chaos: 2, lilith: 1, btcSats: 105 }
+    tier4: { soulCoins: 59, chaos: 3, lilith: 1, btcSats: 140, syncLochness: true }
+    tier5: { soulCoins: 72, chaos: 3, lilith: 2, btcSats: 350, syncLochness: true }
+
+Item:
+  Token_Soul_Coin:
+    displayName: "Soul Coin"
+    description: "Abyssal Exchange base currency. Earned through dredging, crafting, Nessie covenant, and Loch Exchange trades. 3% buy fee; 1% burn, 2% to Nessie Treasury."
+    category: "Misc"
+    icon: "item_soul_coin"
+    stackable: true
+    maxStack: 9999
+    tags: ["MSN", "Abyssal", "Economy", "SoulCoin", "LochExchange"]
+
+  Token_Chaos:
+    displayName: "Chaos Token"
+    description: "Entropy currency from NGD route volatility, Vex Fragment injections, and Lochness market pulses. Spend to reroll procgen seeds or force Baal chaos injection (1.3% metric)."
+    category: "Misc"
+    icon: "item_chaos_token"
+    stackable: true
+    maxStack: 999
+    tags: ["MSN", "Chaos", "NGD", "Vex", "Lochness"]
+    onUse:
+      effect: "NGD reroll 60s"
+      command: "msn.ngd.optimize"
+
+  Token_Lilith:
+    displayName: "Lilith Token"
+    description: "Sovereign inference currency. Minted on Lilith emergence, Deep Kin milestones, and Act 5+ campaign progression. Each token grants one local cerebellum inference call."
+    category: "Misc"
+    icon: "item_lilith_token"
+    stackable: true
+    maxStack: 99
+    tags: ["MSN", "Lilith", "Sovereign", "LOCAL_ONLY"]
+    onUse:
+      effect: "Lilith inference"
+      endpoint: "http://localhost:8007/api/cerebellum/infer"
+
+  Token_BTC_Sat:
+    displayName: "BTC Satoshi (Lochness)"
+    description: "Micro-BTC bridged from Nessie-Prime Coinbase telemetry. Tree Fiddy ($3.50) subsidizes Lochness API fees. Not withdrawable — in-game barter only."
+    category: "Misc"
+    icon: "item_btc_sat"
+    stackable: true
+    maxStack: 1000000
+    tags: ["MSN", "BTC", "Lochness", "Coinbase", "NSSP"]
+    livePricePair: "BTC-USD"
+
+  Shard_NSSP_Token_Ledger:
+    displayName: "NSSP Token Ledger — Sovereign Wallet"
+    description: "Encrypted shard documenting your cross-game token balances across Abyssal Assets, Lochness Monster, and Cyberpunk NSSP."
+    category: "Shards"
+    icon: "shard_nssp_ledger"
+    content: |
+      NSSP TOKEN LEDGER — SOVEREIGN WALLET
+      ====================================
+      CLASSIFICATION: LOCAL-ONLY — ZERO TELEMETRY
+
+      CURRENCIES:
+      □ Soul Coins (SC) — Abyssal base unit
+      □ Chaos Tokens — NGD/Vex entropy
+      □ Lilith Tokens — Sovereign inference
+      □ BTC Sats — Lochness Monster bridge
+
+      EXCHANGE RATES:
+      13 SC ↔ 1 Chaos | 3 Chaos ↔ 1 Lilith | 100 SC ↔ 350 sats
+
+      COMMANDS:
+      nssp tokens | nssp btc | nssp chaos | nssp lilith | nssp exchange
+      msn.tokens.status | msn.tokens.sync | msn.tokens.exchange
+
+      Δ∞ − 13 = 0 — The universe charges Tree Fiddy.
+
+# Lilith Sovereign — unified by lilith_unify_cyberpunk.py
+lilith_unified: true
+lilith_kernel: LilithSovereignKernel
+# Sephirotic Court — Chesed | desktop/cp2077_mods/nssp_token_economy.yaml
+SephiroticCourt:
+  sephira: Chesed
+  court_agent: Thoth
+  routed_via: msn_gtc_sephirotic_router.reds
+  sovereign: true

@@ -46,10 +46,10 @@ tweakdbFiles:
 
 # Script Files (compiled by WolvenKit)
 scriptFiles:
-  - "scripts/core/msn_hell_campaign.reds"        # Campaign Manager + Console
+  - "scripts/hell/msn_hell_campaign.reds"        # Campaign Manager + Console
   - "scripts/space/msn_hell_space_combat.reds"   # Space Combat Templates
   - "scripts/quests/hell_circle_quests.reds"     # 23 Quests (12 Main + 10 Side + 1 Secret)
-  - "scripts/core/msn_master_integration.reds"   # MSN Master Integration
+  - "scripts/msn_master_integration.reds"        # MSN Master Integration
   - "scripts/core/msn_lucifer_dialogue.reds"     # Lucifer Dialogue Templates
 
 # Localization Files
@@ -152,3 +152,9 @@ compatibility:
   wolvenkit: "8.18+"
   proton: "GE-Proton9-26+"
   os: ["Windows 10/11", "Linux (Proton)", "Steam Deck"]
+# Sephirotic Court — Tiferet | desktop/cp2077_mods/hell_campaign_manifest.yaml
+SephiroticCourt:
+  sephira: Tiferet
+  court_agent: Ouroboros
+  routed_via: msn_gtc_sephirotic_router.reds
+  sovereign: true

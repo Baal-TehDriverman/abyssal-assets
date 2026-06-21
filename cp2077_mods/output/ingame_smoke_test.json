@@ -1,0 +1,27 @@
+{
+  "status": "pending_game_launch",
+  "tier": 1,
+  "prepared_at": "2026-06-21",
+  "commands": [
+    "msn.engine.status",
+    "msn.narrative.start",
+    "msn.narrative.status",
+    "msn.narrative.complete q_msn_act1_03",
+    "msn.campaign.status",
+    "msn.items.catalog",
+    "msn.items.grant voidsplitter",
+    "msn.cool.vibe neon",
+    "msn.cool.status",
+    "msn.court.status",
+    "msn.symbiosis.sync",
+    "msn.tokens.sync"
+  ],
+  "expected": {
+    "final_redscripts": "$CP2077/r6/cache/final.redscripts exists > 1MB",
+    "narrative_start": "Act 1 shard granted",
+    "act1_complete": "Cyberdeck_MSN_Cerebellum reward",
+    "cool_mode": "corruption > 0 after combat",
+    "no_redscript_errors": "redscript_rCURRENT.log has no exception"
+  },
+  "notes": "Run after launching Cyberpunk with REDmod. Record pass/fail per command."
+}

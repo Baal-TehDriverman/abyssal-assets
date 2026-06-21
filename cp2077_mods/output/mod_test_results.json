@@ -1,0 +1,214 @@
+{
+  "started": "2026-06-21T11:33:44.128110+00:00",
+  "tests": {
+    "validate_full_stack": {
+      "ok": true,
+      "code": 0,
+      "out": "OK: Full MSN Cyberpunk stack validates\n  Scripts: 17 core engines\n  TweakDB: 12 data manifests\n  Quests: 2 campaign chains\n  Catalog: 96 procgen weapons + 1000000 hats + 500 hell items + 69 bios\n"
+    },
+    "validate_magic_jedi": {
+      "ok": true,
+      "code": 0,
+      "out": "OK: magic/Jedi REDmod surface validates\n"
+    },
+    "build_msn": {
+      "ok": true,
+      "code": 0,
+      "out": "{\n  \"deployed\": true,\n  \"scripts_deployed\": 114,\n  \"info_version\": \"2.0.0-lilith\",\n  \"missing_required\": [],\n  \"compiled_redscripts\": false,\n  \"compiled_tweakdb\": false,\n  \"cache_dir_exists\": false,\n  \"redscript_framework\": true,\n  \"working_condition\": true,\n  \"next_step\": \"Launch game with REDmod \\u2014 cache compiles on first run\"\n}\n"
+    },
+    "mod_tracks": {
+      "ok": true,
+      "tracks": {
+        "core_msn": {
+          "ok": true,
+          "missing": [],
+          "files": 3
+        },
+        "gaming_engine": {
+          "ok": true,
+          "missing": [],
+          "files": 3
+        },
+        "sephirotic_court": {
+          "ok": true,
+          "missing": [],
+          "files": 2
+        },
+        "ngd": {
+          "ok": true,
+          "missing": [],
+          "files": 2
+        },
+        "dialogue": {
+          "ok": true,
+          "missing": [],
+          "files": 3
+        },
+        "token_economy": {
+          "ok": true,
+          "missing": [],
+          "files": 2
+        },
+        "hell": {
+          "ok": true,
+          "missing": [],
+          "files": 3
+        },
+        "magic_jedi_sw": {
+          "ok": true,
+          "missing": [],
+          "files": 3
+        },
+        "procgen_ai": {
+          "ok": true,
+          "missing": [],
+          "files": 3
+        },
+        "restored": {
+          "ok": true,
+          "missing": [],
+          "files": 3
+        },
+        "ui": {
+          "ok": true,
+          "missing": [],
+          "files": 2
+        }
+      }
+    },
+    "console_commands": {
+      "ok": true,
+      "found": [
+        "msn.cool.on",
+        "msn.cool.status",
+        "msn.cool.vibe",
+        "msn.cool.pulse",
+        "msn.gtc.status",
+        "msn.engine.status",
+        "msn.engine.perf",
+        "msn.gtc.shards",
+        "msn.court.status",
+        "msn.court.route",
+        "msn.skill.trees",
+        "msn.skill.status",
+        "abyssal.skills.trees",
+        "msn.symbiosis.sync",
+        "msn.tokens.sync",
+        "msn.tokens.status",
+        "msn.dialogue.lilith",
+        "msn.ngd.status",
+        "msn.ngd.optimize",
+        "msn.magic.status",
+        "msn.jedi.status",
+        "msn.starwars.status",
+        "lilith.kernel"
+      ],
+      "missing": []
+    },
+    "sephirotic_court": {
+      "ok": true,
+      "total_files": 895,
+      "source_files": 81,
+      "sephira_counts": {
+        "Keter": 162,
+        "Chokmah": 46,
+        "Binah": 34,
+        "Chesed": 59,
+        "Gevurah": 105,
+        "Tiferet": 222,
+        "Netzach": 29,
+        "Hod": 85,
+        "Yesod": 120,
+        "Malkuth": 33
+      }
+    },
+    "gtc_shards": {
+      "ok": true,
+      "total": 100,
+      "optimized": 100,
+      "duplicate_hooks": 0
+    },
+    "reds_symbols": {
+      "ok": true,
+      "missing_symbols": []
+    },
+    "api_lilith_health": {
+      "ok": true,
+      "code": 200,
+      "body": "<!doctype html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\" />\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n    <title>MSN \u2014 Lilith</title>\n    <style>\n      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');\n      body { margin: 0; background: transparent; overflow: hidden; }\n    </style>\n    <script type=\"module\" crossorigin src=\"/assets/index-BF-_UGeH.js\"></script>\n    <lin"
+    },
+    "api_lyra_state": {
+      "ok": true,
+      "code": 200,
+      "body": "{\"persona\":\"lyra\",\"conversation_depth\":0,\"total_exchanges\":0,\"recognition_events\":0,\"violet_intensity\":1.0,\"crimson_intensity\":0.0,\"lilith_emerged\":false,\"response_mode\":\"poetic\",\"legal_vectors\":[],\"history\":[]}"
+    },
+    "api_antigravity_health": {
+      "ok": true,
+      "code": 200,
+      "body": "{\"status\":\"online\",\"bridge\":\"Antigravity 2.0 <-> GodEngine\",\"records\":51606,\"snapshots\":0,\"meta_total_ingested\":51606,\"ws_listeners\":0,\"hot_cache_size\":1,\"timestamp\":\"2026-06-21T11:33:49.341281\"}"
+    },
+    "api_abyssal_api": {
+      "ok": true,
+      "code": 200,
+      "body": "{\"status\":\"healthy\",\"service\":\"abyssal-assets-api\"}"
+    },
+    "api_lilith_fastapi": {
+      "ok": true,
+      "code": 200,
+      "body": "{\"ok\":true,\"model\":\"lilith\",\"memory_db\":\"/home/tehlappy/Desktop/AI/Pub/00_CORE_SERVICES/quantum_paradox_terminal/golem_diary.db\",\"msn_state_root\":\"/home/tehlappy/Desktop/Lilith/state\",\"skill_index\":308,\"command_index\":291,\"bridge_index\":189,\"validation_ok\":true}"
+    },
+    "api_msn_router": {
+      "ok": true,
+      "code": 200,
+      "body": "{\"service\":\"MSN Router\",\"agents_online\":29,\"waves\":{\"total_agents\":29,\"waves\":{\"1\":[{\"id\":\"root\",\"name\":\"Sephirotic Root\",\"version\":\"1.0.1\",\"sephira\":\"KETER\",\"description\":\"Root manifest interface \u2014 indexes and resolves every file in the project by direct reference\",\"wave\":1,\"port\":null,\"status\":\"running\",\"started_at\":1782038508.574048,\"health\":\"healthy\"},{\"id\":\"architect\",\"name\":\"Game Architect\",\"version\":\"1.0.1\",\"sephira\":\"CHOKMAH\",\"description\":\"Game architecture reference \u2014 GDD, design decis"
+    },
+    "api_gtc_bridge_health": {
+      "ok": true,
+      "code": 200,
+      "body": "{\"status\":\"ok\",\"service\":\"gtc-bridge\",\"port\":8766}"
+    },
+    "api_gtc_bridge_symbiosis": {
+      "ok": true,
+      "code": 200,
+      "body": "{\"entity\":\"Lilith Systems LLC + The Driver Man Co-Op\",\"drivers\":52,\"treasury_usd\":354.99,\"manifesto\":{\"zero_commission\":true,\"driver_payout\":3.5,\"pool_cut\":1.49,\"restaurant_fee\":1.5},\"msn_integration\":\"local_cerebellum_ouroboros_fish\",\"gtc_bridge\":\"8766\",\"lilith_throne\":\"commanded\",\"last_synced\":\"2026-06-21\",\"in_game_lore\":\"52 sovereign drivers. Pool $354.99. Lilith co-op sovereign in Night City.\",\"treasury_balance_usd\":354.99,\"total_drivers\":52,\"synced_at\":\"2026-06-21T11:28:44.702024+00:00\"}"
+    },
+    "antigravity_ingest": {
+      "ok": true,
+      "code": 200,
+      "body": "{\"status\":\"ingested\",\"total\":51607}"
+    },
+    "lochness_api": {
+      "ok": true,
+      "code": 200,
+      "body": "{\"service\":\"lochness_bridge\",\"lochness_online\":false,\"bots_active\":0,\"bots_seen\":[],\"btc_usd\":0.0,\"best_bid\":0.0,\"best_ask\":0.0,\"spread_bps\":0.0,\"sentiment\":\"neutral\",\"sentiment_score\":0.0,\"funding_basis_pct\":0.0,\"crafting_modifier\":1.0,\"rsi\":50.0,\"macd\":0.0,\"chaos_pulse\":0,\"whale_alerts_24h\":0,\"recent_whales\":[],\"order_book_depth\":{\"bids\":0,\"asks\":0},\"events_buffered\":0,\"uptime_seconds\":0,\"integrations\":[\"Abyssal Exchange\",\"NSSP Token Bridge\",\"Cyberpunk 2077\"]}"
+    },
+    "compile_ready": {
+      "ok": true,
+      "scc_installed": true,
+      "cache_compiled": false,
+      "redscript_logs": [],
+      "needs_game_launch": true
+    }
+  },
+  "passed": 19,
+  "failed": 0,
+  "skipped": 0,
+  "finished": "2026-06-21T11:33:49.368176+00:00",
+  "summary": {
+    "total": 19,
+    "passed": 19,
+    "failed": 0,
+    "ready_for_ingame": true,
+    "ingame_step": "Launch Cyberpunk with REDmod \u2192 run console_verify commands"
+  },
+  "console_verify": [
+    "msn.gtc.status",
+    "msn.engine.status",
+    "msn.gtc.shards",
+    "msn.symbiosis.sync",
+    "msn.tokens.sync",
+    "msn.dialogue.lilith test",
+    "msn.court.status",
+    "msn.court.route Keter"
+  ]
+}

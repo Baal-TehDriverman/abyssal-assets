@@ -1,5 +1,6 @@
-# Wave 4 — Unified Cortex (replaces NGD + Cerebellum + Worker)
-# Real GPU telemetry with EWMA smoothing, hysteresis routing, local inference, cloud fallback
+# Wave 4 — Unified Cortex (LOCAL-ONLY MODE)
+# Real GPU telemetry with EWMA smoothing, hysteresis routing, LOCAL inference always
+# CLOUD_CORTEX fallback is disabled — all tokens stay on-device
 
 from agents import SubAgent, AgentManifest, register_agent
 from pathlib import Path
@@ -9,9 +10,9 @@ from pydantic import BaseModel
 manifest = AgentManifest(
     id="cortex",
     name="Unified Cortex",
-    version="1.0.1",
+    version="2.0.0",
     sephira="BINAH",
-    description="GPU-aware AI routing — NVML telemetry, EWMA smoothing, hysteresis router (LOCAL/HYBRID/CLOUD), local Ollama inference, cloud fallback, circuit breaker",
+    description="LOCAL-ONLY AI routing — NVML EWMA telemetry, hysteresis router (LOCAL/HYBRID), hermes3:8b primary, llama3.1:8b fallback, zero cloud egress",
     wave=4,
 )
 
@@ -20,10 +21,17 @@ CORTEX_STATE_DIR.mkdir(parents=True, exist_ok=True)
 STATE_FILE = CORTEX_STATE_DIR / "cortex_state.json"
 SAMPLE_FILE = CORTEX_STATE_DIR / "samples.jsonl"
 
-MODEL_VRAM_MB = 512
-SAFETY_MARGIN_MB = 128
-CLEAR_THRESHOLD_MB = MODEL_VRAM_MB + SAFETY_MARGIN_MB
-BREACH_THRESHOLD_MB = MODEL_VRAM_MB // 2
+# ── Local Model Priority (all on-device, no cloud) ──
+OLLAMA_MODEL_PRIMARY   = os.getenv("OLLAMA_MODEL",     "hermes3:8b")
+OLLAMA_MODEL_FALLBACK  = os.getenv("OLLAMA_FALLBACK",  "llama3.1:8b")
+OLLAMA_MODEL_EMERGENCY = os.getenv("OLLAMA_EMERGENCY", "nemotron-mini:latest")
+OLLAMA_BASE            = "http://localhost:11434"
+
+# ── VRAM Thresholds (LOCAL_CEREBELLUM mode locked unless actual GPU OOM) ──
+MODEL_VRAM_MB = int(os.getenv("MODEL_VRAM_MB", "512"))
+SAFETY_MARGIN_MB = int(os.getenv("SAFETY_MARGIN_MB", "128"))
+CLEAR_THRESHOLD_MB  = MODEL_VRAM_MB + SAFETY_MARGIN_MB   # 640MB to go LOCAL
+BREACH_THRESHOLD_MB = MODEL_VRAM_MB // 4                  # 128MB emergency (was 256)
 COOLDOWN_SECONDS = 90
 EWMA_ALPHA = 0.22
 CIRCUIT_BREAKER_MAX = 3
@@ -103,10 +111,11 @@ class CortexAgent(SubAgent):
                 if not cooldown_active:
                     state["cooldown_until"] = now + COOLDOWN_SECONDS
                     cooldown_active = True
-                route, reason = "CLOUD_CORTEX", f"VRAM breach: {smoothed_free:.0f}MB < {BREACH_THRESHOLD_MB}MB"
+                # Even in breach, stay local — cloud is disabled
+                route, reason = "HYBRID", f"VRAM constrained: {smoothed_free:.0f}MB < {BREACH_THRESHOLD_MB}MB (local fallback)"
             elif cooldown_active:
                 remaining = cooldown_until - now
-                route, reason = "CLOUD_CORTEX", f"Cooldown active ({remaining:.0f}s remaining)"
+                route, reason = "HYBRID", f"Cooldown active ({remaining:.0f}s remaining) — staying local"
             elif smoothed_free < CLEAR_THRESHOLD_MB:
                 route, reason = "HYBRID", f"VRAM constrained: {smoothed_free:.0f}MB < {CLEAR_THRESHOLD_MB}MB"
             else:
@@ -133,27 +142,47 @@ class CortexAgent(SubAgent):
 
         @self.router.post("/infer")
         async def infer(req: InferRequest):
+            # Always local — CLOUD_CORTEX route is suppressed
             state = _load_state()
             route = state.get("route", "LOCAL_CEREBELLUM")
 
-            if route == "CLOUD_CORTEX":
-                return {"error": "GPU VRAM breach — cloud fallback required", "route": route}
-
             import httpx
-            try:
-                async with httpx.AsyncClient(timeout=30) as client:
-                    r = await client.post("http://localhost:11434/api/generate", json={
-                        "model": os.getenv("OLLAMA_MODEL", "nemotron-mini:latest"),
-                        "prompt": req.prompt,
-                        "system": req.system,
-                        "stream": False,
-                    })
-                    if r.status_code == 200:
-                        data = r.json()
-                        return {"model": data.get("model", "nemotron-mini"), "response": data.get("response", ""), "route": route}
-                    return {"error": f"Ollama: {r.status_code}", "route": route}
-            except Exception as e:
-                return {"error": str(e), "route": route, "hint": "Is Ollama running?"}
+            models_to_try = [
+                OLLAMA_MODEL_PRIMARY,
+                OLLAMA_MODEL_FALLBACK,
+                OLLAMA_MODEL_EMERGENCY,
+            ]
+            last_error = None
+            for model in models_to_try:
+                try:
+                    async with httpx.AsyncClient(timeout=60) as client:
+                        r = await client.post(f"{OLLAMA_BASE}/api/generate", json={
+                            "model": model,
+                            "prompt": req.prompt,
+                            "system": req.system,
+                            "stream": False,
+                        })
+                        if r.status_code == 200:
+                            data = r.json()
+                            return {
+                                "model": data.get("model", model),
+                                "response": data.get("response", ""),
+                                "route": route,
+                                "local": True,
+                                "cloud": False,
+                                "tokens_local": True,
+                                "eval_count": data.get("eval_count"),
+                            }
+                        last_error = f"Ollama HTTP {r.status_code} for model {model}"
+                except Exception as e:
+                    last_error = str(e)
+                    continue
+            return {
+                "error": last_error,
+                "route": route,
+                "local": False,
+                "hint": "All local models failed — check: ollama list"
+            }
 
         @self.router.get("/status")
         async def cortex_status():
@@ -164,14 +193,18 @@ class CortexAgent(SubAgent):
             ollama_ok = False
             import httpx
             try:
-                r = httpx.get("http://localhost:11434/api/tags", timeout=3)
+                r = httpx.get(f"{OLLAMA_BASE}/api/tags", timeout=3)
                 ollama_ok = r.status_code == 200
             except Exception:
                 pass
             return {
                 "ollama_running": ollama_ok,
-                "model": os.getenv("OLLAMA_MODEL", "nemotron-mini:latest"),
-                "route": state.get("route", "unknown"),
+                "model_primary": OLLAMA_MODEL_PRIMARY,
+                "model_fallback": OLLAMA_MODEL_FALLBACK,
+                "model_emergency": OLLAMA_MODEL_EMERGENCY,
+                "route": state.get("route", "LOCAL_CEREBELLUM"),
+                "cloud_enabled": False,
+                "tokens_local": True,
                 "cooldown_active": cooldown_active,
                 "gpu_available": sample is not None,
                 "gpu_temp": sample["temperature_c"] if sample else None,
@@ -186,13 +219,17 @@ class CortexAgent(SubAgent):
         async def cloud_providers():
             return {
                 "providers": {
-                    "openai": {"installed": bool(os.getenv("OPENAI_API_KEY"))},
-                    "xai": {"installed": bool(os.getenv("XAI_API_KEY"))},
-                    "anthropic": {"installed": bool(os.getenv("ANTHROPIC_API_KEY"))},
-                    "google": {"installed": bool(os.getenv("GOOGLE_API_KEY"))},
-                    "local_ollama": {"installed": True},
+                    "local_ollama_primary":   {"model": OLLAMA_MODEL_PRIMARY,   "enabled": True,  "cloud": False},
+                    "local_ollama_fallback":  {"model": OLLAMA_MODEL_FALLBACK,  "enabled": True,  "cloud": False},
+                    "local_ollama_emergency": {"model": OLLAMA_MODEL_EMERGENCY, "enabled": True,  "cloud": False},
+                    "openai":    {"installed": bool(os.getenv("OPENAI_API_KEY")),    "enabled": False, "reason": "cloud disabled"},
+                    "xai":       {"installed": bool(os.getenv("XAI_API_KEY")),       "enabled": False, "reason": "cloud disabled"},
+                    "anthropic": {"installed": bool(os.getenv("ANTHROPIC_API_KEY")), "enabled": False, "reason": "cloud disabled"},
+                    "google":    {"installed": bool(os.getenv("GOOGLE_API_KEY")),    "enabled": False, "reason": "cloud disabled"},
                 },
-                "priority_chain": ["local", "openai", "grok", "anthropic", "gemini"],
+                "priority_chain": ["hermes3:8b", "llama3.1:8b", "nemotron-mini:latest"],
+                "cloud_enabled": False,
+                "tokens_local": True,
             }
 
         @self.router.get("/config")
@@ -214,11 +251,13 @@ class CortexAgent(SubAgent):
         @self.router.get("/use-cases")
         async def use_cases():
             return {
-                "code_generation": "GPT-4o, Claude 3.5 Sonnet",
-                "creative_writing": "Claude 3.5, Grok",
-                "analysis": "o3, Grok",
-                "quick_tasks": "nemotron-mini (local)",
-                "cost_sensitive": "nemotron-mini (local)",
+                "code_generation":  f"{OLLAMA_MODEL_PRIMARY} (local, 131k ctx)",
+                "creative_writing": f"{OLLAMA_MODEL_PRIMARY} (local)",
+                "analysis":         f"{OLLAMA_MODEL_PRIMARY} (local)",
+                "quick_tasks":      f"{OLLAMA_MODEL_EMERGENCY} (local, fast)",
+                "cost_sensitive":   f"{OLLAMA_MODEL_PRIMARY} (local, zero egress cost)",
+                "mod_scripting":    f"{OLLAMA_MODEL_PRIMARY} (Cyberpunk NSSP bridge)",
+                "cloud_fallback":   "DISABLED — all tokens local",
             }
 
 

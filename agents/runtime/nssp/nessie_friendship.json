@@ -1,11 +1,11 @@
 {
   "friendship_tier": 1,
-  "friendship_xp": 750,
-  "sightings": 2,
+  "friendship_xp": 1450,
+  "sightings": 9,
   "communions": 0,
   "last_sighting": {
-    "location": "Pacifica_Coast",
-    "time": 1781678078.2770612
+    "location": "unknown",
+    "time": 1781742500.9117007
   },
   "tier_thresholds": [
     0,

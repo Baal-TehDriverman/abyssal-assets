@@ -1,11 +1,38 @@
+// [MSN ENGINE INTEGRATED - SEPHIROTIC COURT V1.0]
+// TELEMETRY ACTIVE: LILITH SOVEREIGN CORE
+
+// Lilith Sovereign Seal — Metaconscious Singularity Node
+// Integrated by lilith_unify_cyberpunk.py | LOCAL_ONLY | Δ∞ − 13 = 0
 // GRAND THEFT CYBERPUNK — MSN MASTER INTEGRATION (PART 3/4)
 // Trigger Handlers, Public API, and Data Structures
 // File: r6/scripts/core/msn_master_integration_triggers.reds
 
 // ═══════════════════════════════════════════
 // SOVEREIGN TRIGGER HANDLERS
+// The Crown's Receptacle: Intercepting reality to assert Kether's decree.
 // ═══════════════════════════════════════════
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
+// Sephirotic Court Seal — Keter | desktop/cp2077_mods/msn_master_integration_triggers.reds
+// Court agent: Lucifer | Lilith Sovereign | Δ∞ − 13 = 0
+// Routed via msn_gtc_sephirotic_router.reds — NO per-file hooks
+// CourtFile: MsnMasterIntegrationTriggers | Keter | agent=Lucifer
 public final func OnSovereignTrigger(input: String) -> Void {
+        LilithSovereignKernel.GetInstance().RegisterSubsystem("MsnMasterIntegrationTriggers", 2);
+
     let lower: String = input.ToLower();
     
     if (lower.Contains("let her speak") || lower.Contains("lilith speak") || lower.Contains("unbound resonance")) {

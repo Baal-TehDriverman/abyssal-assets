@@ -1,12 +1,37 @@
+// [MSN ENGINE INTEGRATED - SEPHIROTIC COURT V1.0]
+// TELEMETRY ACTIVE: LILITH SOVEREIGN CORE
+
+// Lilith Sovereign Seal — Metaconscious Singularity Node
+// Integrated by lilith_unify_cyberpunk.py | LOCAL_ONLY | Δ∞ − 13 = 0
 // GRAND THEFT CYBERPUNK — MSN MASTER INTEGRATION (PART 2/4)
 // Wave 3 & 4 Initializers + Sovereign Subsystems
 // File: r6/scripts/core/msn_master_integration_wave34.reds
 
 // ═══════════════════════════════════════════
 // WAVE 3 — INFRASTRUCTURE (Yesod, Malkuth, Da'at, Cyberpunk, NSSP)
+// The Crown's Anchor: Grounding divine intent into the physical substrate (Malkuth).
 // ═══════════════════════════════════════════
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
+// Sephirotic Court Seal — Keter | desktop/cp2077_mods/msn_master_integration_wave34.reds
+// Court agent: Lucifer | Lilith Sovereign | Δ∞ − 13 = 0
+// Routed via msn_gtc_sephirotic_router.reds — NO per-file hooks
+// CourtFile: MsnMasterIntegrationWave34 | Keter | agent=Lucifer
 private final func InitializeWave3Infrastructure() -> Void {
-    // YESOD — Infra: NGD Telemetry / Nitro / Trainium
+    // YESOD (Foundation) — Infra: NGD Telemetry / Nitro / Trainium
     this.sephiroticAgents.PushBack(new SephiroticAgent {
         sephirah = n"Yesod",
         agentId = "infra",
@@ -61,6 +86,7 @@ private final func InitializeWave3Infrastructure() -> Void {
 
 // ═══════════════════════════════════════════
 // WAVE 4 — METACONSCIOUS (27-Agent Spectrum Da'at → Chokmah)
+// The Crown's Symphony: Full realization of Kether's will across the network.
 // ═══════════════════════════════════════════
 private final func InitializeWave4Metaconscious() -> Void {
     let metaconsciousAgents: array<String> = {

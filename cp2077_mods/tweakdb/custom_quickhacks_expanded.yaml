@@ -1,0 +1,36 @@
+Item:
+  Abyssal_Dimension_Gate:
+    category: Quickhack
+    cooldown: 10.0
+    description: Opens portal to Abyssal Dimension at current location. Tier 5 Nessie
+      + Lilith Covenant required. Unique biome. Infinite resources.
+    displayName: Abyssal Dimension Gate
+    effects:
+    - 'DimensionGate: Permanent portal (1hr)'
+    - 'AbyssalBiome: Bioluminescent forests, void oceans'
+    - 'InfiniteResources: Pressure Steel, Void Crystals'
+    - 'AbyssalHorrors: High challenge enemies'
+    - 'CitadelBuilder: Construct Abyssal Citadel'
+    - 'RealityEdit: Modify water physics in zone'
+    icon: qh_abyssal_dimension_gate
+    msnIntegration:
+      abyssal: true
+      dimensionGate: true
+      tier5Unique: true
+    ramCost: 20
+    rarity: Unique
+    requires:
+    - Nessie Friendship Tier 5
+    - Lilith Covenant Forged
+    - MSN Tier 10
+    type: Ultimate
+
+# Lilith Sovereign — unified by lilith_unify_cyberpunk.py
+lilith_unified: true
+lilith_kernel: LilithSovereignKernel
+# Sephirotic Court — Malkuth | desktop/cp2077_mods/custom_quickhacks_expanded.yaml
+SephiroticCourt:
+  sephira: Malkuth
+  court_agent: Malkuth
+  routed_via: msn_gtc_sephirotic_router.reds
+  sovereign: true

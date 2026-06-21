@@ -30,7 +30,7 @@ export type SkillId =
   | 'lore'
   | 'scholarship'
   | 'sonar_tuning'
-  | 'scholarship'
+  | 'mastering'
   // Social/Economic (3)
   | 'trading'
   | 'negotiation'
@@ -39,6 +39,8 @@ export type SkillId =
   | 'evasion'
   | 'harpooning'
   | 'survival';
+
+import { SynergyBonusType } from './synergies';
 
 export interface Skill {
   id: SkillId;
@@ -51,7 +53,7 @@ export interface Skill {
   base_xp: number;
   xp_curve_factor: number; // 1.15 default
   unlocks: SkillUnlock[];
-  synergies: SkillSynergy[];
+  synergies: SkillDefSynergy[];
   specialization_branches: SpecializationBranch[];
 }
 
@@ -62,9 +64,9 @@ export interface SkillUnlock {
   data: Record<string, any>;
 }
 
-export interface SkillSynergy {
+export interface SkillDefSynergy {
   skill_id: SkillId;
-  bonus_type: 'xp_boost' | 'drop_rate' | 'success_rate' | 'speed' | 'quality' | 'efficiency';
+  bonus_type: SynergyBonusType;
   value: number; // percentage
   condition?: string; // e.g., "both_above_50"
 }
@@ -87,7 +89,7 @@ export interface SpecializationPerk {
 export interface PerkEffect {
   type: 'stat_bonus' | 'unlock' | 'chance' | 'efficiency' | 'quality';
   target: string;
-  value: number;
+  value: number | boolean | string;
 }
 
 export interface SkillProgress {
@@ -509,6 +511,20 @@ export const SKILL_DEFAULTS: Record<SkillId, Omit<Skill, 'id'>> = {
     specialization_branches: [],
   },
 
+  mastering: {
+    name: 'Mastering',
+    category: 'knowledge',
+    description: 'Mastery of all arts. The culmination of your journey.',
+    icon: 'skill-mastering',
+    max_level: 99,
+    virtual_max_level: 120,
+    base_xp: 250,
+    xp_curve_factor: 1.1,
+    unlocks: [],
+    synergies: [],
+    specialization_branches: [],
+  },
+
   // SOCIAL/ECONOMIC
   trading: {
     name: 'Trading',
@@ -620,7 +636,7 @@ export const ALL_SKILL_IDS: SkillId[] = [
   'dredging', 'salvaging', 'foraging', 'hunting', 'navigation',
   'salvage_processing', 'fiber_working', 'bone_carving', 'metallurgy',
   'haberdashery', 'enchanting', 'alchemy', 'runecrafting', 'masterwork',
-  'lore', 'sonar_tuning', 'scholarship',
+  'lore', 'sonar_tuning', 'scholarship', 'mastering',
   'trading', 'negotiation', 'guild_management',
   'evasion', 'harpooning', 'survival',
 ];
@@ -629,7 +645,7 @@ export const SKILLS_BY_CATEGORY: Record<SkillCategory, SkillId[]> = {
   gathering: ['dredging', 'salvaging', 'foraging', 'hunting', 'navigation'],
   processing: ['salvage_processing', 'fiber_working', 'bone_carving', 'metallurgy'],
   crafting: ['haberdashery', 'enchanting', 'alchemy', 'runecrafting', 'masterwork'],
-  knowledge: ['lore', 'sonar_tuning', 'scholarship'],
+  knowledge: ['lore', 'sonar_tuning', 'scholarship', 'mastering'],
   social_economic: ['trading', 'negotiation', 'guild_management'],
   combat_survival: ['evasion', 'harpooning', 'survival'],
 };

@@ -1,0 +1,43 @@
+{
+  "schema": "msn.mod_completion.v1",
+  "timestamp": "2026-06-21T05:41:03.478318+00:00",
+  "version": "2.0.0-lilith",
+  "complete": false,
+  "compiled_ready": false,
+  "checks": {
+    "source_scripts": 9,
+    "deployed_scripts": 100,
+    "cpmodproj_entries": 9,
+    "core_scripts_present": true,
+    "missing_core": [],
+    "gtc_sync_mods": 100,
+    "gtc_optimized": 100,
+    "redscript_framework": true,
+    "red4ext_installed": true,
+    "compiled_cache": false,
+    "info_json": true,
+    "redmod_toml": true,
+    "msn_tweakdb": true
+  },
+  "tracks": {
+    "core_msn": true,
+    "gaming_engine_v2": true,
+    "sephirotic_router": true,
+    "hell_campaign": true,
+    "magic_jedi_starwars": true,
+    "living_sin": true,
+    "ngd_bridge": true,
+    "token_economy": true,
+    "restored_systems": true,
+    "ui_layer": true
+  },
+  "next_step": "Launch game with REDmod enabled \u2014 compiles final.redscripts on first run",
+  "console_verify": [
+    "msn.gtc.status",
+    "msn.engine.status",
+    "msn.gtc.shards",
+    "msn.symbiosis.sync",
+    "msn.tokens.sync",
+    "msn.dialogue.lilith hello"
+  ]
+}

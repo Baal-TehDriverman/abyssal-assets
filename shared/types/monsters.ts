@@ -59,7 +59,7 @@ export interface MonsterStats {
   health: number;
   max_health: number;
   armor: number;          // Reduces physical/piercing/crushing/slashing
-  resistance: Record<DamageType, number>; // 0-1, 1 = immune
+  resistance: Partial<Record<DamageType, number>>; // 0-1, 1 = immune
   evasion: number;        // 0-1, chance to dodge
   accuracy: number;       // 0-1, hit chance
   critical_chance: number;
@@ -101,7 +101,12 @@ export interface MonsterMechanic {
   telegraph: MechanicTelegraph;
 }
 
-export type MechanicTrigger = 
+export interface MechanicTrigger {
+  type: MechanicTriggerType;
+  parameters?: Record<string, any>;
+}
+
+export type MechanicTriggerType = 
   | 'hp_threshold'       // HP % reached
   | 'time_interval'      // Every X seconds
   | 'player_action'      // Player attacks, uses skill, etc.
@@ -114,7 +119,7 @@ export type MechanicTrigger =
 
 export interface MechanicEffect {
   type: 'damage' | 'debuff' | 'knockback' | 'stun' | 'fear' | 'spawn' | 'summon' | 'transform' | 'heal' | 'shield' | 'teleport' | 'environment' | 'custom';
-  target: 'player' | 'all_players' | 'area' | 'self' | 'minions' | 'random_player';
+  target: 'player' | 'all_players' | 'area' | 'self' | 'minions' | 'random_player' | 'environment';
   parameters: Record<string, any>;
 }
 
@@ -346,7 +351,7 @@ export const MONSTER_DEFINITIONS: Record<string, Partial<Monster>> = {
     id: 'loch_minnow',
     name: 'Loch Minnow',
     title: 'The Ever-Present',
-    tier: 'ambient',
+    tier: 'noob',
     type: 'fish',
     behavior: 'passive',
     size: 'tiny',

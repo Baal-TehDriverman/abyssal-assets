@@ -1,0 +1,22 @@
+{
+  "validated_at": null,
+  "status": "pending_first_redmod_launch",
+  "commands": {
+    "msn.court.status": {"ok": null, "notes": "Run in-game after -redmod launch"},
+    "msn.skill.status": {"ok": null, "notes": "Expect: 24 skills, 10 weapon tiers"},
+    "msn.skill.trees": {"ok": null, "notes": "Expect: 7 tree names from SkillTreeRegistry"},
+    "abyssal.skills.trees": {"ok": null, "notes": "Expect: saga routing log"},
+    "msn.symbiosis.sync": {"ok": null, "notes": "Expect: drivers=52, treasury=353.5"},
+    "msn.gtc.status": {"ok": null, "notes": "Expect: GTC shard status"},
+    "lilith.kernel": {"ok": null, "notes": "Expect: subsystem registration"}
+  },
+  "redmod_cache": false,
+  "compile_errors": [],
+  "pre_deploy_checks": {
+    "validate_full_stack": true,
+    "deploy_complete": true,
+    "skill_tree_registry_deployed": true,
+    "msn_skill_consoles_wired": true,
+    "gtc_bridge_health": true
+  }
+}

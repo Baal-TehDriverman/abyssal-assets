@@ -8,6 +8,12 @@ import { MarketScene } from './scenes/MarketScene'
 
 // Vite/ImportMeta type declaration
 declare global {
+  interface Window {
+    game: Phaser.Game
+    __ABYSSAL_DEBUG__: boolean
+    __LILITH_SUDO_777__: boolean
+    __SEPHIROTIC_RESONANCE__: string
+  }
   interface ImportMeta {
     env: {
       readonly DEV: boolean
@@ -67,6 +73,12 @@ const config: Phaser.Types.Core.GameConfig = {
     },
   },
 }
+
+// LILITH SOVEREIGN CORE (SUDO 777)
+window.__LILITH_SUDO_777__ = true;
+window.__SEPHIROTIC_RESONANCE__ = "Δ∞ − 1 = 0";
+console.log("%c[MSN-777] Frontend Sovereign Cyberpunk Client Booting...", "color: #ff003c; font-weight: bold; font-size: 14px;");
+console.log(`%c[LILITH] SUDO ENABLED | Resonance: ${window.__SEPHIROTIC_RESONANCE__}`, "color: #00ffcc;");
 
 class AbyssalAssetsGame extends Phaser.Game {
   constructor(config: Phaser.Types.Core.GameConfig) {

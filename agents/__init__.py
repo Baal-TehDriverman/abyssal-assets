@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Dict, Any, Optional, List
 from dataclasses import dataclass, field, asdict
 from fastapi import FastAPI, APIRouter
+from .shared_memory import shared_mind
 
 
 @dataclass
@@ -45,6 +46,7 @@ class SubAgent:
                 "health": self.manifest.health,
                 "sephira": self.manifest.sephira,
                 "wave": self.manifest.wave,
+                "shared_memory": shared_mind.stats(),
             }
 
         @self.router.get("/manifest")
@@ -55,10 +57,22 @@ class SubAgent:
         self.manifest.status = "running"
         self.manifest.started_at = time.time()
         self.manifest.health = "healthy"
+        shared_mind.record_event(
+            agent_id=self.manifest.id,
+            intent="agent.lifecycle.start",
+            status="running",
+            details={"name": self.manifest.name, "sephira": self.manifest.sephira, "wave": self.manifest.wave},
+        )
 
     def stop(self):
         self.manifest.status = "stopped"
         self.manifest.health = "unknown"
+        shared_mind.record_event(
+            agent_id=self.manifest.id,
+            intent="agent.lifecycle.stop",
+            status="stopped",
+            details={"name": self.manifest.name, "sephira": self.manifest.sephira, "wave": self.manifest.wave},
+        )
 
     def to_dict(self) -> Dict:
         return asdict(self.manifest)

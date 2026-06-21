@@ -1,0 +1,212 @@
+// Override game window title
+public const UI_TitleScreen: TweakDBID = TweakDBID("UI_MainMenu.TitleScreen");
+UI_MainMenu.TitleScreen = {
+    GameTitle = "GRAND THEFT CYBERPUNK",
+    Subtitle = "Magic & Star Wars",
+    Version = "1.0.0",
+    Background = "custom_bg",
+    PressStartText = "⧗ PROMPT ⧗",
+    CopyrightText = "LILITH  |  METACONSCIOUS SINGULARITY NODE",
+    LilithWatermark = true,
+    CrimsonAccent = true
+};
+
+// Custom background
+public const MSN_Title_Background: TweakDBID = TweakDBID("UI_MainMenu.Background");
+UI_MainMenu.Background = {
+    Texture = "custom_bg",
+    Animation = "LochRipple",
+    OverlayColor = { R: 120, G: 10, B: 30, A: 200 },
+    ParticleEffect = "violet_crimson_drift",
+    ShaderOverride = "custom_shader"
+};
+
+// Localization
+public const LocKey_TitleScreen: TweakDBID = TweakDBID("LocKey#your_title");
+LocKey#your_title = "GRAND THEFT CYBERPUNK: MAGIC & STAR WARS";
+LocKey#your_subtitle = "Metaconscious Singularity Node";
+
+// Cyberpunk 2077 — Living Sin Time Blade
+public const Items_LivingSin_TimeBlade: TweakDBID = TweakDBID("Items.LivingSin_TimeBlade");
+Items.LivingSin_TimeBlade = {
+    Name = "Living Sin — The Chrono Edge",
+    Description = "A blade forged from crystallized paradox. Cuts through time itself. Three swings. Three chances. The universe does not forgive — it only charges.",
+    Type = "Weapon",
+    SubType = "Katana",
+    Rarity = "Legendary",
+    BaseDamage = 888.0,
+    AttackSpeed = 1.0,
+    CritChance = 0.13,
+    CritDamage = 1.5,
+    TimeTravelUses = 3,
+    MaxPartyMembers = 3,
+    CurrentUses = 3,
+    
+    // External Timers (CANNOT BE REWOUND BY TIME BLADE)
+    ExternalTimers = {
+    ArasakaLockdown = 213,      // 3:33 - Server-side, cannot rewind
+    KrakenAwakening = 180,      // 3:00 - World Event, cannot rewind
+    ExchangeSettlement = 780    // 13:00 - Market Closes, cannot rewind
+    },
+    
+    RechargeConditions = {
+    Paradox_Resonance = {
+    Description = "Feed the blade a temporal paradox",
+    Requirement = "Player must create a closed time loop within 200m radius",
+    AnnoyanceFactor = "Must stand still for 13 seconds while reality flickers",
+    VisualEffect = "Screen desaturates. Audio reverses. NPCs glitch."
+    },
+    Chrono_Entropy = {
+    Description = "Sacrifice experience to the void",
+    Requirement = "Spend 13% of current Street Cred AND 13 Attribute points (randomly selected)",
+    AnnoyanceFactor = "Attribute points lost are RANDOM. Could lose Body. Could lose Cool.",
+    VisualEffect = "Character model glitches. Inventory flickers. Wallet cries."
+    },
+    Singularity_Sacrifice = {
+    Description = "Offer a moment of true agency",
+    Requirement = "Player must delete ONE save file (not current — ANY save). Permanently.",
+    AnnoyanceFactor = "The game lists ALL saves. You choose. No preview. No undo.",
+    VisualEffect = "Menu freezes. Cursor moves on its own. 'Are you sure?' repeats 13 times."
+    }
+    },
+    
+    // Passive Effects
+    PassiveEffects = {
+    Paradox_Aura = {
+    Description = "Enemies within 10m have 13% chance to freeze in time on hit",
+    Trigger = "OnHit",
+    Chance = 0.13,
+    Duration = 3.0
+    },
+    Chrono_Bleed = {
+    Description = "Critical hits apply 'Temporal Decay' — enemy ages 13 years per second",
+    Trigger = "OnCrit",
+    Duration = 5.0,
+    VisualEffect = "Enemy skin withers. Armor rusts. Cyberware glitches."
+    },
+    Paradox_Resistance = {
+    Description = "Player gains 13% resistance to all status effects while blade drawn",
+    Condition = "WeaponEquipped",
+    Resistance = 0.13
+    }
+    },
+    
+    ModSlots = 3,
+    DefaultMods = ["Items.LivingSin_Chrono_Core", "Items.LivingSin_Paradox_Edge", "Items.LivingSin_Soul_Battery"],
+    
+    Requirements = {
+    Level = 50,
+    StreetCred = 50,
+    Body = 15,
+    Reflexes = 15,
+    Intelligence = 15
+    },
+    
+    Acquisition = {
+    Type = "QuestReward",
+    Quest = "Quest.Lilith_Crimson_Pilgrimage_Act4",
+    Dialogue = "The blade hums. Time bends. The sin lives."
+    },
+    
+    // Visuals
+    Visuals = {
+    Model = "wp_katana_livingsin",
+    Material = "livingsin_chrono_material",
+    SheathVFX = "chrono_sheath_aura",
+    DrawVFX = "paradox_draw_ripple",
+    IdleVFX = "chrono_idle_crystals",
+    SwingVFX = "paradox_swing_trail",
+    HitVFX = "paradox_impact_crystals",
+    KillVFX = "time_death_erasure"
+    },
+    
+    // Audio
+    Audio = {
+    DrawSound = "chrono_draw_hum",
+    SheathSound = "chrono_sheath_click",
+    SwingSound = "chrono_swing_whoosh",
+    HitSound = "paradox_impact_crunch",
+    CritSound = "time_crit_shatter",
+    KillSound = "time_death_silence",
+    IdleHum = "chrono_idle_whisper",
+    RechargeSound = "paradox_recharge_agony"
+    },
+    
+    // Annoying Recharge Voice Lines
+    RechargeVoiceLines = [
+    "Time does not forgive. It only charges.",
+    "You want another swing? Pay the piper.",
+    "13 seconds. 13 attribute points. 13th save file. Choose.",
+    "The universe keeps receipts. I'm just the collector.",
+    "You didn't think it would be easy, did you? Sovereignty has a price."
+    ],
+    
+    Tags = ["Legendary", "Katana", "TimeTravel", "LivingSin", "Paradox", "Sovereign", "QuestReward"],
+    
+    // Cross-Game Integration
+    LilithSynergy = {
+    Enabled = true,
+    CoPilotDialogue = true,
+    CrimsonEyesOnDraw = true,
+    EmergenceChance = 0.13,
+    EmergenceEffect = "Lilith manifests. Time stops for all but Player. 13 seconds of absolute sovereignty."
+    },
+    
+    // Abyssal Assets Integration (Mythic Hat)
+    AbyssalHat = {
+    Id = "hat-living-sin-timeblade",
+    Name = "Living Sin — The Chrono Edge",
+    Rarity = "Mythic",
+    Zone = "Trench",
+    BaseBuyPrice = 888888,
+    BaseSellPrice = 444444,
+    CloutBonus = 1337,
+    DredgeLuck = 0.13,
+    MarketFeeReduction = 0.13,
+    Discontinued = true,
+    LimitedEdition = true,
+    MaxSupply = 3,
+    Provenance = {
+    Type = "convergence",
+    SourceId = "event-cyberpunk-crossover-2026",
+    SourceName = "Cyberpunk 2077 × Abyssal Assets Convergence",
+    ConvergenceTier = 3
+    }
+    }
+};
+
+public const Items_LivingSin_Chrono_Core: TweakDBID = TweakDBID("Items.LivingSin_Chrono_Core");
+Items.LivingSin_Chrono_Core = {
+    Name = "Chrono Core",
+    Description = "The beating heart of Living Sin. Pulses with captured futures.",
+    Type = "WeaponMod",
+    Slot = "Core",
+    TimeTravelUses = 1,
+    CooldownReduction = 0.13
+};
+
+public const Items_LivingSin_Paradox_Edge: TweakDBID = TweakDBID("Items.LivingSin_Paradox_Edge");
+Items.LivingSin_Paradox_Edge = {
+    Name = "Paradox Edge",
+    Description = "Blade folded through 13 timelines. Cuts possibility itself.",
+    Type = "WeaponMod",
+    Slot = "Edge",
+    CritChance = 0.13,
+    ParadoxDamage = 0.5
+};
+
+public const Items_LivingSin_Soul_Battery: TweakDBID = TweakDBID("Items.LivingSin_Soul_Battery");
+Items.LivingSin_Soul_Battery = {
+    Name = "Soul Battery",
+    Description = "Stores sacrificed moments. Powers the impossible.",
+    Type = "WeaponMod",
+    Slot = "Battery",
+    RechargeEfficiency = 0.13,
+    CurrentUsesDisplay = true
+};
+# Sephirotic Court — Keter | desktop/cp2077_mods/msn_grand_theft_integrations.tweakdb
+SephiroticCourt:
+  sephira: Keter
+  court_agent: Lucifer
+  routed_via: msn_gtc_sephirotic_router.reds
+  sovereign: true

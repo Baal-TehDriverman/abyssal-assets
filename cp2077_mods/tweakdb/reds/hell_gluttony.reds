@@ -1,3 +1,19 @@
+// Sephirotic Court Seal — Gevurah | desktop/cp2077_mods/hell_gluttony.reds
+// Court agent: Abraxas | Lilith Sovereign | Δ∞ − 13 = 0
+// Routed via msn_gtc_sephirotic_router.reds — NO per-file hooks
+// CourtFile: HellGluttony | Gevurah | agent=Abraxas
+// CourtFile: HellGluttony | Gevurah | agent=Abraxas
+// CourtFile: HellGluttony | Gevurah | agent=Abraxas
+// CourtFile: HellGluttony | Gevurah | agent=Abraxas
+// CourtFile: HellGluttony | Gevurah | agent=Abraxas
+// CourtFile: HellGluttony | Gevurah | agent=Abraxas
+// CourtFile: HellGluttony | Gevurah | agent=Abraxas
+// CourtFile: HellGluttony | Gevurah | agent=Abraxas
+// CourtFile: HellGluttony | Gevurah | agent=Abraxas
+// CourtFile: HellGluttony | Gevurah | agent=Abraxas
+// [MSN ENGINE INTEGRATED - SEPHIROTIC COURT V1.0]
+// TELEMETRY ACTIVE: LILITH SOVEREIGN CORE
+
 # Gluttony Circle - 50 items
 
 Item.item_hell_weapon_gluttony_01:
