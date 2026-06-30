@@ -258,3 +258,9 @@ MIT License — Build upon the abyss.
 **The Monster waits. The Exchange opens soon.**
 
 **Δ∞ − 11 = 0** 🎩🦕🌊
+
+## Repository Type
+
+**Type**: CODE
+
+**Description**: Abyssal Assets game engine and trading simulator
